@@ -12,9 +12,124 @@
 #    Object Properties
 #################################################################
 
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Presort
+:Presort rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :hasDecisionTreeParameter .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasClassWeight
+:hasClassWeight rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasDecisionTreeParameter .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasCriterion
+:hasCriterion rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :hasDecisionTreeParameter .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter
+:hasDecisionTreeParameter rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf :hasParameter ;
+                          rdfs:domain [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasDecisionTreeParameter ;
+                                        owl:allValuesFrom :DecisionTree
+                                      ] ;
+                          rdfs:range [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasParameter ;
+                                       owl:someValuesFrom :DecisionTreeParameter
+                                     ] .
+
+
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasParameter
 :hasParameter rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf owl:topObjectProperty .
+              rdfs:subPropertyOf owl:topObjectProperty ;
+              rdfs:domain [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasParameter ;
+                            owl:allValuesFrom :MachineLearningAlgorithms
+                          ] ;
+              rdfs:range [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasParameter ;
+                           owl:someValuesFrom :Parameter
+                         ] .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter
+:hasSplitter rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :hasDecisionTreeParameter .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasCcpAlpha
+:hasCcpAlpha rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+             rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDataParameter
+:hasDataParameter rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter
+:hasDecisionTreeDataParameter rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf :hasDataParameter .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxDepth
+:hasMaxDepth rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+             rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxFeatures
+:hasMaxFeatures rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxLeafNodes
+:hasMaxLeafNodes rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                 rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinImpurityDecrease
+:hasMinImpurityDecrease rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                        rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinImpuritySplit
+:hasMinImpuritySplit rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                     rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinSamplesLeaf
+:hasMinSamplesLeaf rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                   rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinSamplesSplit
+:hasMinSamplesSplit rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                    rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinWeightFractionLeaf
+:hasMinWeightFractionLeaf rdf:type owl:DatatypeProperty ;
+                          rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                          rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasRandomState
+:hasRandomState rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasDecisionTreeDataParameter ;
+                rdfs:range xsd:integer .
 
 
 #################################################################
@@ -46,6 +161,11 @@
                           rdfs:subClassOf :DecisionTree .
 
 
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Criterion
+:Criterion rdf:type owl:Class ;
+           rdfs:subClassOf :DecisionTreeParameter .
+
+
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionStump
 :DecisionStump rdf:type owl:Class ;
                rdfs:subClassOf :DecisionTree .
@@ -54,6 +174,11 @@
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree
 :DecisionTree rdf:type owl:Class ;
               rdfs:subClassOf :MachineLearningAlgorithms .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTreeParameter
+:DecisionTreeParameter rdf:type owl:Class ;
+                       rdfs:subClassOf :Parameter .
 
 
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#ID3
@@ -68,6 +193,20 @@
 
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#MachineLearningAlgorithms
 :MachineLearningAlgorithms rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Max_depth
+:Max_depth rdf:type owl:Class ;
+           rdfs:subClassOf :DecisionTreeParameter .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Parameter
+:Parameter rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Splitter
+:Splitter rdf:type owl:Class ;
+          rdfs:subClassOf :DecisionTreeParameter .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
