@@ -24,7 +24,16 @@
 
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasCriterion
 :hasCriterion rdf:type owl:ObjectProperty ;
-              rdfs:subPropertyOf :hasDecisionTreeParameter .
+              rdfs:subPropertyOf :hasDecisionTreeParameter ;
+              rdfs:range [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasSplitter ;
+                           owl:allValuesFrom :Criterion
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasSplitter ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Criterion
+                         ] .
 
 
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter
@@ -55,7 +64,16 @@
 
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter
 :hasSplitter rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :hasDecisionTreeParameter .
+             rdfs:subPropertyOf :hasDecisionTreeParameter ;
+             rdfs:range [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasSplitter ;
+                          owl:allValuesFrom :Splitter
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasSplitter ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :Splitter
+                        ] .
 
 
 #################################################################
@@ -193,11 +211,6 @@
 
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#MachineLearningAlgorithms
 :MachineLearningAlgorithms rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Max_depth
-:Max_depth rdf:type owl:Class ;
-           rdfs:subClassOf :DecisionTreeParameter .
 
 
 ###  http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Parameter
