@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#"
+     xml:base="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Presort -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Presort">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasClassWeight -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasClassWeight">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasCriterion -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasCriterion">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Criterion"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Criterion"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasParameter"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasParameter"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTreeParameter"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasParameter -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasParameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasParameter"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#MachineLearningAlgorithms"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasParameter"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Parameter"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeParameter"/>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Splitter"/>
+            </owl:Restriction>
+        </rdfs:range>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasSplitter"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Splitter"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasCcpAlpha -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasCcpAlpha">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDataParameter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDataParameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDataParameter"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxDepth -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxDepth">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxFeatures -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxFeatures">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxLeafNodes -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMaxLeafNodes">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinImpurityDecrease -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinImpurityDecrease">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinImpuritySplit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinImpuritySplit">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinSamplesLeaf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinSamplesLeaf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinSamplesSplit -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinSamplesSplit">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinWeightFractionLeaf -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasMinWeightFractionLeaf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasRandomState -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasRandomState">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#hasDecisionTreeDataParameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#C4.5 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#C4.5">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#C5.0 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#C5.0">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#CART -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#CART">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#CHAID -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#CHAID">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#ConditionalDecisionTrees -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#ConditionalDecisionTrees">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Criterion -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Criterion">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTreeParameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionStump -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionStump">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#MachineLearningAlgorithms"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTreeParameter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTreeParameter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#ID3 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#ID3">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#M5 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#M5">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTree"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#MachineLearningAlgorithms -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#MachineLearningAlgorithms"/>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Parameter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Parameter"/>
+    
+
+
+    <!-- http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Splitter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#Splitter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#DecisionTreeParameter"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
