@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy">
+    <Prefix name="" IRI="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#C4.5"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#C5.0"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CART"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#CHAID"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ConditionalDecisionTrees"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Criterion"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DecisionStump"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DecisionTree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#DecisionTreeParameter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ID3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#M5"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MachineLearningAlgorithms"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Parameter"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Splitter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Presort"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasClassWeight"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasCriterion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSplitter"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCcpAlpha"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDataParameter"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMaxDepth"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMaxFeatures"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMaxLeafNodes"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMinImpurityDecrease"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMinImpuritySplit"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMinSamplesLeaf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMinSamplesSplit"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasMinWeightFractionLeaf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasRandomState"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#C4.5"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#C5.0"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CART"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#CHAID"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ConditionalDecisionTrees"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Criterion"/>
+        <Class IRI="#DecisionTreeParameter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DecisionStump"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DecisionTree"/>
+        <Class IRI="#MachineLearningAlgorithms"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#DecisionTreeParameter"/>
+        <Class IRI="#Parameter"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ID3"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#M5"/>
+        <Class IRI="#DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Splitter"/>
+        <Class IRI="#DecisionTreeParameter"/>
+    </SubClassOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#Presort"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasClassWeight"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasCriterion"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasSplitter"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+            <Class IRI="#DecisionTree"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasParameter"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasParameter"/>
+            <Class IRI="#MachineLearningAlgorithms"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCriterion"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSplitter"/>
+            <Class IRI="#Criterion"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasCriterion"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasSplitter"/>
+            <Class IRI="#Criterion"/>
+        </ObjectExactCardinality>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasParameter"/>
+            <Class IRI="#DecisionTreeParameter"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasParameter"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#hasParameter"/>
+            <Class IRI="#Parameter"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSplitter"/>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasSplitter"/>
+            <Class IRI="#Splitter"/>
+        </ObjectAllValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasSplitter"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty IRI="#hasSplitter"/>
+            <Class IRI="#Splitter"/>
+        </ObjectExactCardinality>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasCcpAlpha"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasDataParameter"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+        <DataProperty IRI="#hasDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMaxDepth"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMaxFeatures"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMaxLeafNodes"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMinImpurityDecrease"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMinImpuritySplit"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMinSamplesLeaf"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMinSamplesSplit"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasMinWeightFractionLeaf"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#hasRandomState"/>
+        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
+    </SubDataPropertyOf>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasCcpAlpha"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMaxDepth"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMaxFeatures"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMaxLeafNodes"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMinImpurityDecrease"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMinImpuritySplit"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMinSamplesLeaf"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMinSamplesSplit"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasMinWeightFractionLeaf"/>
+        <Datatype abbreviatedIRI="xsd:float"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#hasRandomState"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
