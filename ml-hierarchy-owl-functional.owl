@@ -1,0 +1,197 @@
+Prefix(:=<http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy>
+
+Declaration(Class(:C4.5))
+Declaration(Class(:C5.0))
+Declaration(Class(:CART))
+Declaration(Class(:CHAID))
+Declaration(Class(:ConditionalDecisionTrees))
+Declaration(Class(:Criterion))
+Declaration(Class(:DecisionStump))
+Declaration(Class(:DecisionTree))
+Declaration(Class(:DecisionTreeParameter))
+Declaration(Class(:ID3))
+Declaration(Class(:M5))
+Declaration(Class(:MachineLearningAlgorithms))
+Declaration(Class(:Parameter))
+Declaration(Class(:Splitter))
+Declaration(ObjectProperty(:Presort))
+Declaration(ObjectProperty(:hasClassWeight))
+Declaration(ObjectProperty(:hasCriterion))
+Declaration(ObjectProperty(:hasDecisionTreeParameter))
+Declaration(ObjectProperty(:hasParameter))
+Declaration(ObjectProperty(:hasSplitter))
+Declaration(DataProperty(:hasCcpAlpha))
+Declaration(DataProperty(:hasDataParameter))
+Declaration(DataProperty(:hasDecisionTreeDataParameter))
+Declaration(DataProperty(:hasMaxDepth))
+Declaration(DataProperty(:hasMaxFeatures))
+Declaration(DataProperty(:hasMaxLeafNodes))
+Declaration(DataProperty(:hasMinImpurityDecrease))
+Declaration(DataProperty(:hasMinImpuritySplit))
+Declaration(DataProperty(:hasMinSamplesLeaf))
+Declaration(DataProperty(:hasMinSamplesSplit))
+Declaration(DataProperty(:hasMinWeightFractionLeaf))
+Declaration(DataProperty(:hasRandomState))
+############################
+#   Object Properties
+############################
+
+# Object Property: :Presort (:Presort)
+
+SubObjectPropertyOf(:Presort :hasDecisionTreeParameter)
+
+# Object Property: :hasClassWeight (:hasClassWeight)
+
+SubObjectPropertyOf(:hasClassWeight :hasDecisionTreeParameter)
+
+# Object Property: :hasCriterion (:hasCriterion)
+
+SubObjectPropertyOf(:hasCriterion :hasDecisionTreeParameter)
+ObjectPropertyRange(:hasCriterion ObjectAllValuesFrom(:hasSplitter :Criterion))
+ObjectPropertyRange(:hasCriterion ObjectExactCardinality(1 :hasSplitter :Criterion))
+
+# Object Property: :hasDecisionTreeParameter (:hasDecisionTreeParameter)
+
+SubObjectPropertyOf(:hasDecisionTreeParameter :hasParameter)
+ObjectPropertyDomain(:hasDecisionTreeParameter ObjectAllValuesFrom(:hasDecisionTreeParameter :DecisionTree))
+ObjectPropertyRange(:hasDecisionTreeParameter ObjectSomeValuesFrom(:hasParameter :DecisionTreeParameter))
+
+# Object Property: :hasParameter (:hasParameter)
+
+SubObjectPropertyOf(:hasParameter owl:topObjectProperty)
+ObjectPropertyDomain(:hasParameter ObjectAllValuesFrom(:hasParameter :MachineLearningAlgorithms))
+ObjectPropertyRange(:hasParameter ObjectSomeValuesFrom(:hasParameter :Parameter))
+
+# Object Property: :hasSplitter (:hasSplitter)
+
+SubObjectPropertyOf(:hasSplitter :hasDecisionTreeParameter)
+ObjectPropertyRange(:hasSplitter ObjectAllValuesFrom(:hasSplitter :Splitter))
+ObjectPropertyRange(:hasSplitter ObjectExactCardinality(1 :hasSplitter :Splitter))
+
+
+############################
+#   Data Properties
+############################
+
+# Data Property: :hasCcpAlpha (:hasCcpAlpha)
+
+SubDataPropertyOf(:hasCcpAlpha :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasCcpAlpha xsd:float)
+
+# Data Property: :hasDataParameter (:hasDataParameter)
+
+SubDataPropertyOf(:hasDataParameter owl:topDataProperty)
+
+# Data Property: :hasDecisionTreeDataParameter (:hasDecisionTreeDataParameter)
+
+SubDataPropertyOf(:hasDecisionTreeDataParameter :hasDataParameter)
+
+# Data Property: :hasMaxDepth (:hasMaxDepth)
+
+SubDataPropertyOf(:hasMaxDepth :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMaxDepth xsd:integer)
+
+# Data Property: :hasMaxFeatures (:hasMaxFeatures)
+
+SubDataPropertyOf(:hasMaxFeatures :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMaxFeatures xsd:integer)
+
+# Data Property: :hasMaxLeafNodes (:hasMaxLeafNodes)
+
+SubDataPropertyOf(:hasMaxLeafNodes :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMaxLeafNodes xsd:integer)
+
+# Data Property: :hasMinImpurityDecrease (:hasMinImpurityDecrease)
+
+SubDataPropertyOf(:hasMinImpurityDecrease :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMinImpurityDecrease xsd:float)
+
+# Data Property: :hasMinImpuritySplit (:hasMinImpuritySplit)
+
+SubDataPropertyOf(:hasMinImpuritySplit :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMinImpuritySplit xsd:float)
+
+# Data Property: :hasMinSamplesLeaf (:hasMinSamplesLeaf)
+
+SubDataPropertyOf(:hasMinSamplesLeaf :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMinSamplesLeaf xsd:integer)
+
+# Data Property: :hasMinSamplesSplit (:hasMinSamplesSplit)
+
+SubDataPropertyOf(:hasMinSamplesSplit :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMinSamplesSplit xsd:integer)
+
+# Data Property: :hasMinWeightFractionLeaf (:hasMinWeightFractionLeaf)
+
+SubDataPropertyOf(:hasMinWeightFractionLeaf :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasMinWeightFractionLeaf xsd:float)
+
+# Data Property: :hasRandomState (:hasRandomState)
+
+SubDataPropertyOf(:hasRandomState :hasDecisionTreeDataParameter)
+DataPropertyRange(:hasRandomState xsd:integer)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :C4.5 (:C4.5)
+
+SubClassOf(:C4.5 :DecisionTree)
+
+# Class: :C5.0 (:C5.0)
+
+SubClassOf(:C5.0 :DecisionTree)
+
+# Class: :CART (:CART)
+
+SubClassOf(:CART :DecisionTree)
+
+# Class: :CHAID (:CHAID)
+
+SubClassOf(:CHAID :DecisionTree)
+
+# Class: :ConditionalDecisionTrees (:ConditionalDecisionTrees)
+
+SubClassOf(:ConditionalDecisionTrees :DecisionTree)
+
+# Class: :Criterion (:Criterion)
+
+SubClassOf(:Criterion :DecisionTreeParameter)
+
+# Class: :DecisionStump (:DecisionStump)
+
+SubClassOf(:DecisionStump :DecisionTree)
+
+# Class: :DecisionTree (:DecisionTree)
+
+SubClassOf(:DecisionTree :MachineLearningAlgorithms)
+
+# Class: :DecisionTreeParameter (:DecisionTreeParameter)
+
+SubClassOf(:DecisionTreeParameter :Parameter)
+
+# Class: :ID3 (:ID3)
+
+SubClassOf(:ID3 :DecisionTree)
+
+# Class: :M5 (:M5)
+
+SubClassOf(:M5 :DecisionTree)
+
+# Class: :Splitter (:Splitter)
+
+SubClassOf(:Splitter :DecisionTreeParameter)
+
+
+)
