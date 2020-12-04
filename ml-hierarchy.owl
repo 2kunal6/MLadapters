@@ -6,7 +6,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy">
-    <Prefix name="" IRI="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy#"/>
+    <Prefix name="" IRI="http://www.semanticweb.org/kunal/ontologies/2020/10/ml-hierarchy"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -58,19 +58,70 @@
         <ObjectProperty IRI="#Presort"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#X"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#X_idx_sorted"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#apply"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#check_input"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#decision_path"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#deep"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#fit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#get_depth"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#get_n_leaves"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#get_params"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasClassWeight"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasCriterion"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasParameter"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasSplitter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#predict"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#predict_log_proba"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#sample_weight"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#y"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCcpAlpha"/>
@@ -161,6 +212,78 @@
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#X"/>
+        <ObjectProperty IRI="#apply"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#X"/>
+        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#X"/>
+        <ObjectProperty IRI="#decision_path"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#X"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#X"/>
+        <ObjectProperty IRI="#predict"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#X_idx_sorted"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#apply"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#check_input"/>
+        <ObjectProperty IRI="#apply"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#check_input"/>
+        <ObjectProperty IRI="#decision_path"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#check_input"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#check_input"/>
+        <ObjectProperty IRI="#predict"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#decision_path"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#deep"/>
+        <ObjectProperty IRI="#get_params"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#fit"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#get_depth"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#get_n_leaves"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#get_params"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasClassWeight"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
@@ -169,8 +292,16 @@
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+        <ObjectProperty IRI="#hasFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
         <ObjectProperty IRI="#hasParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter"/>
@@ -179,6 +310,30 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasSplitter"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#predict"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#predict_log_proba"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sample_weight"/>
+        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#sample_weight"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#y"/>
+        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#y"/>
+        <ObjectProperty IRI="#fit"/>
     </SubObjectPropertyOf>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
