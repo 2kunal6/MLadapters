@@ -8,7 +8,11 @@ onto.load()
 
 print(list(onto.classes()))
 
-for ontology_class in list(onto.classes()):
-    ontology_class = str(ontology_class)
-    ontology_class = ontology_class.replace('ml-hierarchy.', '')
-    file_creator.create_file('ml_algorithms/' + ontology_class + '.py')
+for onto_class in list(onto.classes()):
+    ontology_class = str(onto_class)
+    if (ontology_class == "ml-hierarchy.MachineLearningAlgorithms"):
+        for algorithms_onto_class in list(onto_class.descendants()):
+            algorithms_onto_class = str(algorithms_onto_class)
+            algorithms_onto_class = algorithms_onto_class.replace('ml-hierarchy.', '')
+            file_creator.create_file('ml_algorithms/' + algorithms_onto_class + '.py')
+        break
