@@ -1,0 +1,2 @@
+class CART(DecisionTree):
+	pass

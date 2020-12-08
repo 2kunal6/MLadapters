@@ -1,0 +1,2 @@
+class MachineLearningAlgorithms:
+	pass
