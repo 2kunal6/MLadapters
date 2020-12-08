@@ -1,5 +1,5 @@
 from owlready2 import *
-from util import file_creator
+from util import file_util
 from service import python_content_creator
 
 #onto = get_ontology("https://github.com/2kunal6/SemanticWebLab/blob/master/ml-hierarchy.owl")
@@ -16,7 +16,7 @@ for onto_class in list(onto.classes()):
             algorithms_onto_class = str(algorithms_ontology_class)
             algorithms_onto_class = algorithms_onto_class.replace('ml-hierarchy.', '')
             filename = 'ml_algorithms/' + algorithms_onto_class + '.py'
-            file_creator.create_file(filename)
+            file_util.create_file(filename)
             parent_classes = onto.get_parents_of(algorithms_ontology_class)
-            file_creator.append_to_file(filename, python_content_creator.create_class(algorithms_onto_class, list(parent_classes)))
+            file_util.append_to_file(filename, python_content_creator.create_class(algorithms_onto_class, list(parent_classes)))
         break
