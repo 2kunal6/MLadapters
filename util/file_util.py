@@ -5,7 +5,7 @@ def create_file(filename):
 
 def append_to_file(filename, content):
     f = open(filename, "a")
-    f.write(content)
+    f.write('\n\n' + content)
     f.close()
 
 def create_folders_and_subfolders(folder_path):

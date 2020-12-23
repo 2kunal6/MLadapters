@@ -45,3 +45,11 @@ for file_structure in file_structures:
         parentclass = file_structure_splits[-2]
 
     file_util.append_to_file(filename, python_content_creator.create_class(file_structure_splits[-1], parentclass))
+
+    for onto_class in list(onto.object_properties()):
+        ontology_class = str(onto_class)
+        if (ontology_class.lower().replace('ml-hierarchy.', '') == ('has' + file_structure_splits[-1] + 'function').lower()):
+            for function_ontology_class in list(onto_class.descendants()):
+                file_util.append_to_file(filename,
+                                         python_content_creator.create_function((str(function_ontology_class)).replace('ml-hierarchy.', ''),
+                                                                                function_ontology_class.descendants()))
