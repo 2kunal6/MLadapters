@@ -5,4 +5,4 @@ def create_class(class_name, parent_class_list):
         parent_class_list_str = list(map(str, parent_class_list))
         for i in range(len(parent_class_list_str)):
             parent_class_list_str[i] = parent_class_list_str[i].replace('ml-hierarchy.', '')
-        return 'class ' + class_name + '(' + ",".join(parent_class_list_str) + '):\n\tpass'
+        return 'class ' + class_name + '(' + "".join(parent_class_list_str) + '):\n\tpass'

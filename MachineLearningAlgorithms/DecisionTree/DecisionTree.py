@@ -1,0 +1,2 @@
+class DecisionTree(MachineLearningAlgorithms):
+	pass

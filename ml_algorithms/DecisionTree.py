@@ -1,2 +1,0 @@
-class DecisionTree(MachineLearningAlgorithms):
-	pass

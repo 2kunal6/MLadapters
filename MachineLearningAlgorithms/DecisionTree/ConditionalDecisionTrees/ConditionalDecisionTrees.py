@@ -1,0 +1,2 @@
+class ConditionalDecisionTrees(DecisionTree):
+	pass

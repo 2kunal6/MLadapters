@@ -1,2 +1,0 @@
-class CHAID(DecisionTree):
-	pass

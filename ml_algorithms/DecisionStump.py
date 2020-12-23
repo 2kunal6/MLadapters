@@ -1,2 +1,0 @@
-class DecisionStump(DecisionTree):
-	pass

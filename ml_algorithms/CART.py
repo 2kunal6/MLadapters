@@ -1,2 +1,0 @@
-class CART(DecisionTree):
-	pass

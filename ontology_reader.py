@@ -20,16 +20,12 @@ for onto_class in list(onto.classes()):
         for algorithms_ontology_class in list(onto_class.descendants()):
             algorithms_onto_class = str(algorithms_ontology_class)
             algorithms_onto_class = algorithms_onto_class.replace('ml-hierarchy.', '')
-            filename = 'ml_algorithms/' + algorithms_onto_class + '.py'
 
             parent_classes = onto.get_parents_of(algorithms_ontology_class)
             if(not parent_classes):
                 continue
 
-            parent_class = str(parent_classes[0])
-
-            print(parent_class.replace('ml-hierarchy.', ''), ' ', algorithms_onto_class)
-            g.addEdge(parent_class.replace('ml-hierarchy.', ''), algorithms_onto_class)
+            g.addEdge(str(parent_classes[0]).replace('ml-hierarchy.', ''), algorithms_onto_class)
         break
 print('starting BFS')
 file_structures = g.BFS('MachineLearningAlgorithms')
@@ -39,5 +35,13 @@ shutil.rmtree('MachineLearningAlgorithms', ignore_errors=True)
 
 for file_structure in file_structures:
     file_util.create_folders_and_subfolders(file_structure)
-    file_util.create_file(file_structure + '/' + file_structure.split('/')[-1] + '.py')
-    #file_util.append_to_file(filename, python_content_creator.create_class(algorithms_onto_class, list(parent_classes)))
+    file_structure_splits = file_structure.split('/')
+
+    filename = file_structure + '/' + file_structure_splits[-1] + '.py'
+    file_util.create_file(filename)
+
+    parentclass = None
+    if(len(file_structure_splits) > 1):
+        parentclass = file_structure_splits[-2]
+
+    file_util.append_to_file(filename, python_content_creator.create_class(file_structure_splits[-1], parentclass))
