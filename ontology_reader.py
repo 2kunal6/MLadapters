@@ -32,4 +32,5 @@ for onto_class in list(onto.classes()):
             g.addEdge(parent_class.replace('ml-hierarchy.', ''), algorithms_onto_class)
         break
 print('starting BFS')
-print(g.BFS('MachineLearningAlgorithms'))
+file_structures = g.BFS('MachineLearningAlgorithms')
+print(file_structures)

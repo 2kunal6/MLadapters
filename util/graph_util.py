@@ -22,6 +22,7 @@ class Graph:
     # Function to print a BFS of graph
     def BFS(self, s):
 
+        file_structures = []
         # Mark all the vertices as not visited
         visited = {}
         for i in self.graph:
@@ -34,7 +35,7 @@ class Graph:
 
         # Mark the source node as
         # visited and enqueue it
-        queue.append([s, 0])
+        queue.append([s, s+'/'])
         visited[s] = True
 
         while queue:
@@ -42,7 +43,8 @@ class Graph:
             # Dequeue a vertex from
             # queue and print it
             s = queue.pop(0)
-            print(s, end=" ")
+            file_structures.append(s[1])
+            #print(s, end=" ")
 
             # Get all adjacent vertices of the
             # dequeued vertex s. If a adjacent
@@ -50,5 +52,6 @@ class Graph:
             # visited and enqueue it
             for i in self.graph[s[0]]:
                 if visited[i] == False:
-                    queue.append([i, s[1]+1])
+                    queue.append([i, s[1]+i+'/'])
                     visited[i] = True
+        return file_structures
