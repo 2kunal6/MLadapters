@@ -34,7 +34,7 @@ class Graph:
 
         # Mark the source node as
         # visited and enqueue it
-        queue.append(s)
+        queue.append([s, 0])
         visited[s] = True
 
         while queue:
@@ -48,7 +48,7 @@ class Graph:
             # dequeued vertex s. If a adjacent
             # has not been visited, then mark it
             # visited and enqueue it
-            for i in self.graph[s]:
+            for i in self.graph[s[0]]:
                 if visited[i] == False:
-                    queue.append(i)
+                    queue.append([i, s[1]+1])
                     visited[i] = True
