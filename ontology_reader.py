@@ -20,7 +20,6 @@ for onto_class in list(onto.classes()):
             algorithms_onto_class = algorithms_onto_class.replace('ml-hierarchy.', '')
             filename = 'ml_algorithms/' + algorithms_onto_class + '.py'
 
-            #file_util.create_file(filename)
             parent_classes = onto.get_parents_of(algorithms_ontology_class)
             if(not parent_classes):
                 continue
@@ -34,3 +33,7 @@ for onto_class in list(onto.classes()):
 print('starting BFS')
 file_structures = g.BFS('MachineLearningAlgorithms')
 print(file_structures)
+
+for file_structure in file_structures:
+    file_util.delete_and_create_folders_and_subfolders(file_structure)
+    file_util.create_file(file_structure + '/' + file_structure.split('/')[-1] + '.py')

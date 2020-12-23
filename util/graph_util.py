@@ -35,7 +35,7 @@ class Graph:
 
         # Mark the source node as
         # visited and enqueue it
-        queue.append([s, s+'/'])
+        queue.append([s, s])
         visited[s] = True
 
         while queue:
@@ -52,6 +52,6 @@ class Graph:
             # visited and enqueue it
             for i in self.graph[s[0]]:
                 if visited[i] == False:
-                    queue.append([i, s[1]+i+'/'])
+                    queue.append([i, s[1]+ '/' + i])
                     visited[i] = True
         return file_structures
