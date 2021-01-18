@@ -3,50 +3,29 @@
 class DecisionTree(Classification):
 		pass
 
-	def y(y):
+	def apply(X,check_input):
 		pass
 
-	def X(X):
+	def cost_complexity_pruning_path(X,y,sample_weight):
 		pass
 
-	def hasDecisionTreeFunction(yXhasDecisionTreeFunctionapplyget_n_leavessample_weightcheck_inputX_idx_sorteddecision_pathfitcost_complexity_pruning_pathget_depthget_paramsdeeppredictpredict_log_proba):
+	def decision_path(X,check_input):
 		pass
 
-	def apply(applyXcheck_input):
+	def fit(X,y,sample_weight,check_input,X_idx_sorted):
 		pass
 
-	def get_n_leaves(get_n_leaves):
+	def get_depth():
 		pass
 
-	def sample_weight(sample_weight):
+	def get_n_leaves():
 		pass
 
-	def check_input(check_input):
+	def get_params(deep):
 		pass
 
-	def X_idx_sorted(X_idx_sorted):
+	def predict(X,check_input):
 		pass
 
-	def decision_path(decision_pathXcheck_input):
-		pass
-
-	def fit(yX_idx_sortedsample_weightcheck_inputfitX):
-		pass
-
-	def cost_complexity_pruning_path(cost_complexity_pruning_pathyXsample_weight):
-		pass
-
-	def get_depth(get_depth):
-		pass
-
-	def get_params(get_paramsdeep):
-		pass
-
-	def deep(deep):
-		pass
-
-	def predict(Xpredictcheck_input):
-		pass
-
-	def predict_log_proba(predict_log_proba):
+	def predict_log_proba():
 		pass

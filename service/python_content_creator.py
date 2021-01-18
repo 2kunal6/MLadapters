@@ -11,7 +11,14 @@ def create_function(function_name, parameter_list):
     if not parameter_list:
         return '\tdef ' + function_name + ':\n\tpass'
     else:
-        parameter_list_str = list(map(str, parameter_list))
-        for i in range(len(parameter_list_str)):
-            parameter_list_str[i] = parameter_list_str[i].replace('ml-hierarchy.', '')
-        return '\tdef ' + function_name + '(' + "".join(parameter_list_str) + '):\n\t\tpass'
+        param_order_dict = {}
+        for param in parameter_list:
+            pos = str(list(param.subclasses())[0])
+            pos = int(pos.replace('ml-hierarchy.', ''))
+            param_order_dict[pos] = param
+
+        param_list = ''
+        for k in sorted(param_order_dict):
+            param_list = param_list + str(param_order_dict[k]).replace('ml-hierarchy.', '') + ','
+        param_list = param_list[:-1]
+        return '\tdef ' + function_name + '(' + param_list + '):\n\t\tpass'
