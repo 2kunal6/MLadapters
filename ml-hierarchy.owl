@@ -616,6 +616,51 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 
 As in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.</Literal>
     </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#apply</IRI>
+        <Literal>Return the index of the leaf that each sample is predicted as.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#cost_complexity_pruning_path</IRI>
+        <Literal>Compute the pruning path during Minimal Cost-Complexity Pruning.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#decision_path</IRI>
+        <Literal>Return the decision path in the tree.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#fit</IRI>
+        <Literal>Build a decision tree classifier from the training set (X, y).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#get_depth</IRI>
+        <Literal>Return the depth of the decision tree.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#get_n_leaves</IRI>
+        <Literal>Return the number of leaves of the decision tree.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#get_params</IRI>
+        <Literal>Get parameters for this estimator.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#predict</IRI>
+        <Literal>Predict class or regression value for X.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#predict_log_proba</IRI>
+        <Literal>Predict class log-probabilities of the input samples X.</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 

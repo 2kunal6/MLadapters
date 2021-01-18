@@ -60,6 +60,4 @@ for file_structure in file_structures:
         ontology_class = str(onto_class)
         if (ontology_class.lower().replace('ml-hierarchy.', '') == ('has' + file_structure_splits[-1] + 'function').lower()):
             for function_ontology_class in list(onto_class.subclasses()):
-                file_util.append_to_file(filename,
-                                         python_content_creator.create_function((str(function_ontology_class)).replace('ml-hierarchy.', ''),
-                                                                                function_ontology_class.subclasses()))
+                file_util.append_to_file(filename, python_content_creator.create_function(function_ontology_class))

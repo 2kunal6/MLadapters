@@ -7,9 +7,11 @@ def create_class(class_name, parent_class_list):
             parent_class_list_str[i] = parent_class_list_str[i].replace('ml-hierarchy.', '')
         return 'class ' + class_name + '(' + "".join(parent_class_list_str) + '):\n'
 
-def create_function(function_name, parameter_list):
+def create_function(function_ontology_class):
+    function_name = (str(function_ontology_class)).replace('ml-hierarchy.', '')
+    parameter_list = function_ontology_class.subclasses()
     if not parameter_list:
-        return '\tdef ' + function_name + ':\n\tpass'
+        return '\tdef ' + function_name + ':\n\t' + "'''" + str(function_ontology_class.comment) + "'''" + '\n\tpass'
     else:
         param_order_dict = {}
         for param in parameter_list:
@@ -21,4 +23,4 @@ def create_function(function_name, parameter_list):
         for k in sorted(param_order_dict):
             param_list = param_list + str(param_order_dict[k]).replace('ml-hierarchy.', '') + ','
         param_list = param_list[:-1]
-        return '\tdef ' + function_name + '(' + param_list + '):\n\t\tpass'
+        return '\tdef ' + function_name + '(' + param_list + '):\n\t' + "'''" + str(function_ontology_class.comment) + "'''" + '\n\tpass'
