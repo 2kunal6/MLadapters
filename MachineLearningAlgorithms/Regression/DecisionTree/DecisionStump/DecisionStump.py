@@ -1,4 +1,6 @@
 
 
 class DecisionStump(DecisionTree):
-		pass
+
+
+'''[]'''

@@ -1,7 +1,9 @@
 
 
 class DecisionTree(Regression):
-		pass
+
+
+'''['Decision trees can be applied to regression problems, using the DecisionTreeRegressor class.\n\nAs in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.']'''
 
 	def apply(X,check_input):
 		pass

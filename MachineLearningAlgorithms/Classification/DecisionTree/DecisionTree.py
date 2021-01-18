@@ -1,7 +1,9 @@
 
 
 class DecisionTree(Classification):
-		pass
+
+
+'''['DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.\n\nAs with other classifiers, DecisionTreeClassifier takes as input two arrays: an array X, sparse or dense, of shape (n_samples, n_features) holding the training samples, and an array Y of integer values, shape (n_samples,), holding the class labels for the training samples.']'''
 
 	def apply(X,check_input):
 		pass

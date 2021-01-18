@@ -602,6 +602,20 @@
         <DataProperty IRI="#hasRandomState"/>
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Classification----DecisionTree</IRI>
+        <Literal>DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.
+
+As with other classifiers, DecisionTreeClassifier takes as input two arrays: an array X, sparse or dense, of shape (n_samples, n_features) holding the training samples, and an array Y of integer values, shape (n_samples,), holding the class labels for the training samples.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Regression----DecisionTree</IRI>
+        <Literal>Decision trees can be applied to regression problems, using the DecisionTreeRegressor class.
+
+As in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.</Literal>
+    </AnnotationAssertion>
 </Ontology>
 
 

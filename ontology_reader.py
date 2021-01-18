@@ -49,6 +49,12 @@ for file_structure in file_structures:
         parentclass = file_structure_splits[-2]
 
     file_util.append_to_file(filename, python_content_creator.create_class(file_structure_splits[-1], parentclass))
+    for onto_class in list(onto.classes()):
+        ontology_class = str(onto_class)
+        if(ontology_class.lower().endswith(file_structure.split('/')[-1].lower())):
+            file_util.append_to_file(filename, "'''" + str(onto_class.comment) + "'''")
+            break
+
 
     for onto_class in list(onto.object_properties()):
         ontology_class = str(onto_class)
