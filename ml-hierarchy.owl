@@ -94,28 +94,7 @@
         <Class IRI="#Splitter"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#Presort"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#X"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#X_idx_sorted"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#apply"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#check_input"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#decision_path"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#deep"/>
+        <ObjectProperty IRI="#class_weight"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#fit"/>
@@ -127,15 +106,6 @@
         <ObjectProperty IRI="#get_n_leaves"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#get_params"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasClassWeight"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#hasCriterion"/>
-    </Declaration>
-    <Declaration>
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
     </Declaration>
     <Declaration>
@@ -143,6 +113,36 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasFunction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply----X"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply----check_input"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----cost_complexity_pruning_path----criterion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----X"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----check_input"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----sample_weight"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----y"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----predict----X"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----predict----check_input"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasKmeansFunction"/>
@@ -175,34 +175,19 @@
         <ObjectProperty IRI="#hasParameter"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasSplitter"/>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----criterion"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#max_depth"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#min_samples_split"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#predict"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#predict_log_proba"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#sample_weight"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#y"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#100"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#200"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#300"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#400"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#500"/>
+        <ObjectProperty IRI="#splitter"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCcpAlpha"/>
@@ -241,7 +226,13 @@
         <DataProperty IRI="#hasRandomState"/>
     </Declaration>
     <Declaration>
+        <AnnotationProperty IRI="#default_value"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty IRI="#isSupervised"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#parameter_position"/>
     </Declaration>
     <SubClassOf>
         <Class IRI="#Classification"/>
@@ -344,64 +335,8 @@
         <Class IRI="#DecisionTreeParameter"/>
     </SubClassOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#Presort"/>
+        <ObjectProperty IRI="#class_weight"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#X"/>
-        <ObjectProperty IRI="#apply"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#X"/>
-        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#X"/>
-        <ObjectProperty IRI="#decision_path"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#X"/>
-        <ObjectProperty IRI="#fit"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#X"/>
-        <ObjectProperty IRI="#predict"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#X_idx_sorted"/>
-        <ObjectProperty IRI="#fit"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#apply"/>
-        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#check_input"/>
-        <ObjectProperty IRI="#apply"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#check_input"/>
-        <ObjectProperty IRI="#decision_path"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#check_input"/>
-        <ObjectProperty IRI="#fit"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#check_input"/>
-        <ObjectProperty IRI="#predict"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
-        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#decision_path"/>
-        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#deep"/>
-        <ObjectProperty IRI="#get_params"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#fit"/>
@@ -416,18 +351,6 @@
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#get_params"/>
-        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasClassWeight"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasCriterion"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
         <ObjectProperty IRI="#hasFunction"/>
     </SubObjectPropertyOf>
@@ -438,6 +361,42 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasFunction"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply----X"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply----check_input"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----X"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----check_input"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----sample_weight"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----y"/>
+        <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----predict----X"/>
+        <ObjectProperty IRI="#predict"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----predict----check_input"/>
+        <ObjectProperty IRI="#predict"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasKmeansFunction"/>
@@ -480,7 +439,15 @@
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasSplitter"/>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----criterion"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#max_depth"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#min_samples_split"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -488,48 +455,8 @@
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#predict_log_proba"/>
-        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#sample_weight"/>
-        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#sample_weight"/>
-        <ObjectProperty IRI="#fit"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#y"/>
-        <ObjectProperty IRI="#cost_complexity_pruning_path"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#y"/>
-        <ObjectProperty IRI="#fit"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#100"/>
-        <ObjectProperty IRI="#X"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#100"/>
-        <ObjectProperty IRI="#deep"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#200"/>
-        <ObjectProperty IRI="#y"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#300"/>
-        <ObjectProperty IRI="#sample_weight"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#400"/>
-        <ObjectProperty IRI="#check_input"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#500"/>
-        <ObjectProperty IRI="#X_idx_sorted"/>
+        <ObjectProperty IRI="#splitter"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
@@ -546,20 +473,6 @@
         </ObjectAllValuesFrom>
     </ObjectPropertyDomain>
     <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasCriterion"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#hasSplitter"/>
-            <Class IRI="#Criterion"/>
-        </ObjectAllValuesFrom>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasCriterion"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#hasSplitter"/>
-            <Class IRI="#Criterion"/>
-        </ObjectExactCardinality>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
         <ObjectSomeValuesFrom>
             <ObjectProperty IRI="#hasParameter"/>
@@ -572,20 +485,6 @@
             <ObjectProperty IRI="#hasParameter"/>
             <Class IRI="#Parameter"/>
         </ObjectSomeValuesFrom>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasSplitter"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#hasSplitter"/>
-            <Class IRI="#Splitter"/>
-        </ObjectAllValuesFrom>
-    </ObjectPropertyRange>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasSplitter"/>
-        <ObjectExactCardinality cardinality="1">
-            <ObjectProperty IRI="#hasSplitter"/>
-            <Class IRI="#Splitter"/>
-        </ObjectExactCardinality>
     </ObjectPropertyRange>
     <SubDataPropertyOf>
         <DataProperty IRI="#hasCcpAlpha"/>
@@ -705,19 +604,14 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 As in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#apply</IRI>
-        <Literal>Return the index of the leaf that each sample is predicted as.</Literal>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#class_weight</IRI>
+        <Literal>dict = None</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#cost_complexity_pruning_path</IRI>
-        <Literal>Compute the pruning path during Minimal Cost-Complexity Pruning.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#decision_path</IRI>
-        <Literal>Return the decision path in the tree.</Literal>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#class_weight</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1200</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -736,18 +630,109 @@ As in the classification setting, the fit method will take as argument arrays X 
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#get_params</IRI>
-        <Literal>Get parameters for this estimator.</Literal>
+        <IRI>#hasFunction----hasDecisionTreeFunction----apply</IRI>
+        <Literal>Return the index of the leaf that each sample is predicted as.
+
+Parameters: 
+X{array-like, sparse matrix} of shape (n_samples, n_features)
+The input samples. Internally, it will be converted to dtype=np.float32 and if a sparse matrix is provided to a sparse csr_matrix.
+
+check_inputbool, default=True
+Allow to bypass several input checking. Don’t use this parameter unless you know what you do.
+
+
+Returns:
+X_leavesarray-like of shape (n_samples,)
+For each datapoint x in X, return the index of the leaf x ends up in. Leaves are numbered within [0; self.tree_.node_count), possibly with gaps in the numbering.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----apply----X</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">100</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----apply----check_input</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----fit----X</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">100</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----fit----check_input</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">400</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----fit----sample_weight</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">300</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----fit----y</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----predict----X</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">100</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----predict----check_input</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----criterion</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">100</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#max_depth</IRI>
+        <Literal>int = None</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#max_depth</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">300</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#min_samples_split</IRI>
+        <Literal>float = 2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#min_samples_split</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">400</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#predict</IRI>
-        <Literal>Predict class or regression value for X.</Literal>
+        <Literal>Predict class or regression value for X.
+
+Parameters:
+X{array-like, sparse matrix} of shape (n_samples, n_features)
+The input samples. Internally, it will be converted to dtype=np.float32 and if a sparse matrix is provided to a sparse csr_matrix.
+
+
+Returns:
+probandarray of shape (n_samples, n_classes) or list of n_outputs such arrays if n_outputs &gt; 1
+The class log-probabilities of the input samples. The order of the classes corresponds to that in the attribute classes_.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#predict_log_proba</IRI>
-        <Literal>Predict class log-probabilities of the input samples X.</Literal>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#splitter</IRI>
+        <Literal>str = ”best”</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#splitter</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
     </AnnotationAssertion>
 </Ontology>
 
