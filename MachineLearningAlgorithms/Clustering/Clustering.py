@@ -1,0 +1,4 @@
+
+
+class Clustering(MachineLearningAlgorithms):
+		pass

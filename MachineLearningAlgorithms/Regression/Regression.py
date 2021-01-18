@@ -1,0 +1,4 @@
+
+
+class Regression(MachineLearningAlgorithms):
+		pass
