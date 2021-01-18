@@ -6,7 +6,8 @@ from service import python_content_creator
 import shutil
 
 #onto = get_ontology("https://github.com/2kunal6/SemanticWebLab/blob/master/ml-hierarchy.owl")
-onto = get_ontology("https://raw.githubusercontent.com/2kunal6/SemanticWebLab/master/ml-hierarchy.owl")
+#onto = get_ontology("https://raw.githubusercontent.com/2kunal6/SemanticWebLab/master/ml-hierarchy.owl")
+onto = get_ontology("ml-hierarchy.owl")
 
 onto.load()
 
@@ -34,10 +35,13 @@ print(file_structures)
 shutil.rmtree('MachineLearningAlgorithms', ignore_errors=True)
 
 for file_structure in file_structures:
-    file_util.create_folders_and_subfolders(file_structure)
     file_structure_splits = file_structure.split('/')
+    for i in range(len(file_structure_splits)):
+        file_structure_splits[i] = file_structure_splits[i].split('----')[-1]
 
-    filename = file_structure + '/' + file_structure_splits[-1] + '.py'
+    file_util.create_folders_and_subfolders("/".join(file_structure_splits))
+
+    filename = "/".join(file_structure_splits) + '/' + (file_structure_splits[-1]) + '.py'
     file_util.create_file(filename)
 
     parentclass = None

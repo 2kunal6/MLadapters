@@ -1,0 +1,4 @@
+
+
+class DecisionStump(DecisionTree):
+		pass

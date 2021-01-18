@@ -13,43 +13,43 @@
     <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
     <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
     <Declaration>
-        <Class IRI="#C4.5"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#C5.0"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#CART"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#CHAID"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Classification"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----C4.5"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----C5.0"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----CART"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----CHAID"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----ConditionalDecisionTrees"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----DecisionStump"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----ID3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Classification----DecisionTree----M5"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Clustering"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#ConditionalDecisionTrees"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#Criterion"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#DecisionStump"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#DecisionTree"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#DecisionTreeParameter"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#ID3"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#M5"/>
     </Declaration>
     <Declaration>
         <Class IRI="#MachineLearningAlgorithms"/>
@@ -59,6 +59,33 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----C4.5"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----C5.0"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----CART"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----CHAID"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----ConditionalDecisionTrees"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----DecisionStump"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----ID3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Regression----DecisionTree----M5"/>
     </Declaration>
     <Declaration>
         <Class IRI="#Splitter"/>
@@ -184,60 +211,96 @@
         <DataProperty IRI="#hasRandomState"/>
     </Declaration>
     <SubClassOf>
-        <Class IRI="#C4.5"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#C5.0"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#CART"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#CHAID"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Classification"/>
         <Class IRI="#MachineLearningAlgorithms"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree"/>
+        <Class IRI="#Classification"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----C4.5"/>
+        <Class IRI="#Classification----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----C5.0"/>
+        <Class IRI="#Classification----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----CART"/>
+        <Class IRI="#Classification----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----CHAID"/>
+        <Class IRI="#Classification----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----ConditionalDecisionTrees"/>
+        <Class IRI="#Classification----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----DecisionStump"/>
+        <Class IRI="#Classification----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----ID3"/>
+        <Class IRI="#Classification----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Classification----DecisionTree----M5"/>
+        <Class IRI="#Classification----DecisionTree"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Clustering"/>
         <Class IRI="#MachineLearningAlgorithms"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ConditionalDecisionTrees"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Criterion"/>
         <Class IRI="#DecisionTreeParameter"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#DecisionStump"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#DecisionTree"/>
-        <Class IRI="#Classification"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#DecisionTreeParameter"/>
         <Class IRI="#Parameter"/>
     </SubClassOf>
     <SubClassOf>
-        <Class IRI="#ID3"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
-        <Class IRI="#M5"/>
-        <Class IRI="#DecisionTree"/>
-    </SubClassOf>
-    <SubClassOf>
         <Class IRI="#Regression"/>
         <Class IRI="#MachineLearningAlgorithms"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree"/>
+        <Class IRI="#Regression"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----C4.5"/>
+        <Class IRI="#Regression----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----C5.0"/>
+        <Class IRI="#Regression----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----CART"/>
+        <Class IRI="#Regression----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----CHAID"/>
+        <Class IRI="#Regression----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----ConditionalDecisionTrees"/>
+        <Class IRI="#Regression----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----DecisionStump"/>
+        <Class IRI="#Regression----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----ID3"/>
+        <Class IRI="#Regression----DecisionTree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Regression----DecisionTree----M5"/>
+        <Class IRI="#Regression----DecisionTree"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Splitter"/>
@@ -399,7 +462,7 @@
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
         <ObjectAllValuesFrom>
             <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-            <Class IRI="#DecisionTree"/>
+            <Class IRI="#Classification----DecisionTree"/>
         </ObjectAllValuesFrom>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>

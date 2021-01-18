@@ -1,0 +1,4 @@
+
+
+class CHAID(DecisionTree):
+		pass
