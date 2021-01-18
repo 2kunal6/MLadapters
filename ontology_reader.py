@@ -53,6 +53,7 @@ for file_structure in file_structures:
         ontology_class = str(onto_class)
         if(ontology_class.lower().endswith(file_structure.split('/')[-1].lower())):
             file_util.append_to_file(filename, "'''" + str(onto_class.comment) + "'''")
+            isSupervised = str(onto_class.isSupervised)
             break
 
 
@@ -60,4 +61,4 @@ for file_structure in file_structures:
         ontology_class = str(onto_class)
         if (ontology_class.lower().replace('ml-hierarchy.', '') == ('has' + file_structure_splits[-1] + 'function').lower()):
             for function_ontology_class in list(onto_class.subclasses()):
-                file_util.append_to_file(filename, python_content_creator.create_function(function_ontology_class))
+                file_util.append_to_file(filename, python_content_creator.create_function(function_ontology_class, isSupervised))

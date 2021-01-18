@@ -7,32 +7,32 @@ class Kmeans(Clustering):
 
 	def fit():
 	'''[]'''
-	pass
+		self._model.fit(X)
 
 	def fit_predict():
 	'''[]'''
-	pass
+		pass
 
 	def fit_transform():
 	'''[]'''
-	pass
+		pass
 
 	def get_params():
 	'''[]'''
-	pass
+		pass
 
 	def predict():
 	'''[]'''
-	pass
+		self._model.predict(X)
 
 	def score():
 	'''[]'''
-	pass
+		pass
 
 	def set_params():
 	'''[]'''
-	pass
+		pass
 
 	def transform():
 	'''[]'''
-	pass
+		pass
