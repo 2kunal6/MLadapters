@@ -133,6 +133,21 @@
         <ObjectProperty IRI="#y"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#100"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#200"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#300"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#400"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#500"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasCcpAlpha"/>
     </Declaration>
     <Declaration>
@@ -355,6 +370,30 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#y"/>
         <ObjectProperty IRI="#fit"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#100"/>
+        <ObjectProperty IRI="#X"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#100"/>
+        <ObjectProperty IRI="#deep"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#200"/>
+        <ObjectProperty IRI="#y"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#300"/>
+        <ObjectProperty IRI="#sample_weight"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#400"/>
+        <ObjectProperty IRI="#check_input"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#500"/>
+        <ObjectProperty IRI="#X_idx_sorted"/>
     </SubObjectPropertyOf>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
