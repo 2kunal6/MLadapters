@@ -46,6 +46,9 @@
         <Class IRI="#Clustering"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Clustering----Kmeans"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Criterion"/>
     </Declaration>
     <Declaration>
@@ -142,6 +145,33 @@
         <ObjectProperty IRI="#hasFunction"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----fit"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----fit_predict"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----fit_transform"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----get_params"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----predict"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----score"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----set_params"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasKmeansFunction----transform"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasParameter"/>
     </Declaration>
     <Declaration>
@@ -210,6 +240,9 @@
     <Declaration>
         <DataProperty IRI="#hasRandomState"/>
     </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#isSupervised"/>
+    </Declaration>
     <SubClassOf>
         <Class IRI="#Classification"/>
         <Class IRI="#MachineLearningAlgorithms"/>
@@ -253,6 +286,10 @@
     <SubClassOf>
         <Class IRI="#Clustering"/>
         <Class IRI="#MachineLearningAlgorithms"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Clustering----Kmeans"/>
+        <Class IRI="#Clustering"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Criterion"/>
@@ -401,6 +438,42 @@
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasFunction"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+        <ObjectProperty IRI="#hasFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----fit"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----fit_predict"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----fit_transform"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----get_params"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----predict"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----score"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----set_params"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasKmeansFunction----transform"/>
+        <ObjectProperty IRI="#hasKmeansFunction"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter"/>
@@ -603,11 +676,26 @@
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="#isSupervised"/>
+        <IRI>#Classification----DecisionTree</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Classification----DecisionTree</IRI>
         <Literal>DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.
 
 As with other classifiers, DecisionTreeClassifier takes as input two arrays: an array X, sparse or dense, of shape (n_samples, n_features) holding the training samples, and an array Y of integer values, shape (n_samples,), holding the class labels for the training samples.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#isSupervised"/>
+        <IRI>#Clustering</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#isSupervised"/>
+        <IRI>#Regression----DecisionTree</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

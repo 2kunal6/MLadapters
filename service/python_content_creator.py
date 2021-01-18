@@ -9,6 +9,7 @@ def create_class(class_name, parent_class_list):
 
 def create_function(function_ontology_class):
     function_name = (str(function_ontology_class)).replace('ml-hierarchy.', '')
+    function_name = function_name.split('----')[-1]
     parameter_list = function_ontology_class.subclasses()
     if not parameter_list:
         return '\tdef ' + function_name + ':\n\t' + "'''" + str(function_ontology_class.comment) + "'''" + '\n\tpass'
