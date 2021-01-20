@@ -11,8 +11,8 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 class DecisionTree(Classification):
 
 
-	def __init__(self, class_weight,criterion,min_samples_leaf,min_weight_fraction_leaf,max_depth,min_samples_split,splitter):
-		self._model = DecisionTreeClassifier(class_weight,criterion,min_samples_leaf,min_weight_fraction_leaf,max_depth,min_samples_split,splitter)
+	def __init__(self, class_weight,criterion,max_depth,max_features,max_leaf_nodes,min_impurity_decrease,min_samples_leaf,min_samples_split,min_weight_fraction_leaf,random_state,splitter):
+		self._model = DecisionTreeClassifier(class_weight,criterion,max_depth,max_features,max_leaf_nodes,min_impurity_decrease,min_samples_leaf,min_samples_split,min_weight_fraction_leaf,random_state,splitter)
 
 	def fit(X,y,sample_weight,check_input):
 		'''Build a decision tree classifier from the training set (X, y).'''

@@ -178,22 +178,34 @@
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----criterion"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_depth"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_features"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_leaf_nodes"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_decrease"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_leaf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_split"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_weight_fraction_leaf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#max_depth"/>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----random_state"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#min_samples_split"/>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----splitter"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#predict"/>
-    </Declaration>
-    <Declaration>
-        <ObjectProperty IRI="#splitter"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="#default_value"/>
@@ -416,7 +428,27 @@
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_depth"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_features"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_leaf_nodes"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_decrease"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_leaf"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_split"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -424,20 +456,16 @@
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#max_depth"/>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----random_state"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#min_samples_split"/>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----splitter"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#predict"/>
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#splitter"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
@@ -595,13 +623,48 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
-        <IRI>#max_depth</IRI>
+        <IRI>#hasParameter----hasDecisionTreeParameter----max_depth</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">300</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
-        <IRI>#min_samples_split</IRI>
+        <IRI>#hasParameter----hasDecisionTreeParameter----max_features</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">700</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----max_leaf_nodes</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">900</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_impurity_decrease</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1000</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_samples_leaf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">500</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_samples_split</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">400</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_weight_fraction_leaf</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">600</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----random_state</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">800</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----splitter</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -616,11 +679,6 @@ The input samples. Internally, it will be converted to dtype=np.float32 and if a
 Returns:
 probandarray of shape (n_samples, n_classes) or list of n_outputs such arrays if n_outputs &gt; 1
 The class log-probabilities of the input samples. The order of the classes corresponds to that in the attribute classes_.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="#parameter_position"/>
-        <IRI>#splitter</IRI>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
     </AnnotationAssertion>
 </Ontology>
 
