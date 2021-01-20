@@ -1,9 +1,11 @@
 
 
+from sklearn.cluster import KMeans
+
+'''None'''
+
 class Kmeans(Clustering):
 
-
-'''[]'''
 
 	def fit():
 	'''None'''

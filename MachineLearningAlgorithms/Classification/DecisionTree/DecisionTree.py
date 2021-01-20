@@ -1,9 +1,13 @@
 
 
+from sklearn.tree import DecisionTreeClassifier
+
+'''DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.
+
+As with other classifiers, DecisionTreeClassifier takes as input two arrays: an array X, sparse or dense, of shape (n_samples, n_features) holding the training samples, and an array Y of integer values, shape (n_samples,), holding the class labels for the training samples.'''
+
 class DecisionTree(Classification):
 
-
-'''['DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.\n\nAs with other classifiers, DecisionTreeClassifier takes as input two arrays: an array X, sparse or dense, of shape (n_samples, n_features) holding the training samples, and an array Y of integer values, shape (n_samples,), holding the class labels for the training samples.']'''
 
 	def __init__(self, class_weight:dict = None,criterion:None,max_depth:int = None,min_samples_split:float = 2,splitter:str = ”best”):
 		self.class_weight = class_weight

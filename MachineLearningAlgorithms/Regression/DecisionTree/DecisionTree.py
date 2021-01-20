@@ -1,9 +1,13 @@
 
 
+from sklearn.tree import DecisionTreeRegressor
+
+'''Decision trees can be applied to regression problems, using the DecisionTreeRegressor class.
+
+As in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.'''
+
 class DecisionTree(Regression):
 
-
-'''['Decision trees can be applied to regression problems, using the DecisionTreeRegressor class.\n\nAs in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.']'''
 
 	def __init__(self, class_weight:dict = None,criterion:None,max_depth:int = None,min_samples_split:float = 2,splitter:str = ”best”):
 		self.class_weight = class_weight

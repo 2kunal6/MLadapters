@@ -229,6 +229,9 @@
         <AnnotationProperty IRI="#default_value"/>
     </Declaration>
     <Declaration>
+        <AnnotationProperty IRI="#imports"/>
+    </Declaration>
+    <Declaration>
         <AnnotationProperty IRI="#isSupervised"/>
     </Declaration>
     <Declaration>
@@ -575,6 +578,11 @@
         <Datatype abbreviatedIRI="xsd:integer"/>
     </DataPropertyRange>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="#imports"/>
+        <IRI>#Classification----DecisionTree</IRI>
+        <Literal>from sklearn.tree import DecisionTreeClassifier</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="#isSupervised"/>
         <IRI>#Classification----DecisionTree</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
@@ -590,6 +598,16 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
         <AnnotationProperty IRI="#isSupervised"/>
         <IRI>#Clustering</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#imports"/>
+        <IRI>#Clustering----Kmeans</IRI>
+        <Literal>from sklearn.cluster import KMeans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#imports"/>
+        <IRI>#Regression----DecisionTree</IRI>
+        <Literal>from sklearn.tree import DecisionTreeRegressor</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#isSupervised"/>
