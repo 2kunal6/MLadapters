@@ -1,7 +1,5 @@
 
 
-None
-
-'''None'''
+import MachineLearningAlgorithms
 
 class Classification(MachineLearningAlgorithms):

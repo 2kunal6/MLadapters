@@ -48,12 +48,15 @@ for file_structure in file_structures:
     if(len(file_structure_splits) > 1):
         parentclass = file_structure_splits[-2]
 
+    file_util.append_to_file(filename, 'import ' + ".".join(file_structure_splits[:-1]))
 
     for onto_class in list(onto.classes()):
         ontology_class = str(onto_class)
         if(ontology_class.lower().endswith(file_structure.split('/')[-1].lower())):
-            file_util.append_to_file(filename, str(onto_class.imports.first()))
-            file_util.append_to_file(filename, "'''" + str(onto_class.comment.first()) + "'''")
+            if(onto_class.imports.first() is not None):
+                file_util.append_to_file(filename, str(onto_class.imports.first()))
+            if(onto_class.comment.first() is not None):
+                file_util.append_to_file(filename, "'''" + str(onto_class.comment.first()) + "'''")
             isSupervised = str(onto_class.isSupervised)
             break
 

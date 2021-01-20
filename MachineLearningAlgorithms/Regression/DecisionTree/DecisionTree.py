@@ -1,5 +1,7 @@
 
 
+import MachineLearningAlgorithms.Regression
+
 from sklearn.tree import DecisionTreeRegressor
 
 '''Decision trees can be applied to regression problems, using the DecisionTreeRegressor class.

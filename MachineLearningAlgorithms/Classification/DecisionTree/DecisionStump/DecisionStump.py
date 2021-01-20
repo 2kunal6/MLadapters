@@ -1,7 +1,5 @@
 
 
-None
-
-'''None'''
+import MachineLearningAlgorithms.Classification.DecisionTree
 
 class DecisionStump(DecisionTree):

@@ -1,5 +1,7 @@
 
 
+import MachineLearningAlgorithms.Classification
+
 from sklearn.tree import DecisionTreeClassifier
 
 '''DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.

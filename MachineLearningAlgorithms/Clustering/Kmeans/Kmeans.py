@@ -1,8 +1,8 @@
 
 
-from sklearn.cluster import KMeans
+import MachineLearningAlgorithms.Clustering
 
-'''None'''
+from sklearn.cluster import KMeans
 
 class Kmeans(Clustering):
 
