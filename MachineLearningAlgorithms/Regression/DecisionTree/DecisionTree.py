@@ -11,13 +11,8 @@ As in the classification setting, the fit method will take as argument arrays X 
 class DecisionTree(Regression):
 
 
-	def __init__(self, class_weight:None,criterion:None,max_depth:None,min_samples_split:None,splitter:None):
-		self.class_weight = class_weight
-		self.criterion = criterion
-		self.max_depth = max_depth
-		self.min_samples_split = min_samples_split
-		self.splitter = splitter
-
+	def __init__(self, class_weight,criterion,min_samples_leaf,min_weight_fraction_leaf,max_depth,min_samples_split,splitter):
+		self._model = DecisionTreeRegressor(class_weight,criterion,min_samples_leaf,min_weight_fraction_leaf,max_depth,min_samples_split,splitter)
 
 	def fit(X,y,sample_weight,check_input):
 		'''Build a decision tree classifier from the training set (X, y).'''

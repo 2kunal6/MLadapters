@@ -52,11 +52,13 @@ for file_structure in file_structures:
         file_util.append_to_file(filename, 'from ' + ".".join(file_structure_splits[:-1]) + '.' + file_structure_splits[-2] +
         ' import ' + file_structure_splits[-2])
 
+    imports_value = ''
     for onto_class in list(onto.classes()):
         ontology_class = str(onto_class)
         if(ontology_class.lower().endswith(file_structure.split('/')[-1].lower())):
             if(onto_class.imports.first() is not None):
-                file_util.append_to_file(filename, str(onto_class.imports.first()))
+                imports_value = str(onto_class.imports.first())
+                file_util.append_to_file(filename, imports_value)
             if(onto_class.comment.first() is not None):
                 file_util.append_to_file(filename, "'''" + str(onto_class.comment.first()) + "'''")
             isSupervised = str(onto_class.isSupervised)
@@ -72,11 +74,14 @@ for file_structure in file_structures:
             for param in onto_class.subclasses():
                 actual_param = str(param).split('----')[-1]
                 actual_param = actual_param.replace('ml-hierarchy.', '')
-                init_function_parameter = init_function_parameter + actual_param + ':' + str(param.default_value.first()) + ','
+                if(str(param.default_value.first()) != 'None'):
+                    init_function_parameter = init_function_parameter + actual_param + ':' + str(param.default_value.first()) + ','
+                else:
+                    init_function_parameter = init_function_parameter + actual_param + ','
             init_function_parameter = init_function_parameter[:-1]
             break
     if(init_function_parameter != ''):
-        file_util.append_to_file(filename, python_content_creator.create_init_function(init_function_parameter))
+        file_util.append_to_file(filename, python_content_creator.create_init_function(init_function_parameter, imports_value))
 
     for onto_class in list(onto.object_properties()):
         ontology_class = str(onto_class)

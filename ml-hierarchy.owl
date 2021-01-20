@@ -178,6 +178,12 @@
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----criterion"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_leaf"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_weight_fraction_leaf"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#max_depth"/>
     </Declaration>
     <Declaration>
@@ -188,42 +194,6 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#splitter"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasCcpAlpha"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasDataParameter"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMaxDepth"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMaxFeatures"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMaxLeafNodes"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMinImpurityDecrease"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMinImpuritySplit"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMinSamplesLeaf"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMinSamplesSplit"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasMinWeightFractionLeaf"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#hasRandomState"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="#default_value"/>
@@ -446,6 +416,14 @@
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_leaf"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_weight_fraction_leaf"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#max_depth"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
@@ -489,94 +467,6 @@
             <Class IRI="#Parameter"/>
         </ObjectSomeValuesFrom>
     </ObjectPropertyRange>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasCcpAlpha"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasDataParameter"/>
-        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-        <DataProperty IRI="#hasDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMaxDepth"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMaxFeatures"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMaxLeafNodes"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMinImpurityDecrease"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMinImpuritySplit"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMinSamplesLeaf"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMinSamplesSplit"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasMinWeightFractionLeaf"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <SubDataPropertyOf>
-        <DataProperty IRI="#hasRandomState"/>
-        <DataProperty IRI="#hasDecisionTreeDataParameter"/>
-    </SubDataPropertyOf>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasCcpAlpha"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMaxDepth"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMaxFeatures"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMaxLeafNodes"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMinImpurityDecrease"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMinImpuritySplit"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMinSamplesLeaf"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMinSamplesSplit"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasMinWeightFractionLeaf"/>
-        <Datatype abbreviatedIRI="xsd:float"/>
-    </DataPropertyRange>
-    <DataPropertyRange>
-        <DataProperty IRI="#hasRandomState"/>
-        <Datatype abbreviatedIRI="xsd:integer"/>
-    </DataPropertyRange>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#imports"/>
         <IRI>#Classification----DecisionTree</IRI>

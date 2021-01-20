@@ -11,12 +11,13 @@ def create_class(class_name, parent_class_list):
             class_body = class_body + '\tpass\n'
         return class_body
 
-def create_init_function(init_function_parameters):
-    val = '\tdef __init__(self, ' + init_function_parameters + '):\n'
+def create_init_function(init_function_parameters, imports_value):
+    val = '\tdef __init__(self, ' + init_function_parameters + '):\n\t\tself._model = ' + imports_value.split(' ')[-1] + '('
     for param in init_function_parameters.split(','):
         actual_param = param.split(':')[0]
-        val = val + '\t\tself.' + actual_param + ' = ' + actual_param + '\n'
-    return val
+        val = val + actual_param + ','
+    val = val[:-1]
+    return val + ')'
 
 def create_function(function_ontology_class, isSupervised, init_param_list):
     function_name = (str(function_ontology_class)).replace('ml-hierarchy.', '')
