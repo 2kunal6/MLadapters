@@ -622,11 +622,6 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 As in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="#default_value"/>
-        <IRI>#class_weight</IRI>
-        <Literal>dict = None</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#class_weight</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1200</Literal>
@@ -709,19 +704,9 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">100</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="#default_value"/>
-        <IRI>#max_depth</IRI>
-        <Literal>int = None</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#max_depth</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">300</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="#default_value"/>
-        <IRI>#min_samples_split</IRI>
-        <Literal>float = 2</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
@@ -741,11 +726,6 @@ The input samples. Internally, it will be converted to dtype=np.float32 and if a
 Returns:
 probandarray of shape (n_samples, n_classes) or list of n_outputs such arrays if n_outputs &gt; 1
 The class log-probabilities of the input samples. The order of the classes corresponds to that in the attribute classes_.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty IRI="#default_value"/>
-        <IRI>#splitter</IRI>
-        <Literal>str = ”best”</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>

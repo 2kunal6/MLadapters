@@ -48,7 +48,9 @@ for file_structure in file_structures:
     if(len(file_structure_splits) > 1):
         parentclass = file_structure_splits[-2]
 
-    file_util.append_to_file(filename, 'import ' + ".".join(file_structure_splits[:-1]))
+    if(len(file_structure_splits)>1):
+        file_util.append_to_file(filename, 'from ' + ".".join(file_structure_splits[:-1]) + '.' + file_structure_splits[-2] +
+        ' import ' + file_structure_splits[-2])
 
     for onto_class in list(onto.classes()):
         ontology_class = str(onto_class)

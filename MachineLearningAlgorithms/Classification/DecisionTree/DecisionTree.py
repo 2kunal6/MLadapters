@@ -1,6 +1,6 @@
 
 
-import MachineLearningAlgorithms.Classification
+from MachineLearningAlgorithms.Classification.Classification import Classification
 
 from sklearn.tree import DecisionTreeClassifier
 
@@ -11,7 +11,7 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 class DecisionTree(Classification):
 
 
-	def __init__(self, class_weight:dict = None,criterion:None,max_depth:int = None,min_samples_split:float = 2,splitter:str = ”best”):
+	def __init__(self, class_weight:None,criterion:None,max_depth:None,min_samples_split:None,splitter:None):
 		self.class_weight = class_weight
 		self.criterion = criterion
 		self.max_depth = max_depth
@@ -20,19 +20,19 @@ class DecisionTree(Classification):
 
 
 	def fit(X,y,sample_weight,check_input):
-	'''Build a decision tree classifier from the training set (X, y).'''
+		'''Build a decision tree classifier from the training set (X, y).'''
 		self._model.fit(X, y)
 
 	def get_depth():
-	'''Return the depth of the decision tree.'''
+		'''Return the depth of the decision tree.'''
 		pass
 
 	def get_n_leaves():
-	'''Return the number of leaves of the decision tree.'''
+		'''Return the number of leaves of the decision tree.'''
 		pass
 
 	def apply(X,check_input):
-	'''Return the index of the leaf that each sample is predicted as.
+		'''Return the index of the leaf that each sample is predicted as.
 
 Parameters: 
 X{array-like, sparse matrix} of shape (n_samples, n_features)
@@ -48,7 +48,7 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
 		pass
 
 	def predict(X,check_input):
-	'''Predict class or regression value for X.
+		'''Predict class or regression value for X.
 
 Parameters:
 X{array-like, sparse matrix} of shape (n_samples, n_features)

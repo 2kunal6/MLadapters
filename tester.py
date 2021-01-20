@@ -1,5 +1,4 @@
-
-
 from MachineLearningAlgorithms.Classification.DecisionTree.DecisionTree import DecisionTree
 
-class CHAID(DecisionTree):
+def testDecisionTree():
+    model = DecisionTree(None, None, None, None, None)
