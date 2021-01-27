@@ -11,9 +11,9 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 class DecisionTree(Classification):
 
 
-	def fit(self, X='None',y='None',sample_weight='None',check_input='None'):
+	def fit(self, X=None,y=None,sample_weight=None,check_input=None):
 		'''Build a decision tree classifier from the training set (X, y).'''
-		self._model.fit(X, y)
+		return self._model.fit(X, y)
 
 	def get_depth(self, ):
 		'''Return the depth of the decision tree.'''
@@ -23,12 +23,12 @@ class DecisionTree(Classification):
 		'''Return the number of leaves of the decision tree.'''
 		pass
 
-	def __init__(self, criterion='gini',splitter='best',max_depth='None',min_samples_split=2,min_samples_leaf=1,min_weight_fraction_leaf=0.0,max_features='None',random_state='None',max_leaf_nodes='None',min_impurity_decrease=0.0,min_impurity_split='None',class_weight='None',ccp_alpha=0.0):
+	def __init__(self, criterion='gini',splitter='best',max_depth=None,min_samples_split=2,min_samples_leaf=1,min_weight_fraction_leaf=0.0,max_features=None,random_state=None,max_leaf_nodes=None,min_impurity_decrease=0.0,min_impurity_split=None,class_weight=None,ccp_alpha=0.0):
 		'''None'''
 		self._model = DecisionTreeClassifier(criterion,splitter,max_depth,min_samples_split,min_samples_leaf,min_weight_fraction_leaf,max_features,random_state,max_leaf_nodes,min_impurity_decrease,min_impurity_split,class_weight,ccp_alpha)
 
 
-	def apply(self, X='None',check_input='None'):
+	def apply(self, X=None,check_input=None):
 		'''Return the index of the leaf that each sample is predicted as.
 
 Parameters: 
@@ -44,7 +44,7 @@ X_leavesarray-like of shape (n_samples,)
 For each datapoint x in X, return the index of the leaf x ends up in. Leaves are numbered within [0; self.tree_.node_count), possibly with gaps in the numbering.'''
 		pass
 
-	def predict(self, X='None',check_input='None'):
+	def predict(self, X=None,check_input=None):
 		'''Predict class or regression value for X.
 
 Parameters:

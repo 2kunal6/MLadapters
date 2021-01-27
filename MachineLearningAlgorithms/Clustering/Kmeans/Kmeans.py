@@ -9,7 +9,7 @@ class Kmeans(Clustering):
 
 	def fit(self, ):
 		'''None'''
-		self._model.fit(X)
+		return self._model.fit(X)
 
 	def fit_predict(self, ):
 		'''None'''

@@ -22,7 +22,7 @@ def create_function(function_ontology_class, isSupervised, imports_value):
         param_order_dict = {}
         for param in parameter_list:
             default_value_decorated = str(param.default_value.first())
-            if(default_value_decorated is not None and not default_value_decorated.replace('.', '').isdigit()):
+            if(default_value_decorated != 'None' and not default_value_decorated.replace('.', '').isdigit()):
                 default_value_decorated = '\'' + default_value_decorated + '\''
 
             param_order_dict[int(str(param.parameter_position.first()))] = str(param).split('----')[-1] + '=' + default_value_decorated
@@ -38,9 +38,9 @@ def create_function(function_ontology_class, isSupervised, imports_value):
 
     if(function_name == 'fit'):
         if(isSupervised == '[True]'):
-            function_def = function_def + 'self._model.fit(X, y)'
+            function_def = function_def + 'return self._model.fit(X, y)'
         else:
-            function_def = function_def + 'self._model.fit(X)'
+            function_def = function_def + 'return self._model.fit(X)'
     elif(function_name == 'predict'):
         function_def = function_def + 'self._model.predict(X)'
     elif(function_name == '__init__'):
