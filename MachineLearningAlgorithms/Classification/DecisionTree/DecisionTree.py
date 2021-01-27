@@ -11,12 +11,13 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 class DecisionTree(Classification):
 
 
-	def __init__(self, class_weight,criterion,max_depth,max_features,max_leaf_nodes,min_impurity_decrease,min_samples_leaf,min_samples_split,min_weight_fraction_leaf,random_state,splitter):
-		self._model = DecisionTreeClassifier(class_weight,criterion,max_depth,max_features,max_leaf_nodes,min_impurity_decrease,min_samples_leaf,min_samples_split,min_weight_fraction_leaf,random_state,splitter)
+	def __init__(self, ccp_alpha,class_weight,criterion,max_depth,max_features,max_leaf_nodes,min_impurity_decrease,min_impurity_split,min_samples_leaf,min_samples_split,min_weight_fraction_leaf,random_state,splitter):
+		self._model = DecisionTreeClassifier(criterion='gini', splitter='best', max_depth=None, min_samples_split=2, min_samples_leaf=1, min_weight_fraction_leaf=0.0, max_features=None, random_state=None, max_leaf_nodes=None, min_impurity_decrease=0.0, min_impurity_split=None, class_weight=None, ccp_alpha=0.0)
 
-	def fit(X,y,sample_weight,check_input):
+	def fit(self, X,y,sample_weight,check_input):
 		'''Build a decision tree classifier from the training set (X, y).'''
 		self._model.fit(X, y)
+		return self._model
 
 	def get_depth():
 		'''Return the depth of the decision tree.'''

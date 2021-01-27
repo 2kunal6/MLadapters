@@ -94,7 +94,7 @@
         <Class IRI="#Splitter"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#class_weight"/>
+        <Class IRI="#classification----MLPClassifier"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#fit"/>
@@ -172,7 +172,16 @@
         <ObjectProperty IRI="#hasKmeansFunction----transform"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasMLPClassifierParameter"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasParameter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----ccp_alpha"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----class_weight"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----criterion"/>
@@ -188,6 +197,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_decrease"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_split"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_leaf"/>
@@ -319,10 +331,10 @@
         <Class IRI="#Splitter"/>
         <Class IRI="#DecisionTreeParameter"/>
     </SubClassOf>
-    <SubObjectPropertyOf>
-        <ObjectProperty IRI="#class_weight"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-    </SubObjectPropertyOf>
+    <SubClassOf>
+        <Class IRI="#classification----MLPClassifier"/>
+        <Class IRI="#Classification"/>
+    </SubClassOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#fit"/>
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
@@ -420,8 +432,20 @@
         <ObjectProperty IRI="#hasKmeansFunction"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasMLPClassifierParameter"/>
+        <ObjectProperty IRI="#hasParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----ccp_alpha"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----class_weight"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----criterion"/>
@@ -441,6 +465,10 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_decrease"/>
+        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_split"/>
         <ObjectProperty IRI="#hasDecisionTreeParameter"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
@@ -540,9 +568,23 @@ As with other classifiers, DecisionTreeClassifier takes as input two arrays: an 
 As in the classification setting, the fit method will take as argument arrays X and y, only that in this case y is expected to have floating point values instead of integer values.</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
-        <AnnotationProperty IRI="#parameter_position"/>
-        <IRI>#class_weight</IRI>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1200</Literal>
+        <AnnotationProperty IRI="#isSupervised"/>
+        <IRI>#classification----MLPClassifier</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#classification----MLPClassifier</IRI>
+        <Literal>MLPClassifier trains iteratively since at each time step the partial derivatives of the loss function with respect to the model parameters are computed to update the parameters.
+
+It can also have a regularization term added to the loss function that shrinks model parameters to prevent overfitting.
+
+This implementation works with data represented as dense numpy arrays or sparse scipy arrays of floating point values.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#classification----MLPClassifier</IRI>
+        <Literal>from sklearn.neural_network.MLPClassifier import MLPClassifier</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -618,6 +660,16 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----ccp_alpha</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1300</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----class_weight</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1200</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----criterion</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">100</Literal>
     </AnnotationAssertion>
@@ -640,6 +692,11 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----min_impurity_decrease</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1000</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_impurity_split</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1100</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
