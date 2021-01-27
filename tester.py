@@ -3,7 +3,7 @@ from sklearn.datasets import load_iris
 from sklearn import tree
 
 
-dt = DecisionTree(None, None, None, None, None, None, None, None, None, None, None, None, None)
+dt = DecisionTree()
 X, y = load_iris(return_X_y = True)
 model = dt.fit(X, y, None, None)
 print(model)

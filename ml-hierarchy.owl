@@ -109,10 +109,10 @@
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#hasFunction"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply"/>
@@ -352,12 +352,12 @@
         <ObjectProperty IRI="#hasFunction"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-        <ObjectProperty IRI="#hasParameter"/>
-    </SubObjectPropertyOf>
-    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasFunction"/>
         <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----apply"/>
@@ -441,67 +441,60 @@
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----ccp_alpha"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----class_weight"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----criterion"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_depth"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_features"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----max_leaf_nodes"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_decrease"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_impurity_split"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_leaf"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_samples_split"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----min_weight_fraction_leaf"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----random_state"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasParameter----hasDecisionTreeParameter----splitter"/>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----__init__"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
         <ObjectProperty IRI="#predict"/>
         <ObjectProperty IRI="#hasDecisionTreeFunction"/>
     </SubObjectPropertyOf>
-    <ObjectPropertyDomain>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-        <ObjectAllValuesFrom>
-            <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-            <Class IRI="#Classification----DecisionTree"/>
-        </ObjectAllValuesFrom>
-    </ObjectPropertyDomain>
     <ObjectPropertyDomain>
         <ObjectProperty IRI="#hasParameter"/>
         <ObjectAllValuesFrom>
@@ -509,13 +502,6 @@
             <Class IRI="#MachineLearningAlgorithms"/>
         </ObjectAllValuesFrom>
     </ObjectPropertyDomain>
-    <ObjectPropertyRange>
-        <ObjectProperty IRI="#hasDecisionTreeParameter"/>
-        <ObjectSomeValuesFrom>
-            <ObjectProperty IRI="#hasParameter"/>
-            <Class IRI="#DecisionTreeParameter"/>
-        </ObjectSomeValuesFrom>
-    </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#hasParameter"/>
         <ObjectSomeValuesFrom>
@@ -659,6 +645,11 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----ccp_alpha</IRI>
+        <Literal>0.0</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----ccp_alpha</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1300</Literal>
@@ -667,6 +658,11 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----class_weight</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1200</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----criterion</IRI>
+        <Literal>gini</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
@@ -689,6 +685,11 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">900</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_impurity_decrease</IRI>
+        <Literal>0.0</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----min_impurity_decrease</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">1000</Literal>
@@ -699,14 +700,29 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1100</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_samples_leaf</IRI>
+        <Literal>1</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----min_samples_leaf</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">500</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_samples_split</IRI>
+        <Literal>2</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----min_samples_split</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">400</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----min_weight_fraction_leaf</IRI>
+        <Literal>0.0</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>
@@ -717,6 +733,11 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasParameter----hasDecisionTreeParameter----random_state</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">800</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#default_value"/>
+        <IRI>#hasParameter----hasDecisionTreeParameter----splitter</IRI>
+        <Literal>best</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>

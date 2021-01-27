@@ -66,25 +66,8 @@ for file_structure in file_structures:
 
     file_util.append_to_file(filename, python_content_creator.create_class(file_structure_splits[-1], parentclass))
 
-    init_function_parameter = ''
-    for onto_class in list(onto.object_properties()):
-        ontology_class = str(onto_class)
-        ontology_class = ontology_class.replace('ml-hierarchy.', '')
-        if (ontology_class.lower() == ('has' + file_structure_splits[-1] + 'parameter').lower()):
-            for param in onto_class.subclasses():
-                actual_param = str(param).split('----')[-1]
-                actual_param = actual_param.replace('ml-hierarchy.', '')
-                if(str(param.default_value.first()) != 'None'):
-                    init_function_parameter = init_function_parameter + actual_param + ':' + str(param.default_value.first()) + ','
-                else:
-                    init_function_parameter = init_function_parameter + actual_param + ','
-            init_function_parameter = init_function_parameter[:-1]
-            break
-    if(init_function_parameter != ''):
-        file_util.append_to_file(filename, python_content_creator.create_init_function(init_function_parameter, imports_value))
-
     for onto_class in list(onto.object_properties()):
         ontology_class = str(onto_class)
         if (ontology_class.lower().replace('ml-hierarchy.', '') == ('has' + file_structure_splits[-1] + 'function').lower()):
             for function_ontology_class in list(onto_class.subclasses()):
-                file_util.append_to_file(filename, python_content_creator.create_function(function_ontology_class, isSupervised, init_function_parameter))
+                file_util.append_to_file(filename, python_content_creator.create_function(function_ontology_class, isSupervised, imports_value))

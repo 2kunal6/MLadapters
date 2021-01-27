@@ -11,22 +11,24 @@ As in the classification setting, the fit method will take as argument arrays X 
 class DecisionTree(Regression):
 
 
-	def __init__(self, ccp_alpha,class_weight,criterion,max_depth,max_features,max_leaf_nodes,min_impurity_decrease,min_impurity_split,min_samples_leaf,min_samples_split,min_weight_fraction_leaf,random_state,splitter):
-		self._model = DecisionTreeRegressor(ccp_alpha,class_weight,criterion,max_depth,max_features,max_leaf_nodes,min_impurity_decrease,min_impurity_split,min_samples_leaf,min_samples_split,min_weight_fraction_leaf,random_state,splitter)
-
-	def fit(X,y,sample_weight,check_input):
+	def fit(self, X='None',y='None',sample_weight='None',check_input='None'):
 		'''Build a decision tree classifier from the training set (X, y).'''
 		self._model.fit(X, y)
 
-	def get_depth():
+	def get_depth(self, ):
 		'''Return the depth of the decision tree.'''
 		pass
 
-	def get_n_leaves():
+	def get_n_leaves(self, ):
 		'''Return the number of leaves of the decision tree.'''
 		pass
 
-	def apply(X,check_input):
+	def __init__(self, criterion='gini',splitter='best',max_depth='None',min_samples_split=2,min_samples_leaf=1,min_weight_fraction_leaf=0.0,max_features='None',random_state='None',max_leaf_nodes='None',min_impurity_decrease=0.0,min_impurity_split='None',class_weight='None',ccp_alpha=0.0):
+		'''None'''
+		self._model = DecisionTreeRegressor(criterion,splitter,max_depth,min_samples_split,min_samples_leaf,min_weight_fraction_leaf,max_features,random_state,max_leaf_nodes,min_impurity_decrease,min_impurity_split,class_weight,ccp_alpha)
+
+
+	def apply(self, X='None',check_input='None'):
 		'''Return the index of the leaf that each sample is predicted as.
 
 Parameters: 
@@ -42,7 +44,7 @@ X_leavesarray-like of shape (n_samples,)
 For each datapoint x in X, return the index of the leaf x ends up in. Leaves are numbered within [0; self.tree_.node_count), possibly with gaps in the numbering.'''
 		pass
 
-	def predict(X,check_input):
+	def predict(self, X='None',check_input='None'):
 		'''Predict class or regression value for X.
 
 Parameters:
