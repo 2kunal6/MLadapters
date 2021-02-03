@@ -1,0 +1,8 @@
+
+
+
+
+
+
+class Bayesian(MLalgorithms):
+    pass
