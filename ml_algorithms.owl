@@ -23,9 +23,27 @@
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#core_import -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/mlalgorithms#core_import"/>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#default -->
 
     <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/mlalgorithms#default"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#import -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/mlalgorithms#import"/>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#lib_import -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/mlalgorithms#lib_import"/>
     
 
 
@@ -172,6 +190,7 @@
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#max_iter"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <core_import>from sklearn.linear_model import Lasso</core_import>
         <rdfs:label>LassoRegression</rdfs:label>
     </owl:Class>
     
