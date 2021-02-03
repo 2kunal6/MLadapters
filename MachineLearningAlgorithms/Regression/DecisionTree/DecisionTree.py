@@ -34,7 +34,7 @@ X{array-like, sparse matrix} of shape (n_samples, n_features)
 The input samples. Internally, it will be converted to dtype=np.float32 and if a sparse matrix is provided to a sparse csr_matrix.
 
 check_inputbool, default=True
-Allow to bypass several input checking. Donâ€™t use this parameter unless you know what you do.
+Allow to bypass several input checking. Don’t use this parameter unless you know what you do.
 
 
 Returns:
