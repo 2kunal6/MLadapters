@@ -59,6 +59,8 @@ for file_structure in file_structures:
             if(onto_class.imports.first() is not None):
                 imports_value = str(onto_class.imports.first())
                 file_util.append_to_file(filename, imports_value)
+            if(onto_class.metrics_import.first() is not None):
+                file_util.append_to_file(filename, str(onto_class.metrics_import.first()))
             if(onto_class.comment.first() is not None):
                 file_util.append_to_file(filename, "'''" + str(onto_class.comment.first()) + "'''")
             isSupervised = str(onto_class.isSupervised)

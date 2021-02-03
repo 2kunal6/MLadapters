@@ -139,6 +139,15 @@
         <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----fit----y"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy----y_pred"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy----y_test"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----predict----X"/>
     </Declaration>
     <Declaration>
@@ -227,6 +236,9 @@
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="#isSupervised"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#metrics_import"/>
     </Declaration>
     <Declaration>
         <AnnotationProperty IRI="#parameter_position"/>
@@ -388,6 +400,18 @@
         <ObjectProperty IRI="#fit"/>
     </SubObjectPropertyOf>
     <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy"/>
+        <ObjectProperty IRI="#hasDecisionTreeFunction"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy----y_pred"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy----y_test"/>
+        <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----get_accuracy"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
         <ObjectProperty IRI="#hasFunction----hasDecisionTreeFunction----predict----X"/>
         <ObjectProperty IRI="#predict"/>
     </SubObjectPropertyOf>
@@ -520,6 +544,11 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty IRI="#metrics_import"/>
+        <IRI>#Classification----DecisionTree</IRI>
+        <Literal>from sklearn import metrics</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Classification----DecisionTree</IRI>
         <Literal>DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.
@@ -633,6 +662,16 @@ For each datapoint x in X, return the index of the leaf x ends up in. Leaves are
         <AnnotationProperty IRI="#parameter_position"/>
         <IRI>#hasFunction----hasDecisionTreeFunction----fit----y</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#int">200</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----get_accuracy----y_pred</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="#parameter_position"/>
+        <IRI>#hasFunction----hasDecisionTreeFunction----get_accuracy----y_test</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty IRI="#parameter_position"/>

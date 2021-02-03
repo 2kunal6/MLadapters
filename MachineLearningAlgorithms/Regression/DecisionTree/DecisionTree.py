@@ -44,6 +44,10 @@ X_leavesarray-like of shape (n_samples,)
 For each datapoint x in X, return the index of the leaf x ends up in. Leaves are numbered within [0; self.tree_.node_count), possibly with gaps in the numbering.'''
 		pass
 
+	def get_accuracy(self, y_test=None,y_pred=None):
+		'''None'''
+		return metrics.accuracy_score(y_test, y_pred)
+
 	def predict(self, X=None,check_input=None):
 		'''Predict class or regression value for X.
 

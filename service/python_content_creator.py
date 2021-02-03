@@ -44,6 +44,8 @@ def create_function(function_ontology_class, isSupervised, imports_value):
             function_def = function_def + 'return self._model.fit(X)'
     elif(function_name == 'predict'):
         function_def = function_def + 'self._model.predict(X)'
+    elif(function_name == 'get_accuracy'):
+        function_def = function_def + 'return metrics.accuracy_score(y_test, y_pred)'
     elif(function_name == '__init__'):
         function_def = function_def + 'self._model = ' + imports_value.split(' ')[-1] + '(' + param_list_without_default_val + ")\n"
     else:

@@ -4,6 +4,8 @@ from MachineLearningAlgorithms.Classification.Classification import Classificati
 
 from sklearn.tree import DecisionTreeClassifier
 
+from sklearn import metrics
+
 '''DecisionTreeClassifier is a class capable of performing multi-class classification on a dataset.
 
 As with other classifiers, DecisionTreeClassifier takes as input two arrays: an array X, sparse or dense, of shape (n_samples, n_features) holding the training samples, and an array Y of integer values, shape (n_samples,), holding the class labels for the training samples.'''
@@ -43,6 +45,10 @@ Returns:
 X_leavesarray-like of shape (n_samples,)
 For each datapoint x in X, return the index of the leaf x ends up in. Leaves are numbered within [0; self.tree_.node_count), possibly with gaps in the numbering.'''
 		pass
+
+	def get_accuracy(self, y_test=None,y_pred=None):
+		'''None'''
+		return metrics.accuracy_score(y_test, y_pred)
 
 	def predict(self, X=None,check_input=None):
 		'''Predict class or regression value for X.
