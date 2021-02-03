@@ -17,7 +17,7 @@ def create_function(function_ontology_class, isSupervised, imports_value):
     parameter_list = function_ontology_class.subclasses()
     function_def = ''
     if not parameter_list:
-        function_def = '\tdef ' + function_name + ':\n\t\t' + "'''" + str(function_ontology_class.comment.first()) + "'''" + '\n\t\t'
+        function_def = '\tdef ' + function_naparam_list_without_default_valme + ':\n\t\t' + "'''" + str(function_ontology_class.comment.first()) + "'''" + '\n\t\t'
     else:
         param_order_dict = {}
         for param in parameter_list:
@@ -31,7 +31,8 @@ def create_function(function_ontology_class, isSupervised, imports_value):
         param_list_without_default_val = ''
         for k in sorted(param_order_dict):
             param_list = param_list + str(param_order_dict[k]).replace('ml-hierarchy.', '') + ','
-            param_list_without_default_val = param_list_without_default_val + str(param_order_dict[k]).replace('ml-hierarchy.', '').split('=')[0] + ','
+            param_name = str(param_order_dict[k]).replace('ml-hierarchy.', '').split('=')[0]
+            param_list_without_default_val = param_list_without_default_val + param_name + '=' + param_name + ','
         param_list = param_list[:-1]
         param_list_without_default_val = param_list_without_default_val[:-1]
         function_def = '\tdef ' + function_name + '(self, ' + param_list + '):\n\t\t' + "'''" + str(function_ontology_class.comment.first()) + "'''" + '\n\t\t'
