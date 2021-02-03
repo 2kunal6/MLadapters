@@ -29,17 +29,17 @@ class DecisionTree(Classification):
 	def apply(X,check_input):
 		'''Return the index of the leaf that each sample is predicted as.
 
-Parameters: 
-X{array-like, sparse matrix} of shape (n_samples, n_features)
-The input samples. Internally, it will be converted to dtype=np.float32 and if a sparse matrix is provided to a sparse csr_matrix.
+		Parameters:
+		X{array-like, sparse matrix} of shape (n_samples, n_features)
+		The input samples. Internally, it will be converted to dtype=np.float32 and if a sparse matrix is provided to a sparse csr_matrix.
 
-check_inputbool, default=True
-Allow to bypass several input checking. Don’t use this parameter unless you know what you do.
+		check_inputbool, default=True
+		Allow to bypass several input checking. Donï¿½t use this parameter unless you know what you do.
 
 
-Returns:
-X_leavesarray-like of shape (n_samples,)
-For each datapoint x in X, return the index of the leaf x ends up in. Leaves are numbered within [0; self.tree_.node_count), possibly with gaps in the numbering.'''
+		Returns:
+		X_leavesarray-like of shape (n_samples,)
+		For each datapoint x in X, return the index of the leaf x ends up in. Leaves are numbered within [0; self.tree_.node_count), possibly with gaps in the numbering.'''
 		pass
 
 	def predict(X,check_input):
