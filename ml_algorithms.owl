@@ -177,6 +177,21 @@
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#LassoTempReg -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#LassoTempReg">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#LassoRegression"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#alpha"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label>LassoTempReg</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#LinearRegression -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#LinearRegression">
@@ -273,6 +288,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#alpha">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default>&quot;Hi&quot;</default>
         <rdfs:label>alpha</rdfs:label>
     </owl:Class>
     
