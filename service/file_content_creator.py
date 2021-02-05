@@ -46,7 +46,8 @@ def generate_model_init_from_template(node, params, variables):
 
 def generate_function_body_from_template(node, func, target):
     print("FUNC: ", func.label.first())
-    if func.label.first() == "init":
+    func_name = func.label.first()
+    if func_name == "init":
         variables = [obj.label.first() for obj in target]
         stmts = ["self.{var} = {var}".format(var=var) for var in variables]
         stmt = "\n\t\t".join(stmts)
@@ -56,6 +57,14 @@ def generate_function_body_from_template(node, func, target):
                 parent=cp_map[node].label.first(), params=params)
         stmt = stmt + generate_model_init_from_template(node, params, variables)
         return stmt
+    else:
+        variables = [obj.label.first() for obj in target]
+        stmts = ["{var}={var}".format(var=var) for var in variables]
+        params = ",\n\t\t\t".join(stmts)
+        return "return self.model.{func_name}({params})".format(
+            func_name=func_name,
+            params=params
+        )
 
 
 def generate_function_param_from_template(node, target):
