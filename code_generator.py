@@ -9,7 +9,10 @@ onto = get_ontology("ml_algorithms.owl").load()
 queue = []
 root_class = None
 print([i for i in onto.annotation_properties()])
+print(list(onto.classes()))
 for onto_class in list(onto.classes()):
+    print(onto_class)
+    print(onto_class.label)
     if(onto_class.label[0] == 'MLalgorithms'):
         root_class = onto_class
 

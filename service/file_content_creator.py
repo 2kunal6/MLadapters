@@ -31,6 +31,19 @@ def function_name_handler(func_name):
     return func_name
 
 
+def generate_model_init_from_template(node, params, variables):
+    stmt = ""
+    if node.core_import:
+        lib_name = node.core_import.first().split()[-1]
+        variables.extend(params.split(", "))
+        variables = set(variables)
+        stmts = ["{var} = self.{var}".format(var=var) for var in variables]
+        func_params = ",\n\t\t\t".join(stmts)
+        stmt = stmt + "\n\t\tself.model = {lib_name}({func_params})".format(
+            lib_name=lib_name, func_params=func_params)
+    return stmt
+
+
 def generate_function_body_from_template(node, func, target):
     print("FUNC: ", func.label.first())
     if func.label.first() == "init":
@@ -41,14 +54,7 @@ def generate_function_body_from_template(node, func, target):
         if params:
             stmt = stmt + "\n\t\t{parent}.__init__(self, {params})".format(
                 parent=cp_map[node].label.first(), params=params)
-        if node.core_import:
-            lib_name = node.core_import.first().split()[-1]
-            variables.extend(params.split(", "))
-            variables = set(variables)
-            stmts = ["{var} = self.{var}".format(var=var) for var in variables]
-            func_params = ",\n\t\t\t".join(stmts)
-            stmt = stmt + "\n\t\tself.model = {lib_name}({func_params})".format(
-                lib_name=lib_name, func_params=func_params)
+        stmt = stmt + generate_model_init_from_template(node, params, variables)
         return stmt
 
 
@@ -74,6 +80,7 @@ def generate_function_from_template(node, func):
         {statements}
 
     """
+    print("\n---------------------")
     print("LABEL: ", func.label[0])
     var = func.label.first()
     target = eval("node." + var)
@@ -82,7 +89,7 @@ def generate_function_from_template(node, func):
         for child in node.descendants():
             if child != node:
                 if member_propagation.get(child):
-                    member_propagation[child].extend(target)
+                    member_propagation[child] = member_propagation[child] + target
                 else:
                     member_propagation[child] = target
     if target:
@@ -91,13 +98,12 @@ def generate_function_from_template(node, func):
             params=generate_function_param_from_template(node, target),
             statements=generate_function_body_from_template(node, func, target)
         )
-        # print(func)
-        # print(target[0].label.first())
         return func
 
 
 def get_inherited_params(node):
     inherited_variables = member_propagation.get(node)
+    print("INH_P: ", inherited_variables)
     if inherited_variables:
         var = [obj.label.first() for obj in inherited_variables]
         params = ", ".join(var)
@@ -108,11 +114,13 @@ def get_inherited_params(node):
 def generate_init_by_member_propagation(node):
     func_template = """
     def __init__(self, {params}):
-        {parent}.__init__(self, {params})
+        {parent}.__init__(self, {params}){stmt}
     """
+    params = get_inherited_params(node)
     return func_template.format(
-        params=get_inherited_params(node),
-        parent=cp_map[node].label.first()
+        params=params,
+        parent=cp_map[node].label.first(),
+        stmt=generate_model_init_from_template(node, params, [])
     )
 
 
@@ -123,7 +131,6 @@ def generate_functions_from_template(node):
         if func.label:
             func_data = func_data + generate_function_from_template(node, func)
             function_names.add(func.label[0])
-    # print(func_data)
     if not func_data and member_propagation.get(node):
         func_data = generate_init_by_member_propagation(node)
     return func_data

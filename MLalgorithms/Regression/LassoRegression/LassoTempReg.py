@@ -6,8 +6,8 @@
 
 class LassoTempReg(LassoRegression):
     
-    def __init__(self, n_jobs, normalize, copy_X, max_iter, fit_intercept, max_iter, alpha = "Hi"):
+    def __init__(self, copy_X, n_jobs, normalize, fit_intercept, max_iter, alpha):
         self.alpha = alpha
-		LassoRegression.__init__(self, n_jobs, normalize, copy_X, max_iter, fit_intercept, max_iter)
-    
+		LassoRegression.__init__(self, copy_X, n_jobs, normalize, fit_intercept, max_iter)
+
     
