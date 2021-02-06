@@ -78,14 +78,6 @@
     
 
 
-    <!-- http://www.semanticweb.org/mlalgorithms#get_params___deep -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#get_params___deep">
-        <rdfs:label>get_params___deep</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.semanticweb.org/mlalgorithms#init -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#init">
@@ -106,38 +98,6 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#score">
         <rdfs:label>score</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/mlalgorithms#score___X -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#score___X">
-        <rdfs:label>score___X</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/mlalgorithms#score___sample_weight -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#score___sample_weight">
-        <rdfs:label>score___sample_weight</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/mlalgorithms#score___y -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#score___y">
-        <rdfs:label>score___y</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.semanticweb.org/mlalgorithms#set_params___params -->
-
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#set_params___params">
-        <rdfs:label>set_params___params</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -235,6 +195,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#LinearRegression">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#Regression"/>
+        <core_import>from sklearn.linear_model import LinearRegression</core_import>
         <rdfs:label>LinearRegression</rdfs:label>
     </owl:Class>
     
@@ -385,6 +346,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#RidgeRegression">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#Regression"/>
+        <core_import>from sklearn.linear_model import RidgeRegression</core_import>
         <rdfs:label>RidgeRegression</rdfs:label>
     </owl:Class>
     
