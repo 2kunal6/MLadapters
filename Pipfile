@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-owlready2 = "*"
 scikit-learn = "*"
+owlready2 = "==0.25"
 
 [dev-packages]
 
