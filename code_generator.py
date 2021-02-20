@@ -26,7 +26,8 @@ while queue:
     if onto.get_children_of(node):
         file_util.create_folders_and_subfolders(file)
     content = create_file_contents(node, child_parent_map)
-    file_util.create_and_write_file(file + ".py", content)
+    content_with_parent_import = file_util.create_parent_import(file) + '\n' + content
+    file_util.create_and_write_file(file + ".py", content_with_parent_import)
     file_path.append(file)
     for child in onto.get_children_of(node):
         queue.append(child)

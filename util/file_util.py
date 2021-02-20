@@ -16,3 +16,11 @@ def create_and_write_file(filename, content):
 def create_folders_and_subfolders(folder_path):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
+
+def create_parent_import(filepath):
+    file_parts = filepath.split('/')
+    if(len(file_parts) < 2):
+        return ''
+    if(len(file_parts) == 2):
+        return 'import MLalgorithms'
+    return 'from ' + '.'.join(file_parts[:-1]) + ' import ' + file_parts[-2]

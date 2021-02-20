@@ -1,4 +1,5 @@
-from MachineLearningAlgorithms.Classification.DecisionTree.DecisionTree import DecisionTree
+from MLalgorithms.Regression.LinearRegression import LinearRegression
 
-def testDecisionTree():
-    model = DecisionTree(None, None, None, None, None)
+model = LinearRegression()
+print(model)
+
