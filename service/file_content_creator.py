@@ -1,25 +1,38 @@
+import os
+
 member_propagation = {}
 cp_map = {}
 
-template = """
-{import_statements}\n\n
+template = """{import_statements}\n\n
 class {class_name}({parent}):
-    {functions}
+\t{functions}
 """
 
 
-def generate_imports_from_template(node):
-    import_template = """\n{lib}\n{core}"""
+def generate_relative_imports(file_path):
+    file_parts = file_path.split(os.path.sep)
+    if len(file_parts) < 2:
+        return ''
+    if len(file_parts) == 2:
+        return "import " + file_parts[0]
+    return "from {parent} import {class_name}".format(
+        parent='.'.join(file_parts[:-1]), class_name=file_parts[-2])
+
+
+def generate_imports_from_template(node, file_path):
+    import_template = "{lib}{core}{relative}"
     core = node.core_import
     lib = node.lib_import
+    relative = generate_relative_imports(file_path)
     return import_template.format(
-        lib=node.lib_import.first() if lib else "",
-        core=node.core_import.first() if core else "")
+        lib='\n' + node.lib_import.first() if lib else "",
+        core='\n' + node.core_import.first() if core else "",
+        relative='\n' + relative if relative else "")
 
 
-def generate_class_from_template(node, parent, functions):
+def generate_class_from_template(file_path, node, parent, functions):
     return template.format(
-        import_statements=generate_imports_from_template(node),
+        import_statements=generate_imports_from_template(node, file_path),
         class_name=node.label.first(),
         parent=parent.label.first() if parent else "",
         functions=functions)
@@ -85,10 +98,8 @@ def generate_function_param_from_template(node, target):
 
 def generate_function_from_template(node, func):
     func_template = """
-    def {func_name}(self{params}):
-        {statements}
-
-    """
+\tdef {func_name}(self{params}):
+\t\t{statements}\n"""
     print("\n---------------------")
     print("LABEL: ", func.label[0])
     var = func.label.first()
@@ -122,9 +133,8 @@ def get_inherited_params(node):
 
 def generate_init_by_member_propagation(node):
     func_template = """
-    def __init__(self, {params}):
-        {parent}.__init__(self, {params}){stmt}
-    """
+\tdef __init__(self, {params}):
+\t\t{parent}.__init__(self, {params}){stmt}\n"""
     params = get_inherited_params(node)
     return func_template.format(
         params=params,
@@ -145,7 +155,7 @@ def generate_functions_from_template(node):
     return func_data
 
 
-def create_file_contents(node, child_parent_map):
+def create_file_contents(file_path, node, child_parent_map):
     print(node.label)
     global cp_map
     cp_map = child_parent_map
@@ -155,7 +165,6 @@ def create_file_contents(node, child_parent_map):
     func_data = generate_functions_from_template(node)
     if not func_data:
         func_data = "pass"
-    content = generate_class_from_template(node, parent, func_data)
+    content = generate_class_from_template(file_path, node, parent, func_data)
     print(content)
     return content
-    # print("MEM_PROP: ", member_propagation)

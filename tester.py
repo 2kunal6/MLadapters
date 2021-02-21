@@ -1,4 +1,4 @@
-from MLalgorithms.Regression.LinearRegression import LinearRegression
+from MLalgorithms.Regression import LinearRegression
 
 model = LinearRegression()
 print(model)
