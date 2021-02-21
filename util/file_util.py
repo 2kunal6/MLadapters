@@ -9,6 +9,7 @@ def append_to_file(filename, content):
     f.close()
 
 def create_and_write_file(filename, content):
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
     f = open(filename, 'w+')
     f.write(content)
     f.close()
