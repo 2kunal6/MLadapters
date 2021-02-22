@@ -5,13 +5,13 @@ from MLalgorithms.NeuralNetwork.RNNBase import RNNBase
 
 class LSTM(RNNBase):
 	
-	def __init__(self, bidirectional, input_size, bias, batch_first, hidden_size, num_layers, dropout):
-		RNNBase.__init__(self, bidirectional, input_size, bias, batch_first, hidden_size, num_layers, dropout)
-		self.model = LSTM(bias = self.bias,
-			batch_first = self.batch_first,
-			hidden_size = self.hidden_size,
-			dropout = self.dropout,
-			bidirectional = self.bidirectional,
+	def __init__(self, num_layers, bidirectional, batch_first, bias, input_size, hidden_size, dropout):
+		RNNBase.__init__(self, num_layers, bidirectional, batch_first, bias, input_size, hidden_size, dropout)
+		self.model = LSTM(bidirectional = self.bidirectional,
 			num_layers = self.num_layers,
-			input_size = self.input_size)
+			dropout = self.dropout,
+			hidden_size = self.hidden_size,
+			bias = self.bias,
+			input_size = self.input_size,
+			batch_first = self.batch_first)
 

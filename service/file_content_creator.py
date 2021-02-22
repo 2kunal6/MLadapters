@@ -52,8 +52,10 @@ def generate_model_init_from_template(node, params, variables):
         variables = set(variables)
         stmts = ["{var} = self.{var}".format(var=var) for var in variables]
         func_params = ",\n\t\t\t".join(stmts)
-        stmt = stmt + "\n\t\tself.model = {lib_name}({func_params})".format(
-            lib_name=lib_name, func_params=func_params)
+        stmt_template = "\n\t\t{returns} {lib_name}({func_params})"
+        assign_return = "{var} =".format(var=node.returns.first())
+        stmt = stmt + stmt_template.format(
+            returns=assign_return, lib_name=lib_name, func_params=func_params)
     return stmt
 
 
@@ -105,6 +107,17 @@ def generate_function_from_template(node, func):
     var = func.label.first()
     target = eval("node." + var)
     print("TARGET: ", target)
+    '''
+    if var == "fit":
+        print(target)
+        val = node.get_class_properties()
+        temp=list(val)[0]
+        print(temp.annotation_property)
+        print(temp.pos)
+        #print(eval("node.pos[node, owl_subclassof, fit]"))
+        #print(eval("node."+list(val)[0]))
+        print(node.fit.pos)
+    '''
     if var == "init":
         for child in node.descendants():
             if child != node:
@@ -146,6 +159,7 @@ def generate_init_by_member_propagation(node):
 def generate_functions_from_template(node):
     function_names = set()
     func_data = ""
+    print( node.get_class_properties())
     for func in node.get_class_properties():
         if func.label:
             func_data = func_data + generate_function_from_template(node, func)
@@ -166,5 +180,5 @@ def create_file_contents(file_path, node, child_parent_map):
     if not func_data:
         func_data = "pass"
     content = generate_class_from_template(file_path, node, parent, func_data)
-    print(content)
+    #print(content)
     return content

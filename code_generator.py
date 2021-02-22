@@ -15,7 +15,7 @@ for onto_class in list(onto.classes()):
     if onto_class.label[0] == 'MLalgorithms':
         root_class = onto_class
 
-shutil.rmtree("MLalgorithms")
+#shutil.rmtree("MLalgorithms")
 queue.append(root_class)
 dir_structure = [root_class.label[0]]
 child_parent_map[root_class] = None
