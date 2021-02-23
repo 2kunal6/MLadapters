@@ -14,9 +14,12 @@ def generate_relative_imports(file_path):
     if len(file_parts) < 2:
         return ''
     if len(file_parts) == 2:
-        return "import " + file_parts[0]
+        return "from {parent}._{parent} import {parent}".format(
+            parent=file_parts[0])
+    class_name = file_parts[-2]
+    file_parts[-2] = "_" + file_parts[-2]
     return "from {parent} import {class_name}".format(
-        parent='.'.join(file_parts[:-1]), class_name=file_parts[-2])
+        parent='.'.join(file_parts[:-1]), class_name=class_name)
 
 
 def generate_imports_from_template(node, file_path):
@@ -85,16 +88,21 @@ def generate_function_body_from_template(node, func, target):
 def generate_function_param_from_template(node, target):
     params = ""
     param_template = "{var} = {value}"
-    for obj in target:
+    inh_var = member_propagation.get(node)
+    variables = target
+    if inh_var:
+        variables = inh_var + target
+    for obj in variables:
+    #for obj in target:
         if not obj.default:
             param = obj.label.first()
         else:
             param = param_template.format(
                 var=obj.label.first(), value=obj.default.first())
         params = params + ", " + param
-    inherited_params = get_inherited_params(node)
-    if inherited_params:
-        params = ", " + inherited_params + params
+    #inherited_params = get_inherited_params(node)
+    #if inherited_params:
+    #    params = ", " + inherited_params + params
     return params
 
 
@@ -107,17 +115,6 @@ def generate_function_from_template(node, func):
     var = func.label.first()
     target = eval("node." + var)
     print("TARGET: ", target)
-    '''
-    if var == "fit":
-        print(target)
-        val = node.get_class_properties()
-        temp=list(val)[0]
-        print(temp.annotation_property)
-        print(temp.pos)
-        #print(eval("node.pos[node, owl_subclassof, fit]"))
-        #print(eval("node."+list(val)[0]))
-        print(node.fit.pos)
-    '''
     if var == "init":
         for child in node.descendants():
             if child != node:
