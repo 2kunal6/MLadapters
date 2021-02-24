@@ -8,6 +8,18 @@ from util.position_parser import read_pos_from_ontology
 
 
 def get_file_path(node, file, root_class):
+    """
+    Generates file path based on class.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current class for which file path has to be created.
+        file (str): Base file path.
+        root_class (object of owlready2.entity.ThingClass): Root class of the tree.
+
+    Returns:
+        str: File path of the current class.
+
+    """
     file_path = file
     if node == root_class:
         file_path = os.path.join(file, file)

@@ -11,6 +11,16 @@ class {class_name}({parent}):
 
 
 def generate_relative_imports(file_path):
+    """
+    Generates relative import statements from a template for a specific class.
+
+    Parameters:
+        file_path (str): File path of current node.
+
+    Returns:
+        str: Template with relative imports filled.
+
+    """
     file_parts = file_path.split(os.path.sep)
     if len(file_parts) < 2:
         return ''
@@ -24,6 +34,17 @@ def generate_relative_imports(file_path):
 
 
 def generate_imports_from_template(node, file_path):
+    """
+    Generates import statements from a template for a specific class.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class.
+        file_path (str): File path of current node.
+
+    Returns:
+        str: Template with import statements filled.
+
+    """
     import_template = "{lib}{core}{relative}"
     core = node.core_import
     lib = node.lib_import
@@ -35,6 +56,19 @@ def generate_imports_from_template(node, file_path):
 
 
 def generate_class_from_template(file_path, node, parent, functions):
+    """
+    Generates complete class based on a template.
+
+    Parameters:
+        file_path (str): File path of current node.
+        node (object of owlready2.entity.ThingClass): Current node/class.
+        parent (object of owlready2.entity.ThingClass): Parent of current node/class.
+        functions (str): Generated function data based on a template.
+
+    Returns:
+        str: Template with all the values filled for a single class.
+
+    """
     return template.format(
         import_statements=generate_imports_from_template(node, file_path),
         class_name=node.label.first(),
@@ -43,12 +77,34 @@ def generate_class_from_template(file_path, node, parent, functions):
 
 
 def function_name_handler(func_name):
+    """
+    Returns processed function name.
+
+    Parameters:
+        func_name (str): Function name.
+
+    Returns:
+        str: Processed function name.
+
+    """
     if func_name == "init":
         return "__init__"
     return func_name
 
 
 def generate_model_init_from_template(node, inh_vars, variables):
+    """
+    Generates model initialisation code based on a template.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class modelled as an OWL class.
+        inh_vars (list of object of owlready2.entity.ThingClass): Inherited function parameters.
+        variables (list of object of owlready2.entity.ThingClass): Function parameters.
+
+    Returns:
+        str: Code of model initialisation.
+
+    """
     stmt = ""
     if node.core_import:
         lib_name = node.core_import.first().split()[-1]
@@ -64,6 +120,18 @@ def generate_model_init_from_template(node, inh_vars, variables):
 
 
 def generate_function_body_from_template(node, func, target):
+    """
+    Generates function body from template for a specific class and a specific function.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class modelled as an OWL class.
+        func (object of owlready2.prop.ObjectPropertyClass): Function object modelled as an OWL property.
+        target (list of object of owlready2.entity.ThingClass): Function parameters.
+
+    Returns:
+        str: Function body of a single function is filled based on a template.
+
+    """
     print("FUNC: ", func.label.first())
     func_name = func.label.first()
     if func_name == "init":
@@ -89,6 +157,18 @@ def generate_function_body_from_template(node, func, target):
 
 
 def get_pos(node, func_name, obj):
+    """
+    Returns position of an parameter.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class.
+        func_name (str): Name of the function.
+        obj (object of owlready2.entity.ThingClass): Parameter object modelled as an OWL class.
+
+    Returns:
+        int: Position of the parameter.
+
+    """
     pos = pos_map.get(node.label.first(), {}).get(func_name, {}).get(obj.label.first())
     while cp_map[node]:
         if not pos:
@@ -101,6 +181,18 @@ def get_pos(node, func_name, obj):
 
 
 def get_sorted_subarray(vars, node, func_name):
+    """
+    Returns function parameter objects in an sorted order based on the position annotation.
+
+    Parameters:
+        vars (list of object of owlready2.entity.ThingClass): List of parameter variables.
+        node (object of owlready2.entity.ThingClass): Current node/class.
+        func_name (str): Name of the function.
+
+    Returns:
+        list of object of owlready2.entity.ThingClass: Ordered function parameters.
+
+    """
     pos_list = []
     empty_pos = 1
     for obj in vars:
@@ -113,6 +205,18 @@ def get_sorted_subarray(vars, node, func_name):
 
 
 def get_ordered_params(node, func_name, variables):
+    """
+    Returns function parameter objects in an order based on the position annotation.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class.
+        func_name (str): Name of the function.
+        variables (list of object of owlready2.entity.ThingClass): List of parameter variables.
+
+    Returns:
+        list of object of owlready2.entity.ThingClass: Ordered function parameters.
+
+    """
     non_default_vars = []
     default_vars = []
     for obj in variables:
@@ -126,6 +230,18 @@ def get_ordered_params(node, func_name, variables):
 
 
 def generate_function_param_from_template(node, func_name, target):
+    """
+    Generates function parameters from a template.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class.
+        func_name (str): Name of the function.
+        target (list of object of owlready2.entity.ThingClass): Function parameters.
+
+    Returns:
+        str: function parameters for a single function with all the values filled based on a template.
+
+    """
     params = ""
     param_template = "{var}={value}"
     inh_var = member_propagation.get(node)
@@ -144,6 +260,17 @@ def generate_function_param_from_template(node, func_name, target):
 
 
 def generate_function_from_template(node, func):
+    """
+    Generates function from template for a specific class and a specific function.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class for which function code has to be generated.
+        func (object of owlready2.prop.ObjectPropertyClass): Function object modelled as an OWL property.
+
+    Returns:
+        str: One function template filled with values.
+
+    """
     func_template = """
 \tdef {func_name}(self{params}):
 \t\t{statements}\n"""
@@ -166,6 +293,16 @@ def generate_function_from_template(node, func):
 
 
 def get_inherited_vars(node):
+    """
+    Returns all the inherited variables for a class.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class.
+
+    Returns:
+        list of object of owlready2.entity.ThingClass: List of inherited variables.
+
+    """
     inherited_variables = member_propagation.get(node)
     if inherited_variables:
         var = [obj.label.first() for obj in inherited_variables]
@@ -174,6 +311,16 @@ def get_inherited_vars(node):
 
 
 def generate_init_by_member_propagation(node):
+    """
+    Generates init function for a class which has only inherited params.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class for which init code has to be generated.
+
+    Returns:
+        str: Init function template filled with values.
+
+    """
     func_template = """
 \tdef __init__(self, {params}):
 \t\t{parent}.__init__(self, {params}){stmt}\n"""
@@ -186,6 +333,16 @@ def generate_init_by_member_propagation(node):
 
 
 def generate_functions_from_template(node):
+    """
+    Generates functions from template for a specific class.
+
+    Parameters:
+        node (object of owlready2.entity.ThingClass): Current node/class for which functions code has to be generated.
+
+    Returns:
+        str: All function data which has to be filled in the template.
+
+    """
     function_names = set()
     func_data = ""
     for func in node.get_class_properties():
@@ -198,6 +355,27 @@ def generate_functions_from_template(node):
 
 
 def create_file_contents(file_path, node, child_parent_map, pos_dict):
+    """
+    Generate complete code for a class.
+
+    A general python class is of the following template.
+        {import_statements}
+        class {class_name}({parent}):
+            {functions}
+    Goal of this function is to generate all the values for the template from the ontology.
+
+
+    Parameters:
+        file_path (str): File path of current node.
+        node (object of owlready2.entity.ThingClass): Current node/class for which code has to be generated. Node modelled as a OWL class.
+        child_parent_map (dict): Has relation between child and parent nodes. child node is the key, parent node is the value.
+        pos_dict (dict): Nested dict containing position annotations.
+
+
+    Returns:
+        str: Template with all the values filled.
+
+    """
     print(node.label)
     global pos_map
     pos_map = pos_dict
