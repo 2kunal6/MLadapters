@@ -1,0 +1,117 @@
+.. -*- mode: rst -*-
+
+
+.. |PythonVersion| image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
+.. _PythonVersion: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
+
+.. |PythonMinVersion| replace:: 3.6
+.. |owlready2MinVersion| replace:: 0.25
+.. |Scikit-learnMinVersion| replace:: 0.24.1
+.. |PytorchMinVersion| replace:: 1.7.0
+
+**ML algorithm wrappers** is a Python wrapper for algorithms defined in Scikit and Pytorch. The wrapper code is auto generated based on classes defined in ontology.
+
+
+Dependencies
+----------------
+
+This project requires:
+
+- owlready2 (== |owlready2MinVersion|)
+- python (>= |PythonMinVersion|)
+- pytorch (>= |PytorchMinVersion|)
+- scikit-learn (>= |Scikit-learnMinVersion|)
+
+User installation
+----------------
+
+1. Install python3
+2. Install pip
+3. Install pipenv
+4. Go to the root of the project where the Pipfile exists
+5. python3 -m pipenv install --ignore-pipfile
+6. python3 -m pipenv shell
+
+Quickstart
+----------------
+
+* Wrappers can be consumed by creating an object of the wrapper class. In the below example, the object created is a model of the type LinearRegression.
+
+  >>> from MLalgorithms.Regression._LinearRegression import LinearRegression
+  >>> model = LinearRegression(normalize=True)
+
+* The wrapper class has functionalities like fit and predict, it can be invoked by the object.
+
+  >>> model.predict(np.array([[3, 5]]))
+
+* Code generator can be run to automatically generate wrapper classes from ontology.
+::
+
+      python3 code_generator.py
+
+* To learn more about the usage of the project, please refer the example scripts present under the example directory.
+::
+
+      python3 examples/lasso_regression_tester.py
+
+Project structure
+----------------
+ ::
+
+    project
+    ├── code_generator.py
+    ├── mlalgorithms.owl
+    ├── examples          
+    │   ├── linear_regression_tester.py
+    │   └── ...
+    ├── util          
+    │   ├── file_content_creator.py
+    │   └── file_util.py
+    ├── MLalgorithms          
+    │   ├── Metrics          
+    │   |   ├── _confusion_matrix.py          
+    │   |   ├── _hinge_loss.py          
+    │   |   ├── _jaccard_score.py          
+    │   ├── Regression          
+    │   |   ├── _LinearRegression.py
+    │   |   ├── _RidgeRegression.py
+    │   |   └── ...          
+    │   ├── Classification
+    │   ├── ...          
+    │   ├── _Metrics.py          
+    │   ├── _Classification.py
+    │   ├── _Regression.py
+    │   └── _MLalgorithms.py
+    ├── Pipfile          
+    ├── Readme.rst
+    └── ...
+
+Documentation
+----------------
+.. _onto_doc: https://en.wikipedia.org/wiki/Proof_of_concept
+.. _tutorial: www.google.com
+
+- Ontology documentation is available `here <onto_doc_>`_
+
+- Interested in adding new algorithms to the project? Tutorial is available `here <tutorial_>`_
+
+Deliverables
+----------------
+
+
+What's Left
+----------------
+
+
+Reference
+----------------
+
+- scikit API: https://scikit-learn.org/stable/modules/classes.html
+- owlready2 API: https://owlready2.readthedocs.io/en/latest/
+
+Contributors
+----------------
+
+- Firas (Mentor)
+- Varun Shankar S (Student)
+
