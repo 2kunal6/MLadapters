@@ -5,25 +5,25 @@ from MLalgorithms._Regression import Regression
 
 class LassoRegression(Regression):
 	
-	def __init__(self, fit_intercept = True, normalize = False, copy_X = True, positive = False, precompute = False, warm_start = False, max_iter = 1000, random_state = None, alpha = 1.0, tol = 0.0001, selection = 'cyclic'):
+	def __init__(self, alpha=1.0, fit_intercept=True, normalize=False, copy_X=True, precompute=False, max_iter=1000, tol=0.0001, warm_start=False, positive=False, random_state=None, selection='cyclic'):
 		self.positive = positive
-		self.precompute = precompute
+		self.alpha = alpha
 		self.warm_start = warm_start
 		self.max_iter = max_iter
-		self.random_state = random_state
-		self.alpha = alpha
-		self.tol = tol
 		self.selection = selection
-		Regression.__init__(self, fit_intercept, normalize, copy_X)
-		self.model = Lasso(random_state = self.random_state,
+		self.random_state = random_state
+		self.precompute = precompute
+		self.tol = tol
+		Regression.__init__(self, fit_intercept=fit_intercept, copy_X=copy_X, normalize=normalize)
+		self.model = Lasso(warm_start = self.warm_start,
 			tol = self.tol,
 			fit_intercept = self.fit_intercept,
+			positive = self.positive,
 			copy_X = self.copy_X,
+			normalize = self.normalize,
 			max_iter = self.max_iter,
 			precompute = self.precompute,
-			normalize = self.normalize,
 			selection = self.selection,
-			positive = self.positive,
-			alpha = self.alpha,
-			warm_start = self.warm_start)
+			random_state = self.random_state,
+			alpha = self.alpha)
 

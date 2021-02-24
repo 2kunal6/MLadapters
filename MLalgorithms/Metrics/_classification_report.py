@@ -5,19 +5,19 @@ from MLalgorithms._Metrics import Metrics
 
 class classification_report(Metrics):
 	
-	def __init__(self, sample_weight = None, labels = None, y_true, output_dict = False, target_names = None, y_pred, zero_division = 'warn', digits = 2):
+	def __init__(self, y_true, y_pred, labels=None, target_names=None, sample_weight=None, digits=2, output_dict=False, zero_division='warn'):
+		self.digits = digits
+		self.y_pred = y_pred
 		self.output_dict = output_dict
 		self.target_names = target_names
-		self.y_pred = y_pred
 		self.zero_division = zero_division
-		self.digits = digits
-		Metrics.__init__(self, sample_weight, labels, y_true)
+		Metrics.__init__(self, y_true=y_true, labels=labels, sample_weight=sample_weight)
 		self.value = CR(zero_division = self.zero_division,
-			output_dict = self.output_dict,
-			sample_weight = self.sample_weight,
-			y_pred = self.y_pred,
 			labels = self.labels,
+			digits = self.digits,
+			output_dict = self.output_dict,
 			target_names = self.target_names,
-			y_true = self.y_true,
-			digits = self.digits)
+			y_pred = self.y_pred,
+			sample_weight = self.sample_weight,
+			y_true = self.y_true)
 

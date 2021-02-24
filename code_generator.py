@@ -4,6 +4,7 @@ import shutil
 
 from util.file_content_creator import create_file_contents
 from util import file_util
+from util.position_parser import read_pos_from_ontology
 
 
 def get_file_path(node, file, root_class):
@@ -16,7 +17,9 @@ def get_file_path(node, file, root_class):
 
 def main():
     child_parent_map = {}
-    onto = get_ontology("ml_algorithms.owl").load()
+    ontology_file = "ml_algorithms.owl"
+    pos_dict = read_pos_from_ontology(ontology_file)
+    onto = get_ontology(ontology_file).load()
     queue = []
     root_class = None
     print([i for i in onto.annotation_properties()])
@@ -34,7 +37,7 @@ def main():
         file = dir_structure.pop(0)
         if onto.get_children_of(node):
             file_util.create_folders_and_subfolders(file)
-        content = create_file_contents(file, node, child_parent_map)
+        content = create_file_contents(file, node, child_parent_map, pos_dict)
         file_util.create_and_write_file(
             get_file_path(node, file, root_class), content)
         for child in onto.get_children_of(node):

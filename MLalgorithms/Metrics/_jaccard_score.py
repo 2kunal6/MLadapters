@@ -5,17 +5,17 @@ from MLalgorithms._Metrics import Metrics
 
 class jaccard_score(Metrics):
 	
-	def __init__(self, sample_weight = None, labels = None, y_true, y_pred, pos_label = 1, zero_division = 'warn', average = 'binary'):
-		self.y_pred = y_pred
+	def __init__(self, y_true, y_pred, labels=None, pos_label=1, average='binary', sample_weight=None, zero_division='warn'):
 		self.pos_label = pos_label
-		self.zero_division = zero_division
+		self.y_pred = y_pred
 		self.average = average
-		Metrics.__init__(self, sample_weight, labels, y_true)
+		self.zero_division = zero_division
+		Metrics.__init__(self, y_true=y_true, labels=labels, sample_weight=sample_weight)
 		self.value = JS(zero_division = self.zero_division,
-			sample_weight = self.sample_weight,
-			y_pred = self.y_pred,
+			pos_label = self.pos_label,
 			labels = self.labels,
-			average = self.average,
+			y_pred = self.y_pred,
 			y_true = self.y_true,
-			pos_label = self.pos_label)
+			sample_weight = self.sample_weight,
+			average = self.average)
 
