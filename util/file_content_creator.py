@@ -102,24 +102,17 @@ def get_pos(node, func_name, obj):
 
 def get_sorted_subarray(vars, node, func_name):
     pos_list = []
+    empty_pos = 1
     for obj in vars:
         pos = get_pos(node, func_name, obj)
         if not pos:
-            pos = len(vars)
+            pos = len(vars) + empty_pos
+            empty_pos += 1
         pos_list.append(pos)
-    print("POS", pos_list)
-    print("VARS", vars)
-    print(len(pos_list), len(vars))
-    zip_list = zip(pos_list, vars)
-    print(zip_list)
-    sort_zip_list = sorted(zip_list)
-    print(sort_zip_list)
     return [x for _, x in sorted(zip(pos_list, vars))]
 
 
 def get_ordered_params(node, func_name, variables):
-    print("*******VAR")
-    print(variables)
     non_default_vars = []
     default_vars = []
     for obj in variables:
@@ -127,14 +120,9 @@ def get_ordered_params(node, func_name, variables):
             non_default_vars.append(obj)
         else:
             default_vars.append(obj)
-    print("DEF", default_vars)
-    print("NDEF", non_default_vars)
     ordered_vars = get_sorted_subarray(non_default_vars, node, func_name)
     ordered_vars.extend(get_sorted_subarray(default_vars, node, func_name))
-    print(ordered_vars)
-    print("*******END")
     return ordered_vars
-    #return ordered_vars if len(ordered_vars) == len(variables) else variables
 
 
 def generate_function_param_from_template(node, func_name, target):
@@ -179,7 +167,6 @@ def generate_function_from_template(node, func):
 
 def get_inherited_vars(node):
     inherited_variables = member_propagation.get(node)
-    print("INH_P: ", inherited_variables)
     if inherited_variables:
         var = [obj.label.first() for obj in inherited_variables]
         return var
@@ -187,7 +174,6 @@ def get_inherited_vars(node):
 
 
 def generate_init_by_member_propagation(node):
-    print("PRINT IN MEM PROP")
     func_template = """
 \tdef __init__(self, {params}):
 \t\t{parent}.__init__(self, {params}){stmt}\n"""
@@ -202,7 +188,6 @@ def generate_init_by_member_propagation(node):
 def generate_functions_from_template(node):
     function_names = set()
     func_data = ""
-    print( node.get_class_properties())
     for func in node.get_class_properties():
         if func.label:
             func_data = func_data + generate_function_from_template(node, func)
@@ -223,5 +208,4 @@ def create_file_contents(file_path, node, child_parent_map, pos_dict):
     if not func_data:
         func_data = "pass"
     content = generate_class_from_template(file_path, node, parent, func_data)
-    #print(content)
     return content
