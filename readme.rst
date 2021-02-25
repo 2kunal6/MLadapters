@@ -65,8 +65,9 @@ Project structure
     │   ├── linear_regression_tester.py
     │   └── ...
     ├── util          
-    │   ├── file_content_creator.py
-    │   └── file_util.py
+    │   ├── file_content_creator.py          
+    │   ├── file_util.py
+    │   └── position_parser.py
     ├── MLalgorithms          
     │   ├── Metrics          
     │   |   ├── _confusion_matrix.py          
@@ -88,12 +89,12 @@ Project structure
 
 Documentation
 ----------------
-.. _onto_doc: https://en.wikipedia.org/wiki/Proof_of_concept
-.. _tutorial: www.google.com
+.. _onto_doc: /docs/Ontology%20Structure.md
+.. _tutorial: /docs/API.md
 
 - Ontology documentation is available `here <onto_doc_>`_
 
-- Interested in adding new algorithms to the project? Tutorial is available `here <tutorial_>`_
+- API documentation is available `here <tutorial_>`_
 
 Deliverables
 ----------------
