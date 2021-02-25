@@ -4,6 +4,7 @@ import torchvision.datasets as dset
 import torch.nn as nn
 import torchvision.transforms as transforms
 import torch.utils
+
 from MLalgorithms._NeuralNetwork import NeuralNetwork
 
 
@@ -25,14 +26,14 @@ class NN_workflow(NeuralNetwork):
         :param data_dir: directory where the dataset will be downloaded.
         :param dset_name: ML dataset on which model will be trained and tested.
         :param batch_size: batch size to be used by the dataloader.
-        :param transforms: an array of transformations to be applied on the dataset,
+        :param transform: an array of transformations to be applied on the dataset,
                            default is conversion to tensor
         :return: a pytorch dataloader object.
         '''
 
         ''' STEP 1: LOADING DATASET '''
         if data_dir is None:
-            data_dir=os.getcwd()
+            data_dir = os.getcwd()
         if dset_name is None:
             print('No dataset to be processed')
             return
@@ -42,7 +43,7 @@ class NN_workflow(NeuralNetwork):
 
         dataset = eval('dset.'+dset_name.upper())
         trainset = dataset('./data_dir', train = True, transform=transform, download=True)
-        testset =  dataset('./data_dir', train=False, transform=transform, download=True)
+        testset = dataset('./data_dir', train=False, transform=transform, download=True)
 
         print('length of training dataset is  ', len(trainset))
         print('length of test dataset is  ', len(testset))
