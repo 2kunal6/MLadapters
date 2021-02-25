@@ -11,7 +11,7 @@ class confusion_matrix(Metrics):
 		Metrics.__init__(self, sample_weight=sample_weight, y_true=y_true, labels=labels)
 		self.value = CM(sample_weight = self.sample_weight,
 			y_true = self.y_true,
-			y_pred = self.y_pred,
 			normalize = self.normalize,
+			y_pred = self.y_pred,
 			labels = self.labels)
 
