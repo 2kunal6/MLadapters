@@ -45,7 +45,7 @@ class NN_workflow(NeuralNetwork):
 
         print('length of training dataset is  ', len(trainset))
         print('length of test dataset is  ', len(testset))
-        print("size of data : {}, size of target : {}".format(trainset[0][0].size(),len(trainset[0][1])))
+        print("size of data : {}".format(trainset[0][0].size()))
 
         ''' STEP 2: MAKING DATASET ITERABLE '''
 
