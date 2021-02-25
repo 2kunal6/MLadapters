@@ -14,7 +14,7 @@ class NN_workflow(NeuralNetwork):
         self.model = model.to(self.device) if model else self.model.to(self.device)
         self.criterion = criterion.to(self.device)
         self.batch_size = batch_size
-        self.optimizer = None
+        self.optimizer = torch.optim.SGD(lr=0.001)
 
     def set_optimizer(self, optimizer):
         self.optimizer = optimizer
@@ -38,9 +38,7 @@ class NN_workflow(NeuralNetwork):
             return
 
         if transform is None:
-            transform = transforms.Compose([
-                transforms.ToTensor()
-            ])
+            transform = transforms.Compose([transforms.ToTensor()])
 
         dataset = eval('dset.'+dset_name.upper())
         trainset = dataset('./data_dir', train = True, transform=transform, download=True)
@@ -68,8 +66,6 @@ class NN_workflow(NeuralNetwork):
         '''
         train_loss = 0
         self.model.train()
-        if self.optimizer is None:
-            self.optimizer= torch.optim.SGD(lr=0.001)
         for epoch in range(epochs):
             for data, target in train_loader:
                 data, target = data.to(self.device), target.to(self.device)
