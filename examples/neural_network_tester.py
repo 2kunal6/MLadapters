@@ -1,3 +1,5 @@
+from MLalgorithms.NeuralNetwork import NeuralNetwork
+
 import torch
 import torch.nn.functional as F
 import os
@@ -5,7 +7,7 @@ import torchvision.datasets as dset
 import torch.nn as nn
 import torchvision.transforms as transforms
 import torch.utils
-import matplotlib.pyplot as plt
+
 
 class NN_workflow:
     def __init__(self, model,criterion,optimizer,batch_size=32):

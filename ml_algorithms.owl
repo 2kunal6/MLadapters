@@ -90,6 +90,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#forward -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#forward">
+        <rdfs:label>forward</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#init -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mlalgorithms#init">
@@ -456,6 +464,21 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#NeuralNetwork">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#MLalgoritthms"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#forward"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#layers"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <core_import>import torch.nn as nn
+from functools import reduce</core_import>
+        <returns>self.model</returns>
         <rdfs:label>NeuralNetwork</rdfs:label>
     </owl:Class>
     

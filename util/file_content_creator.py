@@ -54,6 +54,22 @@ def generate_imports_from_template(node, file_path):
         core='\n' + node.core_import.first() if core else "",
         relative='\n' + relative if relative else "")
 
+def parent_name_handler(node,parent):
+    """
+    Generate Parents names based on the class name
+
+    Parameters:
+       node (object of owlready2.entity.ThingClass): Current node/class.
+       parent (object of owlready2.entity.ThingClass): Parent of current node/class.
+
+    Returns:
+        str: Comma, seprated names of the parents
+    """
+    if parent:
+        parents = 'nn.Module, '+ parent.label.first() if node.label.first()=='NeuralNetwork' else parent.label.first()
+        return parents
+    else: return ""
+
 
 def generate_class_from_template(file_path, node, parent, functions):
     """
@@ -72,7 +88,7 @@ def generate_class_from_template(file_path, node, parent, functions):
     return template.format(
         import_statements=generate_imports_from_template(node, file_path),
         class_name=node.label.first(),
-        parent=parent.label.first() if parent else "",
+        parent=parent_name_handler(node,parent),
         functions=functions)
 
 
@@ -134,7 +150,20 @@ def generate_function_body_from_template(node, func, target):
     """
     print("FUNC: ", func.label.first())
     func_name = func.label.first()
+
+    if func_name == "forward" and node.label.first()=='NeuralNetwork':
+        stmt =   'return reduce(lambda X, l: l(X), self.layers, X)'
+        return stmt
+
     if func_name == "init":
+        if node.label.first()== 'NeuralNetwork':
+            var = target[0].label.first()
+            #stmt = 'self.{var} = {var}'.format(var=var)
+            #stmt += ',\n\t\tself.model = nn.Sequential(self.'+var + ')'
+            stmt = 'super(NeuralNetwork, self).__init__()'
+            stmt += '\n\t\tself.layers = nn.Sequential(' + var + ')'
+            return stmt
+
         variables = [obj.label.first() for obj in target]
         stmts = ["self.{var} = {var}".format(var=var) for var in variables]
         stmt = "\n\t\t".join(stmts)
@@ -345,6 +374,7 @@ def generate_functions_from_template(node):
     """
     function_names = set()
     func_data = ""
+
     for func in node.get_class_properties():
         if func.label:
             func_data = func_data + generate_function_from_template(node, func)
