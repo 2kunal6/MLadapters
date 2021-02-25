@@ -55,6 +55,23 @@ def generate_imports_from_template(node, file_path):
         relative='\n' + relative if relative else "")
 
 
+def parent_name_handler(node, parent):
+    """
+    Generates parent names based on the class name.
+
+    Parameters:
+       node (object of owlready2.entity.ThingClass): Current node/class.
+       parent (object of owlready2.entity.ThingClass): Parent of current node/class.
+
+    Returns:
+        str: Comma separated names of the parents
+    """
+    if parent:
+        parent_name = parent.label.first()
+        return 'nn.Module, ' + parent_name if node.label.first() == 'NeuralNetwork' else parent_name
+    return ""
+
+
 def generate_class_from_template(file_path, node, parent, functions):
     """
     Generates complete class based on a template.
@@ -72,7 +89,7 @@ def generate_class_from_template(file_path, node, parent, functions):
     return template.format(
         import_statements=generate_imports_from_template(node, file_path),
         class_name=node.label.first(),
-        parent=parent.label.first() if parent else "",
+        parent=parent_name_handler(node, parent),
         functions=functions)
 
 
@@ -134,7 +151,15 @@ def generate_function_body_from_template(node, func, target):
     """
     print("FUNC: ", func.label.first())
     func_name = func.label.first()
+
+    if func_name == "forward" and node.label.first()=='NeuralNetwork':
+        return 'return reduce(lambda X, l: l(X), self.layers, X)'
+
     if func_name == "init":
+        if node.label.first() == 'NeuralNetwork':
+            var = target[0].label.first()
+            return 'super(NeuralNetwork, self).__init__()' \
+                   '\n\t\tself.model = nn.Sequential(*{var})'.format(var=var)
         variables = [obj.label.first() for obj in target]
         stmts = ["self.{var} = {var}".format(var=var) for var in variables]
         stmt = "\n\t\t".join(stmts)
