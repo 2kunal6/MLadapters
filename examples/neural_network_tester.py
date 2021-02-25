@@ -43,8 +43,8 @@ def test():
     # Step 3: Initialise the NN_workflow based on the model and criterion.
     neural_net = NN_workflow(criterion, model=user_model)
 
-    # Step 4: Initialise the optimizer.
-    optimizer = torch.optim.SGD(user_model.parameters(), lr=0.001)
+    # Step 4: Initialise the optimizer. If this step is skipped, default optimizer SGD is used.
+    optimizer = torch.optim.Adam(user_model.parameters(), lr=0.001)
 
     # Step 5: Set the optimizer in the NN workflow.
     neural_net.set_optimizer(optimizer)

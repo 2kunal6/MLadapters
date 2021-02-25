@@ -14,7 +14,7 @@ class NN_workflow(NeuralNetwork):
         self.model = model.to(self.device) if model else self.model.to(self.device)
         self.criterion = criterion.to(self.device)
         self.batch_size = batch_size
-        self.optimizer = torch.optim.SGD(lr=0.001)
+        self.optimizer = torch.optim.SGD(self.model.parameters(), lr=0.001)
 
     def set_optimizer(self, optimizer):
         self.optimizer = optimizer
