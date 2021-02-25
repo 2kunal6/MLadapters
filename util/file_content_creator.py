@@ -159,7 +159,7 @@ def generate_function_body_from_template(node, func, target):
         if node.label.first() == 'NeuralNetwork':
             var = target[0].label.first()
             return 'super(NeuralNetwork, self).__init__()' \
-                   '\n\t\tself.{var} = nn.Sequential({var})'.format(var=var)
+                   '\n\t\tself.model = nn.Sequential({var})'.format(var=var)
         variables = [obj.label.first() for obj in target]
         stmts = ["self.{var} = {var}".format(var=var) for var in variables]
         stmt = "\n\t\t".join(stmts)
