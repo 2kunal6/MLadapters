@@ -32,14 +32,37 @@ class Net(nn.Module):
 
 
 def test():
-    model = Net()
-    criterion = nn.CrossEntropyLoss().to('cuda')
+    criterion = nn.CrossEntropyLoss()
     optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
-    neural_net = NN_workflow(criterion, optimizer, model=model)
+    '''
+    Testing user defined model
+    '''
+    user_model = Net()
+    neural_net = NN_workflow(criterion, optimizer, model=user_model)
     train_loader, test_loader = neural_net.data_preparation(dset_name="MNIST")
     neural_net.train(train_loader)
     neural_net.test(test_loader)
 
+    '''
+    Testing model defined according to ontology
+    '''
+    layers = [nn.Conv2d(1, 32, 3, 1),
+              nn.ReLU(),
+              nn.Conv2d(32, 64, 3, 1),
+              nn.ReLU(),
+              nn.MaxPool2d(2),
+              nn.Dropout(0.25),
+              nn.Flatten(),
+              nn.Linear(9216, 128),
+              nn.ReLU(),
+              nn.Dropout(0.5),
+              nn.Linear(128, 10),
+              nn.LogSoftmax(1)]
+
+    neural_net = NN_workflow(criterion, optimizer,layers=layers)
+    train_loader, test_loader = neural_net.data_preparation(dset_name="MNIST")
+    neural_net.train(train_loader)
+    neural_net.test(test_loader)
 
 if __name__ == "__main__":
     test()

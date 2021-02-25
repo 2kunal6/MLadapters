@@ -9,11 +9,11 @@ class Regression(MLalgorithms):
 			X=X,
 			y=y)
 
-	def __init__(self, fit_intercept=True, normalize=False, copy_X=True):
-		self.copy_X = copy_X
-		self.normalize = normalize
-		self.fit_intercept = fit_intercept
-
 	def predict(self, X):
 		return self.model.predict(X=X)
+
+	def __init__(self, fit_intercept=True, normalize=False, copy_X=True):
+		self.fit_intercept = fit_intercept
+		self.copy_X = copy_X
+		self.normalize = normalize
 
