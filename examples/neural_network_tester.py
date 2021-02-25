@@ -46,7 +46,7 @@ def test():
     # Step 4: Initialise the optimizer. If this step is skipped, default optimizer SGD is used.
     optimizer = torch.optim.Adam(user_model.parameters(), lr=0.001)
 
-    # Step 5: Set the optimizer in the NN workflow.
+    # Step 5: Set the optimizer in the NN workflow. If Step 4 is skipped, this step should be skipped too.
     neural_net.set_optimizer(optimizer)
 
     # Step 6: Data preparation based on the dataset.
