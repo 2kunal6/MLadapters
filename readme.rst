@@ -126,10 +126,14 @@ Reference
 
 - scikit API: https://scikit-learn.org/stable/modules/classes.html
 - owlready2 API: https://owlready2.readthedocs.io/en/latest/
+- pytorch API: https://pytorch.org/docs/stable/index.html
+- Mex Vocabulary: https://github.com/mexplatform/mex-vocabulary
 
 Contributors
 ----------------
 
 - Firas (Mentor)
 - Varun Shankar S (Student)
+- Priya Priya
+
 
