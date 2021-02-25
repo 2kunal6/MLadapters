@@ -32,37 +32,32 @@ class Net(nn.Module):
 
 
 def test():
-    criterion = nn.CrossEntropyLoss()
-    optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
-    '''
-    Testing user defined model
-    '''
+    """ Testing user defined model """
+
+    # Step 1: Initialise the model.
     user_model = Net()
-    neural_net = NN_workflow(criterion, optimizer, model=user_model)
+
+    # Step 2: Initialise the criterion.
+    criterion = nn.CrossEntropyLoss()
+
+    # Step 3: Initialise the NN_workflow based on the model and criterion.
+    neural_net = NN_workflow(criterion, model=user_model)
+
+    # Step 4: Initialise the optimizer.
+    optimizer = torch.optim.SGD(user_model.parameters(), lr=0.001)
+
+    # Step 5: Set the optimizer in the NN workflow.
+    neural_net.set_optimizer(optimizer)
+
+    # Step 6: Data preparation based on the dataset.
     train_loader, test_loader = neural_net.data_preparation(dset_name="MNIST")
+
+    # Step 7: Call the train method of the NN workflow.
     neural_net.train(train_loader)
+
+    # Step 8: Call the test method of the NN workflow.
     neural_net.test(test_loader)
 
-    '''
-    Testing model defined according to ontology
-    '''
-    layers = [nn.Conv2d(1, 32, 3, 1),
-              nn.ReLU(),
-              nn.Conv2d(32, 64, 3, 1),
-              nn.ReLU(),
-              nn.MaxPool2d(2),
-              nn.Dropout(0.25),
-              nn.Flatten(),
-              nn.Linear(9216, 128),
-              nn.ReLU(),
-              nn.Dropout(0.5),
-              nn.Linear(128, 10),
-              nn.LogSoftmax(1)]
-
-    neural_net = NN_workflow(criterion, optimizer,layers=layers)
-    train_loader, test_loader = neural_net.data_preparation(dset_name="MNIST")
-    neural_net.train(train_loader)
-    neural_net.test(test_loader)
 
 if __name__ == "__main__":
     test()

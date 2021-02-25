@@ -8,13 +8,16 @@ from MLalgorithms._NeuralNetwork import NeuralNetwork
 
 
 class NN_workflow(NeuralNetwork):
-    def __init__(self, criterion, optimizer, model=None, layers=None, batch_size=32):
+    def __init__(self, criterion, model=None, layers=[], batch_size=32):
         NeuralNetwork.__init__(self, layers)
         self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
         self.model = model.to(self.device) if model else self.model.to(self.device)
         self.criterion = criterion.to(self.device)
-        self.optimizer = optimizer
         self.batch_size = batch_size
+        self.optimizer = None
+
+    def set_optimizer(self, optimizer):
+        self.optimizer = optimizer
 
     def data_preparation(self, data_dir=None, dset_name=None, transform=None):
         '''
