@@ -54,6 +54,15 @@ Quickstart
 
       python3 examples/lasso_regression_tester.py
 
+Implementation stats
+----------------
+- Total number of algorithms:
+- Scikit-learn algorithms:
+- Clustering algorithms:
+- Regression algorithms:
+- Classification algorithms:
+
+
 Project structure
 ----------------
  ::
@@ -98,11 +107,19 @@ Documentation
 
 Deliverables
 ----------------
+- [✔] Ontology creation: Defining hierarchy and rules.
+- [✔] Defining various algorithms from Scikit and Pytorch in ontology.
+- [✔] Python script to auto-generate classes and functions from ontology.
+- [✔] Python scripts to auto-generate adapters. 
+- [✔] Documenting the Adapters with code and examples.
+- [✔] Documenting the Ontology.
+- [✔] Test functions for every adapter generated.
+- [ ] Using ontology to perform fault detection.
 
 
 What's Left
 ----------------
-
+- Using ontology to perform fault detection.
 
 Reference
 ----------------
