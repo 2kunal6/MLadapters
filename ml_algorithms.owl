@@ -1112,6 +1112,17 @@ from functools import reduce</core_import>
         <owl:annotatedTarget>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#solver"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#RidgeRegression"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#tol"/>
             </owl:Restriction>
         </owl:annotatedTarget>
@@ -1149,17 +1160,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </owl:annotatedTarget>
         <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</pos>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#RidgeRegression"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#solver"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</pos>
     </owl:Axiom>
     
 

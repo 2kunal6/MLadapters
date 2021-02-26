@@ -271,7 +271,7 @@ def generate_function_param_from_template(node, func_name, target):
     param_template = "{var}={value}"
     inh_var = member_propagation.get(node)
     variables = target
-    if inh_var:
+    if inh_var and func_name == "init":
         variables = inh_var + target
     variables = get_ordered_params(node, func_name, variables)
     for obj in variables:
