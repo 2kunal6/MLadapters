@@ -1,28 +1,31 @@
 
-from sklearn.linear_model import Lasso
+from sklearn.linear_model import MultiTaskLasso as MLTR
 from MLalgorithms._Regression import Regression
 
 
-class LassoRegression(Regression):
+class MultiTaskLassoRegression(Regression):
 	
-	def __init__(self, alpha=1.0, fit_intercept=True, normalize=False, copy_X=True, precompute=False, max_iter=1000, tol=0.0001, warm_start=False, positive=False, random_state=None, selection='cyclic'):
-		self.max_iter = max_iter
-		self.precompute = precompute
+	def fit(self, X, y):
+		return self.model.fit(y=y,
+			X=X)
+
+	def predict(self, X):
+		return self.model.predict(X=X)
+
+	def __init__(self, alpha=1.0, fit_intercept=True, normalize=False, copy_X=True, max_iter=None, tol=0.001, warm_start=False, random_state=None, selection='cyclic'):
 		self.random_state = random_state
+		self.max_iter = max_iter
 		self.selection = selection
 		self.warm_start = warm_start
-		self.positive = positive
 		self.tol = tol
 		self.alpha = alpha
 		Regression.__init__(self, normalize=normalize, fit_intercept=fit_intercept, copy_X=copy_X)
-		self.model = Lasso(normalize = self.normalize,
+		self.model = MLTR(normalize = self.normalize,
 			fit_intercept = self.fit_intercept,
 			copy_X = self.copy_X,
-			positive = self.positive,
 			alpha = self.alpha,
 			warm_start = self.warm_start,
 			max_iter = self.max_iter,
-			precompute = self.precompute,
 			selection = self.selection,
 			tol = self.tol,
 			random_state = self.random_state)
