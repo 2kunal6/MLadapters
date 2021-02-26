@@ -1,4 +1,4 @@
 from MLalgorithms.Regression._ARDRegression import ARDRegression
 
-model = ARDRegression(normalize=True)
-print(model)
+adapterObj = ARDRegression(normalize=True)
+print(adapterObj.model)
