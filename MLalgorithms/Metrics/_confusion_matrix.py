@@ -8,10 +8,10 @@ class confusion_matrix(Metrics):
 	def __init__(self, y_true, y_pred, labels=None, sample_weight=None, normalize=None):
 		self.normalize = normalize
 		self.y_pred = y_pred
-		Metrics.__init__(self, y_true=y_true, labels=labels, sample_weight=sample_weight)
-		self.value = CM(normalize = self.normalize,
-			y_pred = self.y_pred,
+		Metrics.__init__(self, sample_weight=sample_weight, y_true=y_true, labels=labels)
+		self.value = CM(labels = self.labels,
 			y_true = self.y_true,
-			sample_weight = self.sample_weight,
-			labels = self.labels)
+			y_pred = self.y_pred,
+			normalize = self.normalize,
+			sample_weight = self.sample_weight)
 
