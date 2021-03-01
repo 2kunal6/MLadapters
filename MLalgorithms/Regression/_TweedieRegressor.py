@@ -5,29 +5,29 @@ from MLalgorithms._Regression import Regression
 
 class TweedieRegressor(Regression):
 	
-	def predict(self, X):
-		return self.model.predict(X=X)
+	def __init__(self, power=0.0, alpha=1.0, fit_intercept=True, link='auto', max_iter=100, tol=0.0001, warm_start=False, verbose=0):
+		self.power = power
+		self.warm_start = warm_start
+		self.link = link
+		self.verbose = verbose
+		self.alpha = alpha
+		self.fit_intercept = fit_intercept
+		self.tol = tol
+		self.max_iter = max_iter
+		self.model = TR(power = self.power,
+			link = self.link,
+			verbose = self.verbose,
+			max_iter = self.max_iter,
+			fit_intercept = self.fit_intercept,
+			warm_start = self.warm_start,
+			tol = self.tol,
+			alpha = self.alpha)
 
 	def fit(self, X, y, sample_weight=None):
-		return self.model.fit(y=y,
-			sample_weight=sample_weight,
-			X=X)
+		return self.model.fit(sample_weight=sample_weight,
+			X=X,
+			y=y)
 
-	def __init__(self, power=0.0, alpha=1.0, fit_intercept=True, link='auto', max_iter=100, tol=0.0001, warm_start=False, verbose=0):
-		self.tol = tol
-		self.warm_start = warm_start
-		self.verbose = verbose
-		self.link = link
-		self.power = power
-		self.fit_intercept = fit_intercept
-		self.alpha = alpha
-		self.max_iter = max_iter
-		self.model = TR(warm_start = self.warm_start,
-			link = self.link,
-			max_iter = self.max_iter,
-			alpha = self.alpha,
-			tol = self.tol,
-			fit_intercept = self.fit_intercept,
-			power = self.power,
-			verbose = self.verbose)
+	def predict(self, X):
+		return self.model.predict(X=X)
 
