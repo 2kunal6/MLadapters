@@ -99,11 +99,11 @@ The following sections give all the information about the various adapters imple
 
 |Algorithms|imports| parameters|methods|
 | :-------------|:-------------|:-------------| :-------------|
-| classification_report  |  from sklearn.metrics import classification_report  | (y_true, y_pred, *, labels=None, target_names=None, sample_weight=None, digits=2, output_dict=False, zero_division='warn') | NA |
-| confusion_matrix  |  from sklearn.metrics import confusion_matrix  | (y_true, y_pred, *, labels=None, sample_weight=None, normalize=None) | NA |
-| hinge_loss  |  from sklearn.metrics import hinge_loss  | (y_true, pred_decision, *, labels=None, sample_weight=None) | NA |
-| jaccard_score  |  from sklearn.metrics import jaccard_score  | (y_true, y_pred, *, labels=None, pos_label=1, average='binary', sample_weight=None, zero_division='warn') | NA |
-| log_loss  |  from sklearn.metrics import log_loss  | (y_true, y_pred, *, eps=1e-15, normalize=True, sample_weight=None, labels=None) | NA |
+| classification_report  |  from MLalgorithms.Metrics._classification_report import classification_report  | (y_true, y_pred, *, labels=None, target_names=None, sample_weight=None, digits=2, output_dict=False, zero_division='warn') | NA |
+| confusion_matrix  |  from MLalgorithms.Metrics._confusion_matrix import confusion_matrix  | (y_true, y_pred, *, labels=None, sample_weight=None, normalize=None) | NA |
+| hinge_loss  |  from MLalgorithms.Metrics._hinge_loss import hinge_loss  | (y_true, pred_decision, *, labels=None, sample_weight=None) | NA |
+| jaccard_score  |  from MLalgorithms.Metrics._jaccard_score import jaccard_score  | (y_true, y_pred, *, labels=None, pos_label=1, average='binary', sample_weight=None, zero_division='warn') | NA |
+| log_loss  |  from MLalgorithms.Metrics._log_loss import log_loss  | (y_true, y_pred, *, eps=1e-15, normalize=True, sample_weight=None, labels=None) | NA |
 
 # Neural Networks using PyTorch
 PyTorch based Neural Networks adapters can be tested using the file onto_based_neural_network_tester.py and neural_network_tester.py in examples directory.
