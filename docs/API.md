@@ -1,7 +1,7 @@
 
 ML algorithm wrappers is a Python wrapper for algorithms defined in Scikit and Pytorch. The wrapper code is auto generated based on classes defined in ontology.
 
-The adapters are written for Classification, Clustering, Regression and Matrices from the various models in scikit-learn.
+The adapters are written for Classification, Clustering, Regression and Metrics from the various models in scikit-learn.
 
 The following sections give all the information about the various algorithm implemented in the project.
 
@@ -58,3 +58,13 @@ The following sections give all the information about the various algorithm impl
 | Ridge | from sklearn.linear_model import Ridge   |(alpha=1.0, *, fit_intercept=True, normalize=False, copy_X=True, max_iter=None, tol=0.001, solver='auto', random_state=None) |fit(X, y[, sample_weight]), predict(X)|
 | SVR | from sklearn.svm import SVR  |(*, kernel='rbf', degree=3, gamma='scale', coef0=0.0, tol=0.001, C=1.0, epsilon=0.1, shrinking=True, cache_size=200, verbose=False, max_iter=- 1) |fit(X, y[, sample_weight]), predict(X)|
 | TweedieRegressor | from sklearn.linear_model import TweedieRegressor  |(*, power=0.0, alpha=1.0, fit_intercept=True, link='auto', max_iter=100, tol=0.0001, warm_start=False, verbose=0) |fit(X, y[, sample_weight]), predict(X)|
+
+# Metrics
+
+|Algorithms|imports| parameters|methods|
+| :-------------|:-------------|:-------------| :-------------|
+| classification_report  |  from sklearn.metrics import classification_report  | (y_true, y_pred, *, labels=None, target_names=None, sample_weight=None, digits=2, output_dict=False, zero_division='warn') | NA |
+| confusion_matrix  |  from sklearn.metrics import confusion_matrix  | (y_true, y_pred, *, labels=None, sample_weight=None, normalize=None) | NA |
+| hinge_loss  |  from sklearn.metrics import hinge_loss  | (y_true, pred_decision, *, labels=None, sample_weight=None) | NA |
+| jaccard_score  |  from sklearn.metrics import jaccard_score  | (y_true, y_pred, *, labels=None, pos_label=1, average='binary', sample_weight=None, zero_division='warn') | NA |
+| log_loss  |  from sklearn.metrics import log_loss  | (y_true, y_pred, *, eps=1e-15, normalize=True, sample_weight=None, labels=None) | NA |
