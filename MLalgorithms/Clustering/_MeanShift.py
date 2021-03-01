@@ -8,23 +8,23 @@ class MeanShift(Clustering):
 	def predict(self, X):
 		return self.model.predict(X=X)
 
-	def __init__(self, bandwidth=None, seeds=None, bin_seeding=False, min_bin_freq=1, cluster_all=True, n_jobs=None, max_iter=300):
-		self.max_iter = max_iter
-		self.bin_seeding = bin_seeding
-		self.seeds = seeds
-		self.n_jobs = n_jobs
-		self.min_bin_freq = min_bin_freq
-		self.bandwidth = bandwidth
-		self.cluster_all = cluster_all
-		self.model = MSClustering(cluster_all = self.cluster_all,
-			n_jobs = self.n_jobs,
-			seeds = self.seeds,
-			max_iter = self.max_iter,
-			bin_seeding = self.bin_seeding,
-			min_bin_freq = self.min_bin_freq,
-			bandwidth = self.bandwidth)
-
 	def fit(self, X, y):
-		return self.model.fit(X=X,
-			y=y)
+		return self.model.fit(y=y,
+			X=X)
+
+	def __init__(self, bandwidth=None, seeds=None, bin_seeding=False, min_bin_freq=1, cluster_all=True, n_jobs=None, max_iter=300):
+		self.min_bin_freq = min_bin_freq
+		self.n_jobs = n_jobs
+		self.bandwidth = bandwidth
+		self.bin_seeding = bin_seeding
+		self.max_iter = max_iter
+		self.seeds = seeds
+		self.cluster_all = cluster_all
+		self.model = MSClustering(bin_seeding = self.bin_seeding,
+			bandwidth = self.bandwidth,
+			cluster_all = self.cluster_all,
+			max_iter = self.max_iter,
+			seeds = self.seeds,
+			min_bin_freq = self.min_bin_freq,
+			n_jobs = self.n_jobs)
 
