@@ -13,6 +13,11 @@
 
 .. image:: docs/system_workflow.png 
 
+The modified flow diagram shows the system specific to Pytorch adapters. 
+
+.. image:: docs/system_workflow_pytorch.png 
+
+
 Dependencies
 ----------------
 
@@ -71,11 +76,13 @@ Advanced users of the project can also add new algorithms to the ontology and ru
 
 Implementation stats
 ----------------
-- Total number of algorithms:
-- Scikit-learn algorithms:
-- Clustering algorithms:
-- Regression algorithms:
-- Classification algorithms:
+- Total number of algorithms: 47
+- Scikit-learn algorithms: 46
+- Clustering algorithms: 9
+- Regression algorithms: 22
+- Classification algorithms: 10
+- Metrics algorithms: 5
+- Pytorch generic class: 1
 
 
 Project structure
