@@ -13,6 +13,11 @@
 
 .. image:: docs/system_workflow.png 
 
+The modified flow diagram shows the system specific to Pytorch adapters. 
+
+.. image:: docs/system_workflow_pytorch.png 
+
+
 Dependencies
 ----------------
 
@@ -65,17 +70,19 @@ Quickstart
 
       python3 code_generator.py
 **Please note, as part of using our system, we don't expect you to run the code generator. We already provide the auto-generated adapters.
-Advanced users of the project can also add new algorithms to the ontology and run the code generator to create adapters for the new algorithms from the ontology.**
+Advanced users of the project can also add new algorithms to the ontology and run the code generator to create adapters for the new algorithms from the ontology. Kindly contact the contributors if you face issues when experimenting with code generation.**
 
 
 
 Implementation stats
 ----------------
-- Total number of algorithms:
-- Scikit-learn algorithms:
-- Clustering algorithms:
-- Regression algorithms:
-- Classification algorithms:
+- Total number of algorithms: 47
+- Scikit-learn algorithms: 46
+- Clustering algorithms: 9
+- Regression algorithms: 22
+- Classification algorithms: 10
+- Metrics algorithms: 5
+- Pytorch generic class: 1
 
 
 Project structure
@@ -147,7 +154,7 @@ Contributors
 ----------------
 
 - Firas (Mentor)
-- Varun Shankar S (Student)
+- Varun Shankar S (Student) (s6vasubr@uni-bonn.de)
 - Priya Priya (Student)
 - Aditya Vijay Jogalekar (Student)
 - Kunal (Student)
