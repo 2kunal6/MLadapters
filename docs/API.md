@@ -1,5 +1,5 @@
 
-ML algorithm wrappers is a Python wrapper for algorithms defined in Scikit and Pytorch. The wrapper code is auto generated based on classes defined in ontology.
+MLAdapters is a Python wrapper/adapter for algorithms defined in Scikit and Pytorch. The wrapper/adapter codes are auto generated based on classes defined in ontology.
 
 The adapters are written for Classification, Clustering, Regression and Metrics from the various models in scikit-learn.
 
