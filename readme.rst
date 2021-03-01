@@ -11,6 +11,7 @@
 
 **MLadapters** is a Python wrapper/adapter for algorithms defined in Scikit and Pytorch. The wrapper/adapter code is auto generated based on classes defined in ontology.
 
+.. image:: docs/system_workflow.png 
 
 Dependencies
 ----------------
@@ -40,11 +41,11 @@ Documentation
 - Ontology documentation is available `here <onto_doc_>`_
 
 - API documentation is available `here <tutorial_>`_
-
+  
 Quickstart
 ----------------
 
-* Wrappers can be consumed by creating an object of the wrapper class. In the below example, the object created is a model of the type LinearRegression.
+* Wrappers can be consumed by creating an object of the wrapper class. In the below example, the object created is an adapter of the model: LinearRegression.
 
   >>> from MLalgorithms.Regression._LinearRegression import LinearRegression
   >>> adapterObj = LinearRegression(normalize=True)
