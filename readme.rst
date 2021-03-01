@@ -1,6 +1,6 @@
 .. -*- mode: rst -*-
 
-|PythonVersion|_ |last|_ |size|_ |lines|_ |test|_
+|PythonVersion|_ |test|_ |total|_ |last|_ |size|_ |lines|_ 
 
 .. |PythonVersion| image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
 .. _PythonVersion: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
@@ -17,6 +17,10 @@
 
 .. |test| image:: https://img.shields.io/badge/Testing-Done-brightgreen
 .. _test: https://img.shields.io/badge/Testing-Done-brightgreen
+
+.. |total| image:: https://img.shields.io/badge/Number%20of%20algorithms-47-red
+.. _total: https://img.shields.io/badge/Number%20of%20algorithms-47-red
+
 
 .. |PythonMinVersion| replace:: 3.6
 .. |owlready2MinVersion| replace:: 0.25
