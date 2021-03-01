@@ -3,8 +3,29 @@ ML algorithm wrappers is a Python wrapper for algorithms defined in Scikit and P
 
 The adapters are written for Classification, Clustering, Regression and Metrics from the various models in scikit-learn.
 
-The following sections give all the information about the various algorithm implemented in the project and all the model can be accessed by
-#### self.model.<function_name>
+* To consume the algorithms, create an object of the adapter class.
+```
+    >>> from MLalgorithms.Classification._AdaBoostClassifier import AdaBoostClassifier
+    >>> adaperObj = AdaBoostClassifier()
+```
+
+* The adapter class has methods like fit and predict defined and can be accessed like the code snippet below,
+```
+    >>> adapterObj.fit(X, y)
+```
+
+* Please note that the object created is of the type Adapter class. The model can be accessed like the code snippet below,
+```
+    >>> adapterObj.model
+```
+
+* Other functions associated with model (defined in scikit) can be called like the code snippet below,
+```
+    >>> adapterObj.model.get_params()
+```
+
+The following sections give all the information about the various adapters implemented in the project.
+
 
 # Classification
 
@@ -72,4 +93,4 @@ The following sections give all the information about the various algorithm impl
 | log_loss  |  from sklearn.metrics import log_loss  | (y_true, y_pred, *, eps=1e-15, normalize=True, sample_weight=None, labels=None) | NA |
 
 # Neural Networks using PyTorch
-Neural Networks using PyTorch adapters can be tested using the file neural_network_tester.py in Examples\neural_network_tester.py
+PyTorch based Neural Networks adapters can be tested using the file onto_based_neural_network_tester.py and neural_network_tester.py in examples directory.
