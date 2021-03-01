@@ -1,5 +1,5 @@
-from MLalgorithms.Regression._MultiTaskLasso import  MultiTaskLasso
+from MLalgorithms.Regression._MultiTaskLassoRegression import MultiTaskLassoRegression
 
-adapterObj = MultiTaskLasso(normalize=True)
+adapterObj = MultiTaskLassoRegression(alpha=0.1)
 print(adapterObj.model)
 

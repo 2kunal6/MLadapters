@@ -9,11 +9,11 @@ class log_loss(Metrics):
 		self.normalize = normalize
 		self.y_pred = y_pred
 		self.eps = eps
-		Metrics.__init__(self, sample_weight=sample_weight, labels=labels, y_true=y_true)
-		self.value = LL(normalize = self.normalize,
-			labels = self.labels,
-			sample_weight = self.sample_weight,
+		Metrics.__init__(self, labels=labels, sample_weight=sample_weight, y_true=y_true)
+		self.value = LL(y_true = self.y_true,
 			y_pred = self.y_pred,
+			labels = self.labels,
 			eps = self.eps,
-			y_true = self.y_true)
+			sample_weight = self.sample_weight,
+			normalize = self.normalize)
 

@@ -9,27 +9,27 @@ class LinearSVR(Regression):
 		return self.model.predict(X=X)
 
 	def fit(self, X, y, sample_weight=None):
-		return self.model.fit(sample_weight=sample_weight,
-			y=y,
+		return self.model.fit(y=y,
+			sample_weight=sample_weight,
 			X=X)
 
 	def __init__(self, epsilon=0.0, tol=0.0001, loss='epsilon_insensitive', fit_intercept=True, intercept_scaling=1, dual=True, verbose=0, random_state=None, max_iter=1000):
-		self.dual = dual
-		self.verbose = verbose
 		self.tol = tol
-		self.intercept_scaling = intercept_scaling
+		self.verbose = verbose
 		self.loss = loss
-		self.max_iter = max_iter
-		self.fit_intercept = fit_intercept
+		self.intercept_scaling = intercept_scaling
 		self.random_state = random_state
+		self.dual = dual
 		self.epsilon = epsilon
+		self.fit_intercept = fit_intercept
+		self.max_iter = max_iter
 		self.model = LSVR(loss = self.loss,
-			verbose = self.verbose,
 			dual = self.dual,
+			epsilon = self.epsilon,
 			max_iter = self.max_iter,
+			verbose = self.verbose,
+			random_state = self.random_state,
 			intercept_scaling = self.intercept_scaling,
 			tol = self.tol,
-			fit_intercept = self.fit_intercept,
-			random_state = self.random_state,
-			epsilon = self.epsilon)
+			fit_intercept = self.fit_intercept)
 

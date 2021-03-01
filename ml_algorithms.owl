@@ -10768,12 +10768,6 @@ from functools import reduce</core_import>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#BayesianRidge__verbose"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
                 <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#affinity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -10880,17 +10874,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </owl:annotatedTarget>
         <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</pos>
-    </owl:Axiom>
-    <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SpectralClustering"/>
-        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
-                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#BayesianRidge__verbose"/>
-            </owl:Restriction>
-        </owl:annotatedTarget>
-        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</pos>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SpectralClustering"/>

@@ -13,22 +13,22 @@ class GaussianProcessClassifier(Classification):
 			X=X)
 
 	def __init__(self, kernel=None, optimizer='fmin_l_bfgs_b', n_restarts_optimizer=0, max_iter_predict=100, warm_start=False, copy_X_train=True, random_state=None, multi_class='one_vs_rest', n_jobs=None):
-		self.kernel = kernel
-		self.n_jobs = n_jobs
 		self.optimizer = optimizer
-		self.multi_class = multi_class
-		self.copy_X_train = copy_X_train
+		self.kernel = kernel
 		self.n_restarts_optimizer = n_restarts_optimizer
-		self.warm_start = warm_start
 		self.max_iter_predict = max_iter_predict
+		self.n_jobs = n_jobs
 		self.random_state = random_state
-		self.model = GPC(optimizer = self.optimizer,
-			copy_X_train = self.copy_X_train,
-			warm_start = self.warm_start,
+		self.copy_X_train = copy_X_train
+		self.multi_class = multi_class
+		self.warm_start = warm_start
+		self.model = GPC(n_restarts_optimizer = self.n_restarts_optimizer,
+			max_iter_predict = self.max_iter_predict,
 			kernel = self.kernel,
 			multi_class = self.multi_class,
-			n_restarts_optimizer = self.n_restarts_optimizer,
-			max_iter_predict = self.max_iter_predict,
 			random_state = self.random_state,
-			n_jobs = self.n_jobs)
+			copy_X_train = self.copy_X_train,
+			n_jobs = self.n_jobs,
+			optimizer = self.optimizer,
+			warm_start = self.warm_start)
 

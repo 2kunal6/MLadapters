@@ -10,29 +10,29 @@ class KMeans(Clustering):
 			X=X)
 
 	def fit(self, X, y, sample_weight=None):
-		return self.model.fit(sample_weight=sample_weight,
-			y=y,
+		return self.model.fit(y=y,
+			sample_weight=sample_weight,
 			X=X)
 
 	def __init__(self, n_clusters=8, n_init=10, max_iter=300, tol=0.0001, precompute_distances='auto', verbose=0, random_state=None, copy_x=True, n_jobs=None, algorithm='auto'):
-		self.n_init = n_init
-		self.verbose = verbose
-		self.tol = tol
 		self.n_clusters = n_clusters
-		self.n_jobs = n_jobs
+		self.tol = tol
 		self.algorithm = algorithm
-		self.copy_x = copy_x
+		self.n_init = n_init
 		self.precompute_distances = precompute_distances
+		self.verbose = verbose
 		self.max_iter = max_iter
+		self.n_jobs = n_jobs
+		self.copy_x = copy_x
 		self.random_state = random_state
-		self.model = KMeansClustering(verbose = self.verbose,
-			algorithm = self.algorithm,
+		self.model = KMeansClustering(n_init = self.n_init,
+			precompute_distances = self.precompute_distances,
+			n_clusters = self.n_clusters,
 			max_iter = self.max_iter,
-			n_init = self.n_init,
-			tol = self.tol,
+			verbose = self.verbose,
 			copy_x = self.copy_x,
 			random_state = self.random_state,
-			n_clusters = self.n_clusters,
-			n_jobs = self.n_jobs,
-			precompute_distances = self.precompute_distances)
+			algorithm = self.algorithm,
+			tol = self.tol,
+			n_jobs = self.n_jobs)
 
