@@ -1,5 +1,9 @@
 from MLalgorithms.Classification._DecisionTreeClassifier import DecisionTreeClassifier
 from MLalgorithms.Metrics._confusion_matrix import confusion_matrix
+from MLalgorithms.Metrics._classification_report import classification_report
+from MLalgorithms.Metrics._hinge_loss import hinge_loss
+from MLalgorithms.Metrics._jaccard_score import jaccard_score
+from MLalgorithms.Metrics._log_loss import log_loss
 
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
@@ -8,7 +12,7 @@ from sklearn.model_selection import train_test_split
 def test():
     """ Example for decision tree classifier."""
     # Step 1: Load the dataset.
-    X, y = load_iris(return_X_y = True)
+    X, y = load_iris(return_X_y=True)
 
     # Step 2: Split the dataset into train and test.
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
