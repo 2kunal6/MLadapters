@@ -38,10 +38,9 @@ class DecisionTreeClassifier(Classification):
 			max_depth = self.max_depth,
 			min_weight_fraction_leaf = self.min_weight_fraction_leaf)
 
-	def fit(self, X, y, sample_weight=None, check_input=True, X_idx_sorted='deprecated'):
+	def fit(self, X, y, sample_weight=None, check_input=True):
 		return self.model.fit(X=X,
 			check_input=check_input,
 			y=y,
-			X_idx_sorted=X_idx_sorted,
 			sample_weight=sample_weight)
 
