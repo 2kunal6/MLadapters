@@ -84,6 +84,19 @@ The following sections give all the information about the various adapters imple
 
 # Metrics
 
+
+* Metrics can be consumed by creating an object of the adapter class. 
+```
+    >>> metricsAdapterObj = confusion_matrix(y_true=y_test, y_pred=y_pred)
+```
+
+* The result of the metrics can be accessed by adapterobj.value
+```
+   >>> print(metricsAdapterObj.value)
+```
+    
+
+
 |Algorithms|imports| parameters|methods|
 | :-------------|:-------------|:-------------| :-------------|
 | classification_report  |  from sklearn.metrics import classification_report  | (y_true, y_pred, *, labels=None, target_names=None, sample_weight=None, digits=2, output_dict=False, zero_division='warn') | NA |
@@ -94,3 +107,4 @@ The following sections give all the information about the various adapters imple
 
 # Neural Networks using PyTorch
 PyTorch based Neural Networks adapters can be tested using the file onto_based_neural_network_tester.py and neural_network_tester.py in examples directory.
+##### Detailed step by step workflow is mentioned in the example scipts to make it easier for understanding and testing.
