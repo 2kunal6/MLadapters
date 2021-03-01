@@ -3,7 +3,8 @@ ML algorithm wrappers is a Python wrapper for algorithms defined in Scikit and P
 
 The adapters are written for Classification, Clustering, Regression and Metrics from the various models in scikit-learn.
 
-The following sections give all the information about the various algorithm implemented in the project.
+The following sections give all the information about the various algorithm implemented in the project and all the model can be accessed by
+#### self.model.<function_name>
 
 # Classification
 
