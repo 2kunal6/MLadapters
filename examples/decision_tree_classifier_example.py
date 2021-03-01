@@ -9,7 +9,7 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 
 
-def test():
+def main():
     """ Example for decision tree classifier."""
     # Step 1: Load the dataset.
     X, y = load_iris(return_X_y=True)
@@ -42,4 +42,4 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
+    main()

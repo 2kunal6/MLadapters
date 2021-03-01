@@ -7,25 +7,25 @@ class LassoRegression(Regression):
 	
 	def __init__(self, alpha=1.0, fit_intercept=True, normalize=False, precompute=False, copy_X=True, max_iter=1000, tol=0.0001, warm_start=False, positive=False, random_state=None, selection='cyclic'):
 		self.copy_X = copy_X
-		self.warm_start = warm_start
-		self.precompute = precompute
-		self.normalize = normalize
-		self.positive = positive
 		self.random_state = random_state
-		self.alpha = alpha
-		self.selection = selection
+		self.warm_start = warm_start
 		self.fit_intercept = fit_intercept
-		self.tol = tol
+		self.positive = positive
 		self.max_iter = max_iter
-		self.model = Lasso(copy_X = self.copy_X,
-			normalize = self.normalize,
+		self.tol = tol
+		self.selection = selection
+		self.normalize = normalize
+		self.alpha = alpha
+		self.precompute = precompute
+		self.model = Lasso(tol = self.tol,
 			precompute = self.precompute,
+			copy_X = self.copy_X,
+			normalize = self.normalize,
+			random_state = self.random_state,
+			positive = self.positive,
 			max_iter = self.max_iter,
 			selection = self.selection,
 			fit_intercept = self.fit_intercept,
 			warm_start = self.warm_start,
-			tol = self.tol,
-			random_state = self.random_state,
-			alpha = self.alpha,
-			positive = self.positive)
+			alpha = self.alpha)
 

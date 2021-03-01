@@ -31,7 +31,7 @@ class Net(nn.Module):
         return output
 
 
-def test():
+def main():
     """ Testing user defined model """
 
     # Step 1: Initialise the model.
@@ -60,4 +60,4 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
+    main()

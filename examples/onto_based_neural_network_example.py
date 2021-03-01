@@ -4,7 +4,7 @@ import torch.utils
 from workflow.NN_workflow import NN_workflow
 
 
-def test():
+def main():
     """ Testing model defined according to ontology. """
 
     # Step 1: Define the layers.
@@ -44,4 +44,4 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
+    main()

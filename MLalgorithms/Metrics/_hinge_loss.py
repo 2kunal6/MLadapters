@@ -8,8 +8,8 @@ class hinge_loss(Metrics):
 	def __init__(self, y_true, pred_decision, labels=None, sample_weight=None):
 		self.pred_decision = pred_decision
 		Metrics.__init__(self, labels=labels, sample_weight=sample_weight, y_true=y_true)
-		self.value = HL(pred_decision = self.pred_decision,
-			sample_weight = self.sample_weight,
-			labels = self.labels,
-			y_true = self.y_true)
+		self.value = HL(sample_weight = self.sample_weight,
+			y_true = self.y_true,
+			pred_decision = self.pred_decision,
+			labels = self.labels)
 
