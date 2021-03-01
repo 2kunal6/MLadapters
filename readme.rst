@@ -9,7 +9,7 @@
 .. |Scikit-learnMinVersion| replace:: 0.24.1
 .. |PytorchMinVersion| replace:: 1.7.0
 
-**ML algorithm wrappers** is a Python wrapper for algorithms defined in Scikit and Pytorch. The wrapper code is auto generated based on classes defined in ontology.
+**MLadapters** is a Python wrapper/adapter for algorithms defined in Scikit and Pytorch. The wrapper/adapter code is auto generated based on classes defined in ontology.
 
 
 Dependencies
@@ -32,27 +32,41 @@ User installation
 5. python3 -m pipenv install --ignore-pipfile
 6. python3 -m pipenv shell
 
+Documentation
+----------------
+.. _onto_doc: /docs/Ontology%20Structure.md
+.. _tutorial: /docs/API.md
+
+- Ontology documentation is available `here <onto_doc_>`_
+
+- API documentation is available `here <tutorial_>`_
+
 Quickstart
 ----------------
 
 * Wrappers can be consumed by creating an object of the wrapper class. In the below example, the object created is a model of the type LinearRegression.
 
   >>> from MLalgorithms.Regression._LinearRegression import LinearRegression
-  >>> model = LinearRegression(normalize=True)
+  >>> adapterObj = LinearRegression(normalize=True)
 
 * The wrapper class has functionalities like fit and predict, it can be invoked by the object.
 
-  >>> model.predict(np.array([[3, 5]]))
+  >>> adapterObj.predict(np.array([[3, 5]]))
+  
+* To learn more about the usage of the project, please refer the example scripts present under the example and test directories. **Note: Detailed step by step workflow is mentioned in the example scipts to make it easier for understanding and testing.**
+::
+
+      python3 tester/lasso_regression_tester.py
+      python3 examples/onto_based_neural_network_example.py
 
 * Code generator can be run to automatically generate wrapper classes from ontology.
 ::
 
       python3 code_generator.py
+**Please note, as part of using our system, we don't expect you to run the code generator. We already provide the auto-generated adapters.
+Advanced users of the project can also add new algorithms to the ontology and run the code generator to create adapters for the new algorithms from the ontology.**
 
-* To learn more about the usage of the project, please refer the example scripts present under the example directory.
-::
 
-      python3 examples/lasso_regression_tester.py
 
 Implementation stats
 ----------------
@@ -70,13 +84,20 @@ Project structure
     project
     ├── code_generator.py
     ├── mlalgorithms.owl
-    ├── examples          
+    ├── examples
+    │   ├── decision_tree_classifier_example.py
+    │   ├── neural_network_example.py
+    │   ├── onto_based_neural_network_example.py
+    │   └── ...
+    ├── test          
     │   ├── linear_regression_tester.py
     │   └── ...
     ├── util          
     │   ├── file_content_creator.py          
     │   ├── file_util.py
-    │   └── position_parser.py
+    │   └── position_parser.py    
+    ├── workflow          
+    │   ├── NN_workflow.py    
     ├── MLalgorithms          
     │   ├── Metrics          
     │   |   ├── _confusion_matrix.py          
@@ -95,15 +116,7 @@ Project structure
     ├── Pipfile          
     ├── Readme.rst
     └── ...
-
-Documentation
-----------------
-.. _onto_doc: /docs/Ontology%20Structure.md
-.. _tutorial: /docs/API.md
-
-- Ontology documentation is available `here <onto_doc_>`_
-
-- API documentation is available `here <tutorial_>`_
+    
 
 Deliverables
 ----------------
@@ -136,5 +149,6 @@ Contributors
 - Varun Shankar S (Student)
 - Priya Priya (Student)
 - Aditya Vijay Jogalekar (Student)
+- Kunal (Student)
 
 
