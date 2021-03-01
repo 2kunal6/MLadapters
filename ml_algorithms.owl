@@ -441,7 +441,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.ensemble import AdaBoostClassifier as ABClassifier</core_import>
-        <lib_import>from sklearn.datasets import make_classification</lib_import>
         <returns>self.model</returns>
         <rdfs:label>AdaBoostClassifier</rdfs:label>
     </owl:Class>
@@ -610,7 +609,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.ensemble import AdaBoostRegressor as ABR</core_import>
-        <lib_import>from sklearn.datasets import make_regression</lib_import>
         <returns>self.model</returns>
         <rdfs:label>AdaBoostRegressor</rdfs:label>
     </owl:Class>
@@ -796,7 +794,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.cluster import AffinityPropagation as APClustering</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>AffinityPropagation</rdfs:label>
     </owl:Class>
@@ -1019,7 +1016,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.cluster import AgglomerativeClustering as AC</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>AgglomerativeClustering</rdfs:label>
     </owl:Class>
@@ -1823,7 +1819,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.cluster import DBSCAN as DBSCANClustering</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DBSCAN</rdfs:label>
     </owl:Class>
@@ -2086,8 +2081,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.tree import DecisionTreeClassifier as DTC</core_import>
-        <lib_import>from sklearn.datasets import load_iris</lib_import>
-        <lib_import>from sklearn.model_selection import cross_val_score</lib_import>
         <returns>self.model</returns>
         <rdfs:label>DecisionTreeClassifier</rdfs:label>
     </owl:Class>
@@ -2433,8 +2426,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.tree import DecisionTreeRegressor as DTR</core_import>
-        <lib_import>from sklearn.datasets import load_diabetes</lib_import>
-        <lib_import>from sklearn.model_selection import cross_val_score</lib_import>
         <returns>self.model</returns>
         <rdfs:label>DecisionTreeRegressor</rdfs:label>
     </owl:Class>
@@ -3077,7 +3068,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.mixture import GaussianMixture as GMClustering</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>GaussianMixture</rdfs:label>
     </owl:Class>
@@ -3378,8 +3368,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.gaussian_process import GaussianProcessClassifier as GPC</core_import>
-        <lib_import>from sklearn.datasets import load_iris</lib_import>
-        <lib_import>from sklearn.gaussian_process.kernels import RBF</lib_import>
         <returns>self.model</returns>
         <rdfs:label>GaussianProcessClassifier</rdfs:label>
     </owl:Class>
@@ -3689,8 +3677,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.ensemble import GradientBoostingRegressor as GBR</core_import>
-        <lib_import>from sklearn.datasets import make_regression</lib_import>
-        <lib_import>from sklearn.model_selection import train_test_split</lib_import>
         <returns>self.model</returns>
         <rdfs:label>GradientBoostingRegressor</rdfs:label>
     </owl:Class>
@@ -4118,7 +4104,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.linear_model import HuberRegressor as HR</core_import>
-        <lib_import>from sklearn.datasets import make_regression</lib_import>
         <returns>self.model</returns>
         <rdfs:label>HuberRegressor</rdfs:label>
     </owl:Class>
@@ -4350,7 +4335,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.cluster import KMeans as KMeansClustering</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>KMeans</rdfs:label>
     </owl:Class>
@@ -5460,9 +5444,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.svm import LinearSVR as LSVR</core_import>
-        <lib_import>from sklearn.datasets import make_regression</lib_import>
-        <lib_import>from sklearn.pipeline import make_pipeline</lib_import>
-        <lib_import>from sklearn.preprocessing import StandardScaler</lib_import>
         <returns>self.model</returns>
         <rdfs:label>LinearSVR</rdfs:label>
     </owl:Class>
@@ -5761,7 +5742,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.linear_model import LogisticRegression as LR</core_import>
-        <lib_import>from sklearn.datasets import load_iris</lib_import>
         <returns>self.model</returns>
         <rdfs:label>LogisticRegression</rdfs:label>
     </owl:Class>
@@ -6108,7 +6088,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.linear_model import LogisticRegressionCV as LRCV</core_import>
-        <lib_import>from sklearn.datasets import load_iris</lib_import>
         <returns>self.model</returns>
         <rdfs:label>LogisticRegressionCV</rdfs:label>
     </owl:Class>
@@ -6531,8 +6510,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.neural_network import MLPClassifier as MLPC</core_import>
-        <lib_import>from sklearn.datasets import make_classification</lib_import>
-        <lib_import>from sklearn.model_selection import train_test_split</lib_import>
         <returns>self.model</returns>
         <rdfs:label>MLPClassifier</rdfs:label>
     </owl:Class>
@@ -6927,7 +6904,6 @@
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.cluster import MeanShift as MSClustering</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>MeanShift</rdfs:label>
     </owl:Class>
@@ -7844,9 +7820,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.svm import NuSVR as NSVR</core_import>
-        <lib_import>from sklearn.pipeline import make_pipeline</lib_import>
-        <lib_import>from sklearn.preprocessing import StandardScaler</lib_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>NuSVR</rdfs:label>
     </owl:Class>
@@ -8113,7 +8086,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.cluster import OPTICS as OPTICSClustering</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>OPTICS</rdfs:label>
     </owl:Class>
@@ -8368,7 +8340,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.linear_model import OrthogonalMatchingPursuit as OMP</core_import>
-        <lib_import>from sklearn.datasets import make_regression</lib_import>
         <returns>self.model</returns>
         <rdfs:label>OrthogonalMatchingPursuit</rdfs:label>
     </owl:Class>
@@ -8892,7 +8863,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.ensemble import RandomForestRegressor as RFR</core_import>
-        <lib_import>from sklearn.datasets import make_regression</lib_import>
         <returns>self.model</returns>
         <rdfs:label>RandomForestRegressor</rdfs:label>
     </owl:Class>
@@ -9311,7 +9281,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.linear_model import RidgeClassifier as RC</core_import>
-        <lib_import>from sklearn.datasets import load_breast_cancer</lib_import>
         <returns>self.model</returns>
         <rdfs:label>RidgeClassifier</rdfs:label>
     </owl:Class>
@@ -9843,9 +9812,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.linear_model import SGDClassifier as SGDC</core_import>
-        <lib_import>from sklearn.pipeline import make_pipeline</lib_import>
-        <lib_import>from sklearn.preprocessing import StandardScaler</lib_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>SGDClassifier</rdfs:label>
     </owl:Class>
@@ -10298,9 +10264,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.svm import SVC as SVCClassification</core_import>
-        <lib_import>from sklearn.pipeline import make_pipeline</lib_import>
-        <lib_import>from sklearn.preprocessing import StandardScaler</lib_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>SVC</rdfs:label>
     </owl:Class>
@@ -10641,9 +10604,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.svm import SVR as SVRRegression</core_import>
-        <lib_import>from sklearn.pipeline import make_pipeline</lib_import>
-        <lib_import>from sklearn.preprocessing import StandardScaler</lib_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>SVR</rdfs:label>
     </owl:Class>
@@ -10922,7 +10882,6 @@ from functools import reduce</core_import>
             </owl:Restriction>
         </rdfs:subClassOf>
         <core_import>from sklearn.cluster import SpectralClustering as SC</core_import>
-        <lib_import>import numpy as np</lib_import>
         <returns>self.model</returns>
         <rdfs:label>SpectralClustering</rdfs:label>
     </owl:Class>
