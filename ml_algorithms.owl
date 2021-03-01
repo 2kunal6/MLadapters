@@ -1116,12 +1116,90 @@
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#C -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#C">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</default>
+        <rdfs:label>C</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#Classification -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#Classification">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#MLalgoritthms"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#sample_weight"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#y"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#predict"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label>Classification</rdfs:label>
     </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#Classification"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#Classification"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#sample_weight"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#Classification"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#y"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#Classification"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#predict"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
     
 
 
@@ -3543,6 +3621,876 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#SGDClassifier -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SGDClassifier">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#Classification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#coef_init"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#intercept_init"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#sample_weight"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#y"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#Lasso__max_iter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier__alpha"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier__average"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier__l1_ratio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#class_weight"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#early_stopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#epsilon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#eta0"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#fit_intercept"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#learning_rate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#loss"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#n_iter_no_change"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#n_jobs"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#penalty"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#power_t"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#random_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#shuffle"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#tol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#validation_fraction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#verbose"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#warm_start"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#predict"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <core_import>from sklearn.linear_model import SGDClassifier as SGDC</core_import>
+        <lib_import>from sklearn.pipeline import make_pipeline</lib_import>
+        <lib_import>from sklearn.preprocessing import StandardScaler</lib_import>
+        <lib_import>import numpy as np</lib_import>
+        <returns>self.model</returns>
+        <rdfs:label>SGDClassifier</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#coef_init"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.1</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#intercept_init"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">2.2</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#sample_weight"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#y"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#Lasso__max_iter"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier__alpha"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier__average"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">21</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier__l1_ratio"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#class_weight"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">19</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#early_stopping"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#epsilon"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#eta0"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#fit_intercept"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#learning_rate"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#loss"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#n_iter_no_change"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">18</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#n_jobs"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#penalty"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#power_t"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#random_state"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#shuffle"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#tol"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#validation_fraction"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">17</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#verbose"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#warm_start"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SGDClassifier"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#predict"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#SGDClassifier__alpha -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SGDClassifier__alpha">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#alpha"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0001</default>
+        <rdfs:label>alpha</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#SGDClassifier__average -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SGDClassifier__average">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#average"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">False</default>
+        <rdfs:label>average</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#SGDClassifier__l1_ratio -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SGDClassifier__l1_ratio">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#l1_ratio"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.15</default>
+        <rdfs:label>l1_ratio</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#SVC -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SVC">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#Classification"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#sample_weight"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#y"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#BayesianRidge__verbose"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#C"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC__coef0"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC__gamma"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC__max_iter"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#break_ties"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#cache_size"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#class_weight"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#decision_function_shape"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#degree"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#kernel"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#probability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#random_state"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#shrinking"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#tol"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#predict"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <core_import>from sklearn.svm import SVC as SVCClassification</core_import>
+        <lib_import>from sklearn.pipeline import make_pipeline</lib_import>
+        <lib_import>from sklearn.preprocessing import StandardScaler</lib_import>
+        <lib_import>import numpy as np</lib_import>
+        <returns>self.model</returns>
+        <rdfs:label>SVC</rdfs:label>
+    </owl:Class>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#sample_weight"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#fit"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#y"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#BayesianRidge__verbose"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">11</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#C"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC__coef0"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC__gamma"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC__max_iter"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#break_ties"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">14</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#cache_size"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#class_weight"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#decision_function_shape"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">13</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#degree"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#kernel"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#probability"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#random_state"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">15</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#shrinking"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#init"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#tol"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</pos>
+    </owl:Axiom>
+    <owl:Axiom>
+        <owl:annotatedSource rdf:resource="http://www.semanticweb.org/mlalgorithms#SVC"/>
+        <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/mlalgorithms#predict"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/mlalgorithms#X"/>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+        <pos rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</pos>
+    </owl:Axiom>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#SVC__coef0 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SVC__coef0">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#coef0"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</default>
+        <rdfs:label>coef0</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#SVC__gamma -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SVC__gamma">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#gamma"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&apos;scale&apos;</default>
+        <rdfs:label>gamma</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#SVC__max_iter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SVC__max_iter">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#max_iter"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">-1</default>
+        <rdfs:label>max_iter</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#SpectralClustering -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#SpectralClustering">
@@ -4011,12 +4959,42 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#break_ties -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#break_ties">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">False</default>
+        <rdfs:label>break_ties</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#cache_size -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#cache_size">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</default>
+        <rdfs:label>cache_size</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#check_input -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#check_input">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
         <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">True</default>
         <rdfs:label>check_input</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#class_weight -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#class_weight">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">None</default>
+        <rdfs:label>class_weight</rdfs:label>
     </owl:Class>
     
 
@@ -4152,6 +5130,16 @@ from functools import reduce</core_import>
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#coef_">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#attributes"/>
         <rdfs:label>coef_</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#coef_init -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#coef_init">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">None</default>
+        <rdfs:label>coef_init</rdfs:label>
     </owl:Class>
     
 
@@ -4311,6 +5299,16 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#decision_function_shape -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#decision_function_shape">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&apos;ovr&apos;</default>
+        <rdfs:label>decision_function_shape</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#deep -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#deep">
@@ -4360,6 +5358,16 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#early_stopping -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#early_stopping">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">False</default>
+        <rdfs:label>early_stopping</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#eigen_solver -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#eigen_solver">
@@ -4386,6 +5394,26 @@ from functools import reduce</core_import>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
         <default rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0E-15</default>
         <rdfs:label>eps</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#epsilon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#epsilon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</default>
+        <rdfs:label>epsilon</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#eta0 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#eta0">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</default>
+        <rdfs:label>eta0</rdfs:label>
     </owl:Class>
     
 
@@ -4475,6 +5503,16 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#intercept_init -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#intercept_init">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">None</default>
+        <rdfs:label>intercept_init</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#jaccard_score -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#jaccard_score">
@@ -4554,6 +5592,16 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#kernel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#kernel">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&apos;rbf&apos;</default>
+        <rdfs:label>kernel</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#kernel_params -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#kernel_params">
@@ -4628,6 +5676,16 @@ from functools import reduce</core_import>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
         <default rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</default>
         <rdfs:label>leaf_size</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#learning_rate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#learning_rate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&apos;optimal&apos;</default>
+        <rdfs:label>learning_rate</rdfs:label>
     </owl:Class>
     
 
@@ -4710,6 +5768,16 @@ from functools import reduce</core_import>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#normalize"/>
         <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">True</default>
         <rdfs:label>normalize</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#loss -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#loss">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&apos;hinge&apos;</default>
+        <rdfs:label>loss</rdfs:label>
     </owl:Class>
     
 
@@ -4853,6 +5921,16 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#n_iter_no_change -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#n_iter_no_change">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</default>
+        <rdfs:label>n_iter_no_change</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#n_jobs -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#n_jobs">
@@ -4941,6 +6019,16 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#penalty -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#penalty">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default>&apos;l2&apos;</default>
+        <rdfs:label>penalty</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#pos_label -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#pos_label">
@@ -4957,6 +6045,16 @@ from functools import reduce</core_import>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
         <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">False</default>
         <rdfs:label>positive</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#power_t -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#power_t">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.5</default>
+        <rdfs:label>power_t</rdfs:label>
     </owl:Class>
     
 
@@ -5016,6 +6114,16 @@ from functools import reduce</core_import>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
         <default>None</default>
         <rdfs:label>preference</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#probability -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#probability">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">False</default>
+        <rdfs:label>probability</rdfs:label>
     </owl:Class>
     
 
@@ -5109,6 +6217,26 @@ from functools import reduce</core_import>
     
 
 
+    <!-- http://www.semanticweb.org/mlalgorithms#shrinking -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#shrinking">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">True</default>
+        <rdfs:label>shrinking</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#shuffle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#shuffle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#string">True</default>
+        <rdfs:label>shuffle</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mlalgorithms#singular_ -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#singular_">
@@ -5164,6 +6292,16 @@ from functools import reduce</core_import>
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
         <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.001</default>
         <rdfs:label>tol</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mlalgorithms#validation_fraction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mlalgorithms#validation_fraction">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mlalgorithms#parameters"/>
+        <default rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</default>
+        <rdfs:label>validation_fraction</rdfs:label>
     </owl:Class>
     
 
