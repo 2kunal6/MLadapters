@@ -6,39 +6,35 @@ from MLalgorithms._Regression import Regression
 
 class SVR(Regression):
 	
-	def fit(self, X, y, sample_weight=None):
-		return self.model.fit(y=y,
-			sample_weight=sample_weight,
-			X=X)
-
-	def __init__(self, kernel='rbf', degree=3, gamma='scale', coef0=0.0, tol=0.001, C=1.0, epsilon=0.1, shrinking=True, cache_size=200, verbose=False, max_iter=-1, fit_intercept=True, normalize=False, copy_X=True):
-		self.shrinking = shrinking
-		self.verbose = verbose
-		self.C = C
+	def __init__(self, kernel='rbf', degree=3, gamma='scale', coef0=0.0, tol=0.001, C=1.0, epsilon=0.1, shrinking=True, cache_size=200, verbose=False, max_iter=-1):
 		self.epsilon = epsilon
-		self.tol = tol
+		self.verbose = verbose
 		self.degree = degree
+		self.tol = tol
 		self.cache_size = cache_size
-		self.coef0 = coef0
-		self.kernel = kernel
+		self.C = C
 		self.max_iter = max_iter
+		self.kernel = kernel
 		self.gamma = gamma
-		Regression.__init__(self, fit_intercept=fit_intercept, copy_X=copy_X, normalize=normalize)
-		self.model = SVRRegression(shrinking = self.shrinking,
-			kernel = self.kernel,
-			copy_X = self.copy_X,
-			C = self.C,
-			normalize = self.normalize,
-			epsilon = self.epsilon,
-			fit_intercept = self.fit_intercept,
-			gamma = self.gamma,
-			degree = self.degree,
-			verbose = self.verbose,
+		self.shrinking = shrinking
+		self.coef0 = coef0
+		self.model = SVRRegression(degree = self.degree,
 			max_iter = self.max_iter,
-			tol = self.tol,
 			coef0 = self.coef0,
-			cache_size = self.cache_size)
+			cache_size = self.cache_size,
+			epsilon = self.epsilon,
+			tol = self.tol,
+			gamma = self.gamma,
+			C = self.C,
+			shrinking = self.shrinking,
+			verbose = self.verbose,
+			kernel = self.kernel)
 
 	def predict(self, X):
 		return self.model.predict(X=X)
+
+	def fit(self, X, y, sample_weight=None):
+		return self.model.fit(sample_weight=sample_weight,
+			y=y,
+			X=X)
 

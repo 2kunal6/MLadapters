@@ -1,42 +1,46 @@
 
 from sklearn.datasets import load_iris
-from sklearn.linear_model import LogisticRegression as LR
+from sklearn.linear_model import LogisticRegressionCV as LRCV
 from MLalgorithms._Regression import Regression
 
 
-class LogisticRegression(Regression):
+class LogisticRegressionCV(Regression):
 	
-	def __init__(self, penalty='l2', dual=False, tol=0.0001, C=1.0, fit_intercept=True, intercept_scaling=1, class_weight=None, random_state=None, solver='lbfgs', max_iter=100, multi_class='auto', verbose=0, warm_start=False, n_jobs=None, l1_ratio=None):
+	def __init__(self, Cs=10, fit_intercept=True, cv=None, dual=False, penalty='l2', scoring=None, solver='lbfgs', tol=0.0001, max_iter=100, class_weight=None, n_jobs=None, verbose=0, refit=True, intercept_scaling=1, multi_class='auto', random_state=None, l1_ratios=None):
 		self.multi_class = multi_class
 		self.intercept_scaling = intercept_scaling
+		self.cv = cv
+		self.Cs = Cs
 		self.max_iter = max_iter
-		self.C = C
 		self.class_weight = class_weight
 		self.penalty = penalty
 		self.random_state = random_state
+		self.scoring = scoring
 		self.verbose = verbose
 		self.dual = dual
 		self.n_jobs = n_jobs
+		self.refit = refit
 		self.tol = tol
-		self.l1_ratio = l1_ratio
-		self.warm_start = warm_start
+		self.l1_ratios = l1_ratios
 		self.solver = solver
 		self.fit_intercept = fit_intercept
-		self.model = LR(intercept_scaling = self.intercept_scaling,
+		self.model = LRCV(intercept_scaling = self.intercept_scaling,
 			max_iter = self.max_iter,
 			penalty = self.penalty,
-			warm_start = self.warm_start,
+			refit = self.refit,
+			l1_ratios = self.l1_ratios,
 			class_weight = self.class_weight,
 			dual = self.dual,
 			fit_intercept = self.fit_intercept,
 			solver = self.solver,
+			cv = self.cv,
 			tol = self.tol,
-			l1_ratio = self.l1_ratio,
 			random_state = self.random_state,
-			C = self.C,
 			n_jobs = self.n_jobs,
 			verbose = self.verbose,
-			multi_class = self.multi_class)
+			scoring = self.scoring,
+			multi_class = self.multi_class,
+			Cs = self.Cs)
 
 	def predict(self, X):
 		return self.model.predict(X=X)

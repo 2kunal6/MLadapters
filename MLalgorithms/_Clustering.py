@@ -5,8 +5,8 @@ from MLalgorithms._MLalgorithms import MLalgorithms
 class Clustering(MLalgorithms):
 	
 	def fit(self, X, y, sample_weight=None):
-		return self.model.fit(y=y,
-			sample_weight=sample_weight,
+		return self.model.fit(sample_weight=sample_weight,
+			y=y,
 			X=X)
 
 	def predict(self, X, sample_weight=None):
