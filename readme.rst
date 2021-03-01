@@ -134,7 +134,7 @@ Contributors
 
 - Firas (Mentor)
 - Varun Shankar S (Student)
-- Priya Priya
+- Priya Priya (Student)
 - Aditya Vijay Jogalekar (Student)
 
 
