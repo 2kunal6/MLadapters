@@ -11,13 +11,13 @@ class classification_report(Metrics):
 		self.y_pred = y_pred
 		self.zero_division = zero_division
 		self.output_dict = output_dict
-		Metrics.__init__(self, labels=labels, sample_weight=sample_weight, y_true=y_true)
-		self.value = CR(output_dict = self.output_dict,
+		Metrics.__init__(self, y_true=y_true, labels=labels, sample_weight=sample_weight)
+		self.value = CR(digits = self.digits,
 			zero_division = self.zero_division,
 			y_true = self.y_true,
-			digits = self.digits,
 			sample_weight = self.sample_weight,
+			target_names = self.target_names,
 			y_pred = self.y_pred,
 			labels = self.labels,
-			target_names = self.target_names)
+			output_dict = self.output_dict)
 
