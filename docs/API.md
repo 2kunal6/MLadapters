@@ -69,3 +69,6 @@ The following sections give all the information about the various algorithm impl
 | hinge_loss  |  from sklearn.metrics import hinge_loss  | (y_true, pred_decision, *, labels=None, sample_weight=None) | NA |
 | jaccard_score  |  from sklearn.metrics import jaccard_score  | (y_true, y_pred, *, labels=None, pos_label=1, average='binary', sample_weight=None, zero_division='warn') | NA |
 | log_loss  |  from sklearn.metrics import log_loss  | (y_true, y_pred, *, eps=1e-15, normalize=True, sample_weight=None, labels=None) | NA |
+
+# Neural Networks using PyTorch
+Neural Networks using PyTorch adapters can be tested using the file neural_network_tester.py in Examples\neural_network_tester.py
