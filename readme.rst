@@ -1,8 +1,22 @@
 .. -*- mode: rst -*-
 
+|PythonVersion|_ |last|_ |size|_ |lines|_ |test|_
 
 .. |PythonVersion| image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
 .. _PythonVersion: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
+
+
+.. |last| image:: https://img.shields.io/github/last-commit/2kunal6/MLadapters
+.. _last: https://img.shields.io/github/last-commit/2kunal6/MLadapters
+
+.. |size| image:: https://img.shields.io/github/repo-size/2kunal6/MLadapters?color=orange
+.. _size: https://img.shields.io/github/repo-size/2kunal6/MLadapters?color=orange
+
+.. |lines| image:: https://img.shields.io/tokei/lines/github/2kunal6/MLadapters?color=lightgrey
+.. _lines: https://img.shields.io/tokei/lines/github/2kunal6/MLadapters?color=lightgrey
+
+.. |test| image:: https://img.shields.io/badge/Testing-Done-brightgreen
+.. _test: https://img.shields.io/badge/Testing-Done-brightgreen
 
 .. |PythonMinVersion| replace:: 3.6
 .. |owlready2MinVersion| replace:: 0.25
