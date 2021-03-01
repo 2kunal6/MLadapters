@@ -7,16 +7,16 @@ from MLalgorithms._Regression import Regression
 class OrthogonalMatchingPursuit(Regression):
 	
 	def __init__(self, n_nonzero_coefs=None, tol=None, fit_intercept=True, normalize=False, precompute='auto'):
-		self.normalize = normalize
-		self.tol = tol
 		self.n_nonzero_coefs = n_nonzero_coefs
 		self.precompute = precompute
+		self.tol = tol
 		self.fit_intercept = fit_intercept
+		self.normalize = normalize
 		self.model = OMP(normalize = self.normalize,
-			fit_intercept = self.fit_intercept,
 			precompute = self.precompute,
-			tol = self.tol,
-			n_nonzero_coefs = self.n_nonzero_coefs)
+			fit_intercept = self.fit_intercept,
+			n_nonzero_coefs = self.n_nonzero_coefs,
+			tol = self.tol)
 
 	def predict(self, X):
 		return self.model.predict(X=X)

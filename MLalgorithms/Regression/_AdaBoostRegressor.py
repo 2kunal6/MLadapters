@@ -11,16 +11,16 @@ class AdaBoostRegressor(Regression):
 		self.n_estimators = n_estimators
 		self.random_state = random_state
 		self.learning_rate = learning_rate
-		self.model = ABR(random_state = self.random_state,
-			base_estimator = self.base_estimator,
-			learning_rate = self.learning_rate,
-			n_estimators = self.n_estimators)
+		self.model = ABR(learning_rate = self.learning_rate,
+			n_estimators = self.n_estimators,
+			random_state = self.random_state,
+			base_estimator = self.base_estimator)
 
 	def predict(self, X):
 		return self.model.predict(X=X)
 
 	def fit(self, X, y, sample_weight=None):
-		return self.model.fit(sample_weight=sample_weight,
-			y=y,
+		return self.model.fit(y=y,
+			sample_weight=sample_weight,
 			X=X)
 

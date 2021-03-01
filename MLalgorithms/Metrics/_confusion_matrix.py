@@ -9,9 +9,9 @@ class confusion_matrix(Metrics):
 		self.y_pred = y_pred
 		self.normalize = normalize
 		Metrics.__init__(self, y_true=y_true, sample_weight=sample_weight, labels=labels)
-		self.value = CM(y_pred = self.y_pred,
-			normalize = self.normalize,
+		self.value = CM(normalize = self.normalize,
+			y_true = self.y_true,
 			labels = self.labels,
-			sample_weight = self.sample_weight,
-			y_true = self.y_true)
+			y_pred = self.y_pred,
+			sample_weight = self.sample_weight)
 

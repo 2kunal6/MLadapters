@@ -7,22 +7,22 @@ from MLalgorithms._Clustering import Clustering
 class AffinityPropagation(Clustering):
 	
 	def __init__(self, damping=0.5, max_iter=200, convergence_iter=15, copy=True, preference=None, affinity='euclidean', verbose=False, random_state='warn'):
+		self.damping = damping
+		self.preference = preference
+		self.verbose = verbose
+		self.copy = copy
+		self.affinity = affinity
 		self.random_state = random_state
 		self.convergence_iter = convergence_iter
-		self.verbose = verbose
 		self.max_iter = max_iter
-		self.affinity = affinity
-		self.damping = damping
-		self.copy = copy
-		self.preference = preference
-		self.model = APClustering(max_iter = self.max_iter,
-			convergence_iter = self.convergence_iter,
-			copy = self.copy,
-			preference = self.preference,
+		self.model = APClustering(preference = self.preference,
 			random_state = self.random_state,
-			affinity = self.affinity,
+			max_iter = self.max_iter,
 			damping = self.damping,
-			verbose = self.verbose)
+			copy = self.copy,
+			verbose = self.verbose,
+			convergence_iter = self.convergence_iter,
+			affinity = self.affinity)
 
 	def predict(self, X):
 		return self.model.predict(X=X)

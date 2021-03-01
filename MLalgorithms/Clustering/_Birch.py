@@ -7,15 +7,15 @@ class Birch(Clustering):
 	
 	def __init__(self, threshold=0.5, branching_factor=50, n_clusters=3, compute_labels=True, copy=True):
 		self.branching_factor = branching_factor
-		self.compute_labels = compute_labels
-		self.threshold = threshold
-		self.n_clusters = n_clusters
 		self.copy = copy
-		self.model = BirchClustering(n_clusters = self.n_clusters,
-			compute_labels = self.compute_labels,
+		self.compute_labels = compute_labels
+		self.n_clusters = n_clusters
+		self.threshold = threshold
+		self.model = BirchClustering(compute_labels = self.compute_labels,
 			branching_factor = self.branching_factor,
 			copy = self.copy,
-			threshold = self.threshold)
+			threshold = self.threshold,
+			n_clusters = self.n_clusters)
 
 	def predict(self, X):
 		return self.model.predict(X=X)

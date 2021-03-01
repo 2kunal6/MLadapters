@@ -7,24 +7,24 @@ from MLalgorithms._Classification import Classification
 class GaussianProcessClassifier(Classification):
 	
 	def __init__(self, kernel=None, optimizer='fmin_l_bfgs_b', n_restarts_optimizer=0, max_iter_predict=100, warm_start=False, copy_X_train=True, random_state=None, multi_class='one_vs_rest', n_jobs=None):
-		self.max_iter_predict = max_iter_predict
-		self.multi_class = multi_class
-		self.kernel = kernel
-		self.random_state = random_state
-		self.n_jobs = n_jobs
-		self.optimizer = optimizer
-		self.warm_start = warm_start
 		self.copy_X_train = copy_X_train
+		self.multi_class = multi_class
+		self.random_state = random_state
+		self.kernel = kernel
+		self.warm_start = warm_start
+		self.optimizer = optimizer
 		self.n_restarts_optimizer = n_restarts_optimizer
-		self.model = GPC(warm_start = self.warm_start,
-			max_iter_predict = self.max_iter_predict,
+		self.max_iter_predict = max_iter_predict
+		self.n_jobs = n_jobs
+		self.model = GPC(random_state = self.random_state,
 			copy_X_train = self.copy_X_train,
-			random_state = self.random_state,
+			multi_class = self.multi_class,
 			optimizer = self.optimizer,
-			n_jobs = self.n_jobs,
-			kernel = self.kernel,
 			n_restarts_optimizer = self.n_restarts_optimizer,
-			multi_class = self.multi_class)
+			max_iter_predict = self.max_iter_predict,
+			warm_start = self.warm_start,
+			kernel = self.kernel,
+			n_jobs = self.n_jobs)
 
 	def predict(self, X):
 		return self.model.predict(X=X)
