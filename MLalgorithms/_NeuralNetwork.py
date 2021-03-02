@@ -11,5 +11,8 @@ class NeuralNetwork(nn.Module, MLalgorithms):
 
 	def __init__(self, layers):
 		super(NeuralNetwork, self).__init__()
+		if layers:
+			if type(layers[0]) is str:
+				layers = [eval("nn."+layer) for layer in layers]
 		self.model = nn.Sequential(*layers)
 
