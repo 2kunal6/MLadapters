@@ -80,7 +80,7 @@ Quickstart
 * To learn more about the usage of the project, please refer the example scripts present under the example and test directories. **Note: Detailed step by step workflow is mentioned in the example scipts to make it easier for understanding and testing.**
 ::
 
-      python3 tester/lasso_regression_tester.py
+      python3 test/lasso_regression_tester.py
       python3 examples/onto_based_neural_network_example.py
 
 * Code generator can be run to automatically generate wrapper classes from ontology.
